@@ -58,7 +58,7 @@ def postproduct(request):
          "allCategory":Category.objects.all(),
          "allProduct":Product.objects.all()
     }
-    return render(request,'postproduct.html',context=mydict)
+    return render(request,'postProduct.html',context=mydict)
 def addCategory(request):
     mydict={
          "allCategory":Category.objects.all()
