@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import get_object_or_404, render,redirect
 from django.http import HttpResponse,JsonResponse
 
 
@@ -13,11 +13,7 @@ def myfunc(request):
     return render(request,'index.html',context=mydict)
 def shop(request):
     data = {
-    "products": [
-        {"id": 1, "name": "Crab Pool Security", "price": 30.00,"image":"img/product/product-1.jpg"},
-        {"id": 2, "name": "Crab Pool Security", "price": 40.00,"image":"img/product/product-2.jpg"},
-        {"id": 3, "name": "Crab Pool Security", "price": 50.00,"image":"img/product/product-3.jpg"}
-               ],
+    "products": Product.objects.all(),
     "allCategory":Category.objects.all()           
           }
          
@@ -28,9 +24,11 @@ def cart(request):
          "allCategory":Category.objects.all()
     }
     return render(request,'shoping-cart.html',context=mydict)
-def detail(request):
+def detail(request,i):
+    obj=Product.objects.get(id=i)
     mydict={
-         "allCategory":Category.objects.all()
+         "allCategory":Category.objects.all(),
+         "Product":obj
     }
     return render(request,'shop-details.html',context=mydict)
 def checkout(request):
@@ -153,7 +151,7 @@ def submitProduct(request):
     mydict={
          "success":True,
          "successmessage":"Added succefully",
-         "allCategory":Product.objects.all()
+         "allProduct":Product.objects.all()
     }
     return  redirect('postproduct')
 
@@ -167,3 +165,50 @@ def deleteProduct(request,i):
          "allProduct":Product.objects.all()
     }
     return  redirect('postproduct')
+
+def editProduct(request,i):
+    obj=Product.objects.get(id=i)
+   
+    mydict={
+         "Product":obj,
+         "allCategory":Category.objects.all(),
+         "allProduct":Product.objects.all()
+    }
+    return render(request,'postProduct.html',context=mydict)
+def updateProduct(request,i):
+    obj=Product.objects.get(id=i)
+    if request.method=="POST":
+        category_id = request.POST['category']
+        category = Category.objects.get(id=category_id)
+        obj.category=category
+        obj.name=request.POST["name"]
+        obj.description=request.POST["description"]
+        obj.price=request.POST["price"]
+        obj.weight=request.POST["weight"]
+        obj.stock=request.POST["stock"]
+        obj.available=request.POST["available"]
+        if 'image' in request.FILES:
+            obj.image.delete(save=False)
+            obj.image = request.FILES["image"]
+        obj.save()
+    mydict={
+         "success":True,
+         "successmessage":"updated succefully",
+         "allCategory":Product.objects.all(),
+         "allProduct":Product.objects.all()
+    }
+    return  redirect('postproduct')
+
+def searchProduct(request):
+    query=request.GET['searchProduct']
+    mydict={
+              "allProduct":Product.objects.filter(name__contains=query)
+           }    
+    return render(request,'postProduct.html',context=mydict)
+
+def AddCart(request,i):
+    product = get_object_or_404(Product, id=id)
+    
+    return redirect(request.META.get('HTTP_REFERER', '/'))
+
+

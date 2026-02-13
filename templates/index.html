@@ -63,7 +63,8 @@
                 <li><a href="./shop-grid.html">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
+                        <li><a href="{% url 'addCategory' %}">Add Category</a></li>
+                        <li><a href="{% url 'postproduct' %}">Add Product</a></li>
                         <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                         <li><a href="./checkout.html">Check Out</a></li>
                         <li><a href="./blog-details.html">Blog Details</a></li>
@@ -141,7 +142,8 @@
                             <li><a href="{% url 'shop' %}">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="{% url 'detail' %}">Shop Details</a></li>
+                                    <li><a href="{% url 'addCategory' %}">Add Category</a></li>
+                                    <li><a href="{% url 'postproduct' %}">Add Product</a></li>
                                     <li><a href="{% url 'cart' %}">Shoping Cart</a></li>
                                     <li><a href="{% url 'checkout' %}">Check Out</a></li>
                                     <li><a href="{% url 'blogdetail' %}">Blog Details</a></li>
