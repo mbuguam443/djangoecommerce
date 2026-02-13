@@ -58,7 +58,7 @@
                                 autocomplete="off" required>
                         </div>
                         <div class="col-md-6">
-                            <button type="submit" class="btn btn-primary">SEARCH</button>
+                            <button type="submit" class="btn btn-success">SEARCH</button>
                         </div>
                     </div>
 
@@ -85,8 +85,8 @@
                                     <h5>{{category.name}}</h5>
                                 </td>
                                 <td class="shoping__cart__item__close">
-                                    <a href="/editCategory/{{category.id}}"><button class="btn btn-primary">edit</button></a>
-                                    <a href="/deleteCategory/{{category.id}}"><button class="btn btn-danger">Delete</button></a>
+                                    <a href="/editCategory/{{category.id}}"><i class="fa fa-edit text-success"></i></a>
+                                    <a href="/deleteCategory/{{category.id}}"><i class="fa fa-trash text-danger"></i></a>
                                 </td>
                             </tr>
                             {% endfor %}

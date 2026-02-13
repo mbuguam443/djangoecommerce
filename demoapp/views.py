@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse,JsonResponse
+
+
 
 from demoapp.models import Category, Product
 
@@ -53,7 +55,8 @@ def contact(request):
     return render(request,'contact.html',context=mydict)
 def postproduct(request):
     mydict={
-         "allCategory":Category.objects.all()
+         "allCategory":Category.objects.all(),
+         "allProduct":Product.objects.all()
     }
     return render(request,'postproduct.html',context=mydict)
 def addCategory(request):
@@ -147,5 +150,20 @@ def submitProduct(request):
         obj.available=request.POST["available"]
         obj.image=request.FILES["image"]
         obj.save()
-    return HttpResponse("Saved image")
+    mydict={
+         "success":True,
+         "successmessage":"Added succefully",
+         "allCategory":Product.objects.all()
+    }
+    return  redirect('postproduct')
 
+def deleteProduct(request,i):
+    obj=Product.objects.get(id=i)
+    obj.image.delete(save=False)  # delete file
+    obj.delete()
+    mydict={
+         "success":True,
+         "successmessage":"Deleted succefully",
+         "allProduct":Product.objects.all()
+    }
+    return  redirect('postproduct')

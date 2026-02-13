@@ -1,4 +1,5 @@
 {% extends 'master.html' %}
+{% load static %}
 {% block content%}
 <!-- Contact Form Begin -->
 <div class="contact-form spad">
@@ -48,7 +49,9 @@
                 </div>
             </div>
             <div class="row">
+                <label for="">Availability:</label>
                 <div class="col-lg-6 col-md-6">
+
                     <select name="available" id="">
                         <option value="1">Yes</option>
                         <option value="0">No</option>
@@ -62,6 +65,66 @@
                 </div>
             </div>
         </form>
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="shoping__cart__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="shoping__product">Category</th>
+                                <th class="shoping__product">Image</th>
+                                <th class="shoping__product">Name</th>
+                                <th class="shoping__product">Price</th>
+                                <th class="shoping__product">Stock</th>
+                                <th class="shoping__product">Status</th>
+                                <th>Action</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for product in allProduct %}
+                            <tr>
+                                <td class="shoping__cart__item">
+                                    <h5>{{product.category.name}}</h5>
+                                </td>
+                                <td class="shoping__cart__item">
+
+                                    {% load static %}
+                                    <img src="{{ product.image.url }}" alt="">
+
+
+                                    
+                                </td>
+                                <td class="shoping__cart__item">
+                                    <h5>{{product.name}}</h5>
+                                </td>
+                                <td class="shoping__cart__item">
+                                    <h5>{{product.price}}$</h5>
+                                </td>
+                                <td class="shoping__cart__item">
+                                    <h5>{{product.stock}}</h5>
+                                </td>
+                                <td class="shoping__cart__item">
+                                    {% if product.available %}
+                                    <h5>In stock</h5>
+                                    {% else%}
+                                    <h5>Out of Stock</h5>
+                                    {%endif%}
+                                </td>
+                                <td class="shoping__cart__item__close">
+                                    <a href="/editCategory/{{product.id}}"><i
+                                            class="fa fa-edit text-success"></i></a><br>
+                                    <a href="/deleteProduct/{{product.id}}"><i class="fa fa-trash text-danger"></i></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- Contact Form End -->

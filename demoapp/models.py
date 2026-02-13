@@ -10,7 +10,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to="static/img/product")
+    image = models.ImageField(upload_to="product/")
     weight = models.DecimalField(max_digits=5, decimal_places=2, help_text="Weight in kg")
     stock = models.PositiveIntegerField(default=0)
     available = models.BooleanField(default=True)

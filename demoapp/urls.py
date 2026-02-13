@@ -18,5 +18,6 @@ urlpatterns=[
     path('updateCategory/<int:i>',views.updateCategory,name="updateCategory"),
     path('searchCategory',views.searchCategory,name="searchCategory"),
     #posting product
-    path('submitProduct',views.submitProduct,name="submitProduct")
+    path('submitProduct',views.submitProduct,name="submitProduct"),
+    path('deleteProduct/<int:i>',views.deleteProduct,name="deleteProduct"),
 ]
