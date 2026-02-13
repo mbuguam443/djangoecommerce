@@ -1,0 +1,102 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content%}
+<!-- Contact Form Begin -->
+<div class="contact-form spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact__form__title">
+                    <h2>Post Category</h2>
+                </div>
+            </div>
+        </div>
+        {% if success %}
+        <div class="row">
+            
+            <div class="alert alert-success">
+                    {{ successmessage}}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if Category.name %}
+           <form action="/updateCategory/{{Category.id}}" method="post">
+        {% else %}    
+        <form action="{%  url 'submitCategory' %}" method="post">
+        {% endif %}
+
+             {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-12 col-md-6">
+                    <input type="text" placeholder="Category name" name="category" value="{{Category.name}}" >
+                    {% if error%}
+                    <p class="text-danger">{{ errormessage }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <button type="submit" class="site-btn">
+                        {% if Category.name %}
+                            Update Category
+                        {% else %} 
+                            Post Category
+                        {% endif %}
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="row mt-5">
+            <div class="col-lg-6"></div>
+            <div class="col-lg-4">
+                <form action="{% url 'searchCategory' %}" >
+                   
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="Categoryname"  placeholder="search Category" 
+                                autocomplete="off" required>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary">SEARCH</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="shoping__cart__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="shoping__product">Category Name</th>
+                                <th>Action</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for category  in allCategory %}
+                            <tr>
+                                <td class="shoping__cart__item">
+                                    <h5>{{category.name}}</h5>
+                                </td>
+                                <td class="shoping__cart__item__close">
+                                    <a href="/editCategory/{{category.id}}"><button class="btn btn-primary">edit</button></a>
+                                    <a href="/deleteCategory/{{category.id}}"><button class="btn btn-danger">Delete</button></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Form End -->
+{% endblock%}
