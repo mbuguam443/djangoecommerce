@@ -59,8 +59,8 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}"><a href="{% url 'index' %}">Home</a></li>
+                <li class="{% if request.resolver_match.url_name == 'shop' %}active{% endif %}"><a href="{% url 'shop' %}">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         
@@ -137,8 +137,8 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="{% url 'index' %}">Home</a></li>
-                            <li class="active"><a href="{% url 'shop' %}">Shop</a></li>
+                            <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="{% if request.path == '/shop/' %}active{% endif %}"><a href="{% url 'shop' %}">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="{% url 'addCategory' %}">Add Category</a></li>
@@ -157,7 +157,8 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+<li><a href="{% url 'cart' %}"><i class="fa fa-shopping-bag"></i> <span>{{ request.session.cart|length }}</span></a></li>
+
                         </ul>
                         <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>

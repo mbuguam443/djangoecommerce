@@ -56,21 +56,30 @@
                         </div>
                         <div class="product__details__price">${{Product.price}}</div>
                         <p>{{Product.description}}</p>
-                        <form action="/">
+                        <form action="{% url 'AddCart' %}" method="post">
+                            {% csrf_token %}
+                        <input type="hidden" value="{{Product.id}}" name="productid">
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="text" value="1" name="quantity">
+                                    
                                 </div>
                             </div>
                         </div>
-                        <a href="#"  class="primary-btn">ADD TO CARD</a>
+                        <button type="submit"  class="site-btn">ADD TO CARD</button>
                         </form>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
-                            <li><b>Availability</b> <span>In Stock</span></li>
+                            <li><b>Availability</b> 
+                                {% if Product.available %}
+                                <span>In Stock</span>
+                                {% else %} 
+                                <span class="text-danger">Out of Stock</span>
+                                {% endif %}
+                            </li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                            <li><b>Weight</b> <span>0.5 kg</span></li>
+                            <li><b>Weight</b> <span>{{Product.weight}} kg</span></li>
                             <li><b>Share on</b>
                                 <div class="share">
                                     <a href="#"><i class="fa fa-facebook"></i></a>

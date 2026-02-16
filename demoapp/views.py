@@ -206,9 +206,34 @@ def searchProduct(request):
            }    
     return render(request,'postProduct.html',context=mydict)
 
-def AddCart(request,i):
-    product = get_object_or_404(Product, id=id)
-    
-    return redirect(request.META.get('HTTP_REFERER', '/'))
+def AddCart(request):
+    #request.session['cart'] = {}
+    #request.session.modified = True
+
+    productid=request.POST['productid']
+    quantity=request.POST['quantity']
+    product=Product.objects.get(id=productid)
+    quantity = int(quantity)
+
+    cart = request.session.get('cart', {})
+
+    if str(productid) in cart:
+        cart[str(productid)]['quantity'] += 1
+    else:
+        cart[str(productid)] = {
+            'name': product.name,
+            'price': float(product.price),
+            'quantity': 1,
+            "image": product.image.url if product.image else "",
+            "total":float(product.price)*1
+        }
+    cart[str(productid)]['total'] = cart[str(productid)]['quantity'] * cart[str(productid)]['price']
+    request.session['cart'] = cart
+    request.session.modified = True
+    mydict={
+         "Product":product
+    }
+    return render(request,'shop-details.html',context=mydict)
+    #return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
