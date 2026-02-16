@@ -236,4 +236,14 @@ def AddCart(request):
     return render(request,'shop-details.html',context=mydict)
     #return redirect(request.META.get('HTTP_REFERER', '/'))
 
+def removeProductCart(request,i):
+    cart = request.session.get('cart', {})
+    product_id = str(i)
+    if product_id in cart:
+        del cart[product_id]
+    request.session['cart'] = cart
+    request.session.modified = True  # important
+
+    return redirect('cart')  # redirect to cart page    
+    
 

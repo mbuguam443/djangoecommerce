@@ -58,7 +58,7 @@
                                             ${{ item.total }}
                                         </td>
                                         <td class="shoping__cart__item__close">
-                                            <span class="icon_close"></span>
+                                            <a href="{% url 'removeProductCart' key %}"><span class="icon_close"></span></a>
                                         </td>
                                     </tr>
                                  {% endfor %}

@@ -25,5 +25,6 @@ urlpatterns=[
     path('searchProduct',views.searchProduct,name="searchProduct"),
     #add to cart
     path('AddCart',views.AddCart,name="AddCart"),
+    path('removeProductCart/<int:i>',views.removeProductCart,name="removeProductCart")
     
 ]
