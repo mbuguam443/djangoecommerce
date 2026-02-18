@@ -25,6 +25,10 @@ urlpatterns=[
     path('searchProduct',views.searchProduct,name="searchProduct"),
     #add to cart
     path('AddCart',views.AddCart,name="AddCart"),
-    path('removeProductCart/<int:i>',views.removeProductCart,name="removeProductCart")
+    path('removeProductCart/<int:i>',views.removeProductCart,name="removeProductCart"),
+    path('update-cart', views.update_cart, name='update_cart'),
+    #Test Mpesa
+    path('mpesaapi', views.mpesaapi, name='mpesaapi'),
+
     
 ]

@@ -12,16 +12,27 @@ def myfunc(request):
     }
     return render(request,'index.html',context=mydict)
 def shop(request):
+    cart = request.session.get('cart', {})
+    subtotal = 0
+    for item in cart.values():
+        subtotal += int(item['quantity']) * float(item['price'])    
+    
     data = {
     "products": Product.objects.all(),
-    "allCategory":Category.objects.all()           
+    "allCategory":Category.objects.all(),
+    "subtotal":subtotal           
           }
          
 
     return render(request,'shop-grid.html',context=data)
 def cart(request):
+    cart = request.session.get('cart', {})
+    subtotal = 0
+    for item in cart.values():
+        subtotal += int(item['quantity']) * float(item['price']) 
     mydict={
-         "allCategory":Category.objects.all()
+         "allCategory":Category.objects.all(),
+         "subtotal":subtotal    
     }
     return render(request,'shoping-cart.html',context=mydict)
 def detail(request,i):
@@ -32,9 +43,15 @@ def detail(request,i):
     }
     return render(request,'shop-details.html',context=mydict)
 def checkout(request):
+    cart = request.session.get('cart', {})
+    subtotal = 0
+    for item in cart.values():
+        subtotal += int(item['quantity']) * float(item['price']) 
     mydict={
-         "allCategory":Category.objects.all()
+         "allCategory":Category.objects.all(),
+         "subtotal":subtotal    
     }
+    
     return render(request,'checkout.html',context=mydict)
 def blog(request):
     mydict={
@@ -218,12 +235,12 @@ def AddCart(request):
     cart = request.session.get('cart', {})
 
     if str(productid) in cart:
-        cart[str(productid)]['quantity'] += 1
+        cart[str(productid)]['quantity'] += quantity
     else:
         cart[str(productid)] = {
             'name': product.name,
             'price': float(product.price),
-            'quantity': 1,
+            'quantity': quantity,
             "image": product.image.url if product.image else "",
             "total":float(product.price)*1
         }
@@ -247,3 +264,32 @@ def removeProductCart(request,i):
     return redirect('cart')  # redirect to cart page    
     
 
+def update_cart(request):
+    cart = request.session.get('cart', {})
+    if request.method == "POST":
+        
+        
+         
+        for key,item in cart.items():
+            quantity = request.POST.get(f'quantity_{key}')
+
+            if quantity:
+                quantity = int(quantity)
+                cart[key]['quantity'] = quantity
+                cart[key]['total'] = quantity * float(cart[key]['price'])
+            
+        request.session['cart'] = cart
+        request.session.modified = True
+
+
+    subtotal = 0
+    for item in cart.values():
+        subtotal += int(item['quantity']) * float(item['price'])    
+    mydict={
+            "subtotal":subtotal
+        }
+    
+
+    return render(request, 'shoping-cart.html', context=mydict)
+def mpesaapi(request):
+    return HttpResponse("Am Mpesa Api guy")
