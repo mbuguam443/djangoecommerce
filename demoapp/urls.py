@@ -29,6 +29,18 @@ urlpatterns=[
     path('update-cart', views.update_cart, name='update_cart'),
     #Test Mpesa
     path('mpesaapi', views.mpesaapi, name='mpesaapi'),
+    #submit checkout
+    path('submitOrder',views.submitOrder,name="submitOrder"),
+    #Order Submitted successfully
+    path('logout',views.logoutUser,name="logout"),
+    path('testForm',views.testForm,name="testForm"),
+    path('clientorder',views.clientorder,name="clientorder"),
+    path('my-orders/<int:order_id>/', views.order_detail, name='order_detail'),
+    path('ordersuccess',views.ordersuccess,name="ordersuccess"),
+    
+
+
+   
 
     
 ]

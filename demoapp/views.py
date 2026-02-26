@@ -1,5 +1,13 @@
 from django.shortcuts import get_object_or_404, render,redirect
 from django.http import HttpResponse,JsonResponse
+from django.db import transaction
+from django.contrib import messages
+from .models import Order, OrderItem, Product
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login,logout
+from .forms import CheckoutForm
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -293,3 +301,141 @@ def update_cart(request):
     return render(request, 'shoping-cart.html', context=mydict)
 def mpesaapi(request):
     return HttpResponse("Am Mpesa Api guy")
+
+@transaction.atomic
+def submitOrder(request):
+    if request.method == "POST":
+        cart = request.session.get('cart', {})
+        if not cart:
+            messages.error(request, "Your cart is empty")
+            return redirect("cart")
+
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        user = None
+
+        # Returning user logic
+        if User.objects.filter(email=email).exists():
+            if password:
+                user = authenticate(request, username=email, password=password)
+                if user is None:
+                    messages.error(request, "Incorrect password. Please login.")
+                    return redirect("checkout")
+                login(request, user)
+            else:
+                messages.error(request, "This email is already registered. Please enter your password.")
+                return redirect("checkout")
+        else:
+            # Create account if password provided
+            if password:
+                user = User.objects.create_user(username=email, email=email, password=password)
+                login(request, user)
+
+        # Calculate subtotal
+        subtotal = sum(float(item['total']) for item in cart.values())
+        payment_method = request.POST.get("payment_method")
+        if not payment_method:
+           messages.error(request, "Select payment method.")
+           return redirect("checkout") 
+
+        # Create Order
+        order = Order.objects.create(
+            user=user,
+            first_name=request.POST.get("first_name"),
+            last_name=request.POST.get("last_name"),
+            email=email,
+            phone=request.POST.get("phone"),
+            country=request.POST.get("country"),
+            address=request.POST.get("address"),
+            city=request.POST.get("city"),
+            state=request.POST.get("state"),
+            zip_code=request.POST.get("zip_code"),
+            subtotal=subtotal,
+            total=subtotal,
+            payment_method=payment_method,
+            is_paid=False,  # will update if payment confirmed
+        )
+
+        # Create OrderItems
+        for key, item in cart.items():
+            product = Product.objects.get(id=key)
+            OrderItem.objects.create(
+                order=order,
+                product=product,
+                price=item['price'],
+                quantity=item['quantity']
+            )
+
+        # Handle payment
+        if payment_method == "cash":
+            order.is_paid = False  # cash payment pending
+            order.save()
+            # Optionally send email to admin/user
+        elif payment_method == "mpesa":
+            # Call Mpesa API here
+            order.payment_reference = "STK12345"  # placeholder
+            order.is_paid = False  # wait for callback
+            order.save()
+            # Redirect to pending/payment page
+        
+
+        # Clear cart
+        del request.session['cart']
+        request.session.modified = True
+
+        return redirect('ordersuccess')  # you can create a success page
+
+    return render(request,'checkout.html')
+
+def logoutUser(request):
+    logout(request)  # Clears session
+    messages.success(request, "You have been logged out successfully.")
+    return redirect('index')  # Redirect wherever you want
+
+def testForm(request):
+    if request.method == "POST":
+        form = CheckoutForm(request.POST)
+
+        if form.is_valid():
+            # process order
+            messages.success(request, "Order placed successfully!")
+        else:
+            messages.error(request, "Please correct the errors below.")
+    else:
+        form = CheckoutForm()
+    mydict={
+        "form": form
+         }
+    return render(request, "testform.html", context=mydict)
+
+def ordersuccess(request):
+    
+    return render(request,'ordersuccess.html')
+
+@login_required(login_url='index')  # Redirects to homepage if not logged in    
+def clientorder(request):
+    orders = Order.objects.filter(user=request.user).order_by('-created_at')
+    for order in orders:
+        order.num_items = order.items.count()  # count related OrderItems
+    print("my orders")
+    print(orders)
+    mydict={
+        'orders':orders
+    }
+    return render(request,'clientvieworder.html',context=mydict)    
+
+def order_detail(request, order_id):
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+    items = order.items.all()  # Related name from OrderItem
+    total = 0
+    for item in items:
+        item.total_price = item.price * item.quantity  # per item total
+        total += item.total_price  # accumulate order total
+    mydict={
+        'order': order,
+        'items': items,
+        'total':total
+        }
+    return render(request, 'orderdetails.html',context=mydict)
+
+
