@@ -67,12 +67,15 @@
                                 </div>
                             </div>
                         </div>
+                        {% if Product.stock > 0 %}
                         <button type="submit"  class="site-btn">ADD TO CARD</button>
+                        {% endif %}
                         </form>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Availability</b> 
-                                {% if Product.available %}
+                               
+                                {% if Product.stock > 0 %}
                                 <span>In Stock</span>
                                 {% else %} 
                                 <span class="text-danger">Out of Stock</span>

@@ -367,6 +367,15 @@ def submitOrder(request):
         # Create OrderItems
         for key, item in cart.items():
             product = Product.objects.get(id=key)
+             # Deduct stock
+            quantity = item['quantity']
+            print(f"Before: {product.name} stock={product.stock}")
+            if product.stock < quantity:
+                messages.error(request, f"Not enough stock for {product.name}")
+                return redirect("cart")
+            product.stock -= quantity
+            product.save()
+            print(f"After: {product.name} stock={product.stock}")
             OrderItem.objects.create(
                 order=order,
                 product=product,
