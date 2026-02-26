@@ -109,3 +109,17 @@ Not Found: /{% static 'img/product/details/thumb-2.jpg
 Not Found: /{% static 'img/product/details/thumb-3.jpg
 Not Found: /{% static 'img/product/details/thumb-1.jpg
 MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"b0e0-4bb2-85e7-8d14c215a22b8235","CheckoutRequestID":"ws_CO_26022026232145926728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":1},{"Name":"MpesaReceiptNumber","Value":"UBQBS7T2LK"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260226232157},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"a260-4f92-81ff-d3b0ce0ca6a225197","CheckoutRequestID":"ws_CO_27022026000439431728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":1},{"Name":"MpesaReceiptNumber","Value":"UBRBS7TAND"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260227000500},{"Name":"PhoneNumber","Value":254728627678}]}}}}
