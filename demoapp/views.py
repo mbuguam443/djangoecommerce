@@ -7,7 +7,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 from .forms import CheckoutForm
 from django.contrib.auth.decorators import login_required
+from .mpesa import stk_push
+from django.views.decorators.csrf import csrf_exempt
+from django.utils import timezone
+import json
+import logging
 
+logger = logging.getLogger("mpesa")
 
 
 
@@ -334,6 +340,8 @@ def submitOrder(request):
         # Calculate subtotal
         subtotal = sum(float(item['total']) for item in cart.values())
         payment_method = request.POST.get("payment_method")
+        print("Payment Method")
+        print(payment_method)
         if not payment_method:
            messages.error(request, "Select payment method.")
            return redirect("checkout") 
@@ -373,12 +381,16 @@ def submitOrder(request):
             # Optionally send email to admin/user
         elif payment_method == "mpesa":
             # Call Mpesa API here
-            order.payment_reference = "STK12345"  # placeholder
-            order.is_paid = False  # wait for callback
-            order.save()
+            
             # Redirect to pending/payment page
-        
-
+            phone = order.phone
+            amount = int(order.total)
+            response = stk_push(phone, amount, order.id)
+            checkout_id = response.get("CheckoutRequestID")
+            order.checkout_request_id = checkout_id
+            order.save()
+            messages.success(request, response)
+            #return render(request,'checkout.html')
         # Clear cart
         del request.session['cart']
         request.session.modified = True
@@ -417,8 +429,7 @@ def clientorder(request):
     orders = Order.objects.filter(user=request.user).order_by('-created_at')
     for order in orders:
         order.num_items = order.items.count()  # count related OrderItems
-    print("my orders")
-    print(orders)
+    
     mydict={
         'orders':orders
     }
@@ -437,5 +448,57 @@ def order_detail(request, order_id):
         'total':total
         }
     return render(request, 'orderdetails.html',context=mydict)
+
+@csrf_exempt
+def mpesa_callback(request):
+    if request.method == "POST":
+        try:
+            raw_body = request.body.decode('utf-8')
+            logger.info("MPESA RAW CALLBACK: %s", raw_body)
+            print("MPESA RAW CALLBACK:", raw_body)
+            data = json.loads(request.body)
+
+            stk_callback = data.get('Body', {}).get('stkCallback', {})
+            result_code = stk_callback.get('ResultCode')
+            result_desc = stk_callback.get('ResultDesc')
+            merchant_request_id = stk_callback.get('MerchantRequestID')
+            checkout_request_id = stk_callback.get('CheckoutRequestID')
+
+            # If payment was successful
+            if result_code == 0:
+
+                callback_metadata = stk_callback.get('CallbackMetadata', {}).get('Item', [])
+
+                metadata = {}
+                for item in callback_metadata:
+                    metadata[item['Name']] = item.get('Value')
+
+                amount = metadata.get('Amount')
+                mpesa_receipt = metadata.get('MpesaReceiptNumber')
+                phone = metadata.get('PhoneNumber')
+                account_reference = metadata.get('AccountReference')
+
+                # Extract order id from AccountReference
+                # Example: AccountReference = "Order5"
+                checkout_id = stk_callback.get("CheckoutRequestID")
+
+                order = Order.objects.get(checkout_request_id=checkout_id)
+
+                order.is_paid = True
+                order.payment_reference = metadata.get("MpesaReceiptNumber")
+                order.payment_date = timezone.now()
+                order.save()
+
+                print("Payment successful for Order:")
+
+            else:
+                print("Payment failed:", result_desc)
+
+        except Exception as e:
+            print("Callback error:", str(e))
+
+        return JsonResponse({"status": "received"})
+
+    return JsonResponse({"error": "Invalid request"}, status=400)    
 
 

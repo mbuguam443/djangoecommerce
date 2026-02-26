@@ -50,9 +50,16 @@
                                         <h5>{{ order.num_items }}</h5>
                                     </td>
                                     <td class="shoping__cart__item">
-                                        <div class="badge badge-success">
-                                               <h5>{% if order.is_paid %}Paid{% else %}Pending{% endif %}</h5>
-                                        </div>
+                                        
+                                               <h5>{% if order.is_paid %}
+                                                <div class="badge badge-success">
+                                                    Paid
+                                                </div>
+                                                
+                                                {% else %}
+                                                <div class="badge badge-warning">Pending</div>
+                                                {% endif %}</h5>
+                                       
                                     </td>
                                     <td class="shoping__cart__item">
                                         

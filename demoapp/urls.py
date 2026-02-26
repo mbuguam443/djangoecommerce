@@ -37,10 +37,5 @@ urlpatterns=[
     path('clientorder',views.clientorder,name="clientorder"),
     path('my-orders/<int:order_id>/', views.order_detail, name='order_detail'),
     path('ordersuccess',views.ordersuccess,name="ordersuccess"),
-    
-
-
-   
-
-    
+    path("callback", views.mpesa_callback, name="mpesa_callback"),
 ]
