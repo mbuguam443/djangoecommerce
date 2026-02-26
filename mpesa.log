@@ -33,3 +33,79 @@ Not Found: /{% static 'img/product/details/thumb-2.jpg
 MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"b0e0-4bb2-85e7-8d14c215a22b7523","CheckoutRequestID":"ws_CO_26022026222031391728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":1},{"Name":"MpesaReceiptNumber","Value":"UBQBS7T0R6"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260226222054},{"Name":"PhoneNumber","Value":254728627678}]}}}}
 C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"328c-40b2-af11-4b322b450f5611396","CheckoutRequestID":"ws_CO_26022026223900853728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":1},{"Name":"MpesaReceiptNumber","Value":"UBQBS7T5AF"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260226223918},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"a09d-40ff-a1fe-3732a7c58a8238361","CheckoutRequestID":"ws_CO_26022026230645645728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":1},{"Name":"MpesaReceiptNumber","Value":"UBQBS7TA00"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260226230659},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"b0e0-4bb2-85e7-8d14c215a22b8235","CheckoutRequestID":"ws_CO_26022026232145926728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":1},{"Name":"MpesaReceiptNumber","Value":"UBQBS7T2LK"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260226232157},{"Name":"PhoneNumber","Value":254728627678}]}}}}

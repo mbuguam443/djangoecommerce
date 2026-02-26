@@ -386,11 +386,16 @@ def submitOrder(request):
             phone = order.phone
             amount = int(order.total)
             response = stk_push(phone, amount, order.id)
-            checkout_id = response.get("CheckoutRequestID")
-            order.checkout_request_id = checkout_id
-            order.save()
-            messages.success(request, response)
-            #return render(request,'checkout.html')
+            if response.get('ResponseCode') == '0':
+                checkout_id = response.get("CheckoutRequestID")
+                order.checkout_request_id = checkout_id
+                order.save()
+                messages.success(request, response)
+            else:
+                messages.error(request, f"STK push failed. Try again. Response: {response}")
+                return render(request,'checkout.html')
+            
+            
         # Clear cart
         del request.session['cart']
         request.session.modified = True

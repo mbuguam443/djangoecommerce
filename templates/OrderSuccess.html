@@ -1,7 +1,7 @@
 {% extends 'master.html' %}
 {% load static %}
 {% block content %}
-   
+
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb.jpg' %}">
     <div class="container">
@@ -19,17 +19,26 @@
     </div>
 </section>
 <!-- Breadcrumb Section End -->
-  <section class="shoping-cart spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h5 class="text-secondary">Waiting for payment confirmation...</h5>
-                    <h4><span class="badge badge-info"> complete payment prompt on your phone............</span></h4><br>
-                     Order submitted successfully <a href="{% url 'clientorder' %}">views orders</a>
-                        <p>User debug: {{ user }} - Authenticated: {{ user.is_authenticated }}</p>
-                </div>
+<section class="shoping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="text-danger" {% endif %}>
+                        {{ message }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <h5 class="text-secondary">Waiting for payment confirmation...</h5>
+                <h4><span class="badge badge-info"> complete payment prompt on your phone............</span></h4><br>
+                Order submitted successfully <a href="{% url 'clientorder' %}">views orders</a>
+                <p>User debug: {{ user }} - Authenticated: {{ user.is_authenticated }}</p>
             </div>
         </div>
- </section>             
- 
+    </div>
+</section>
+
 {% endblock %}
