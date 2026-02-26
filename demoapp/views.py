@@ -427,7 +427,7 @@ def testForm(request):
 
 def ordersuccess(request):
     
-    return render(request,'ordersuccess.html')
+    return render(request,'OrderSuccess.html')
 
 @login_required(login_url='index')  # Redirects to homepage if not logged in    
 def clientorder(request):
