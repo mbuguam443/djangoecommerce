@@ -39,7 +39,8 @@
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="{% url 'cart' %}"><i class="fa fa-shopping-bag"></i> <span>{{
+                                        request.session.cart|length }}</span></a></li>
             </ul>
             <div class="header__cart__price">item: <span>${{subtotal}}</span></div>
         </div>
@@ -53,21 +54,23 @@
                     <li><a href="#">English</a></li>
                 </ul>
             </div>
-            
-             {% if user.is_authenticated %}
-                <a href="#"><i class="fa fa-user"></i> {{ user.username }}</a>
-                <a href="#">Logout</a>
+
+            {% if user.is_authenticated %}
+            <a href="#"><i class="fa fa-user"></i> {{ user.username }}</a>
+            <a href="#">Logout</a>
             {% else %}
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+            <a href="#"><i class="fa fa-user"></i> Login</a>
             {% endif %}
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}"><a href="{% url 'index' %}">Home</a></li>
-                <li class="{% if request.resolver_match.url_name == 'shop' %}active{% endif %}"><a href="{% url 'shop' %}">Shop</a></li>
+                <li class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}"><a
+                        href="{% url 'index' %}">Home</a></li>
+                <li class="{% if request.resolver_match.url_name == 'shop' %}active{% endif %}"><a
+                        href="{% url 'shop' %}">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        
+
                         <li><a href="{% url 'cart' %}">Shoping Cart</a></li>
                         <li><a href="{% url 'cart' %}">Check Out</a></li>
                         <li><a href="{% url 'blogdetail' %}">Blog Details</a></li>
@@ -124,15 +127,19 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> 
-                                   {% if user.is_authenticated %}
-                                         {{ user.username }}
-                                        
-                                    {% else %}
-                                        Login
-                                    {% endif %}
+
+                                {% if user.is_authenticated %}
+                                <a href="#"><i class="fa fa-user"></i>
+                                    {{ user.username }}
                                 </a>
                                 <a href="{% url 'logout' %}">logout</a>
+                                {% else %}
+                                <a href="#"><i class="fa fa-user"></i>
+                                    Login
+                                </a>
+                                {% endif %}
+
+
                             </div>
                         </div>
                     </div>
@@ -149,8 +156,10 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'index' %}">Home</a></li>
-                            <li class="{% if request.path == '/shop/' %}active{% endif %}"><a href="{% url 'shop' %}">Shop</a></li>
+                            <li class="{% if request.path == '/' %}active{% endif %}"><a
+                                    href="{% url 'index' %}">Home</a></li>
+                            <li class="{% if request.path == '/shop/' %}active{% endif %}"><a
+                                    href="{% url 'shop' %}">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="{% url 'addCategory' %}">Add Category</a></li>
@@ -169,7 +178,12 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-<li><a href="{% url 'cart' %}"><i class="fa fa-shopping-bag"></i> <span>{{ request.session.cart|length }}</span></a></li>
+                            <li>
+                                <a href="{% url 'cart' %}">
+                                    <i class="fa fa-shopping-bag"></i>
+                                    <span>{{ request.session.cart|length }}</span>
+                                </a>
+                            </li>
 
                         </ul>
                         <div class="header__cart__price">item: <span>${{subtotal}}</span></div>
@@ -194,7 +208,7 @@
                             <span>All departments</span>
                         </div>
                         <ul>
-                          
+
                             {% for category in allCategory %}
                             <li><a href="{{ category.id }}">{{ category.name }}</a></li>
                             {% endfor %}
@@ -209,7 +223,8 @@
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" class="hero__categories" name="search" placeholder="What do you need?" list="products" autocomplete="off">
+                                <input type="text" class="hero__categories" name="search"
+                                    placeholder="What do you need?" list="products" autocomplete="off">
 
                                 <datalist id="products">
                                     <option value="one">
@@ -240,7 +255,7 @@
     {% block content%}
 
     {% endblock %}
-     <!-- Footer Section Begin -->
+    <!-- Footer Section Begin -->
     <footer class="footer spad">
         <div class="container">
             <div class="row">
@@ -297,10 +312,17 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="{% static 'img/payment-item.png' %}" alt=""></div>
+                        <div class="footer__copyright__text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                                template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                        <div class="footer__copyright__payment"><img src="{% static 'img/payment-item.png' %}" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -318,7 +340,7 @@
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 
- 
+
 
 </body>
 
