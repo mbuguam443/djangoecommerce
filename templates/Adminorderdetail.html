@@ -1,0 +1,95 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb.jpg' %}">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Orders Details</h2>
+                    <div class="breadcrumb__option">
+                        <a href="{% url 'index' %}">Home</a>
+                        <span>Order Details</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<section class="shoping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Order #{{ order.id }}</h2>
+                <p>Placed on: {{ order.created_at }}</p>
+                <p>Name: {{ order.first_name }} {{ order.last_name }}</p>
+                <p>Email: {{ order.email }}</p>
+                <p>Phone: {{ order.phone }}</p>
+                <p>Address: {{ order.address }}, {{ order.city }}, {{ order.state }}, {{ order.country }}, {{order.zip_code }}</p>
+                <p>Payment Method: {{ order.payment_method }}</p>
+                <p><strong>Status: {% if order.is_paid %}Paid{% else %}Pending{% endif %}</strong></p>
+                {% if order.payment_method == "mpesa" %}
+                    <p>Mpesa Receipt Number: {{ order.payment_reference }}</p>
+                {% endif %}
+                <p><strong>TotalPrice: ${{total}}</strong></p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="shoping__cart__table">
+                    <h3>Items</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="shoping__product">Product</th>
+                                <th class="shoping__product">Image</th>
+                                <th class="shoping__product">Price</th>
+                                <th class="shoping__product">Quantity</th>
+                                <th class="shoping__product">Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for item in items %}
+                            <tr>
+                                <td class="shoping__cart__item">
+                                    <h5>{{ item.product.name }}</h5>
+                                </td>
+                                <td class="shoping__cart__item">
+
+                                    {% load static %}
+                                    <img src="{{ item.product.image.url }}" alt="">
+
+
+
+                                </td>
+                                <td class="shoping__cart__item">
+                                    <h5>{{ item.price }}$</h5>
+                                </td>
+                                <td class="shoping__cart__item">
+                                    <h5>{{ item.quantity }}</h5>
+                                </td>
+                                <td class="shoping__cart__item">
+                                    <h5>${{ item.total_price|floatformat:2 }}</h5>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="5">
+                                    <h5>ToTal Price: ${{total}}</h5>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

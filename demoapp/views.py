@@ -516,3 +516,26 @@ def mpesa_callback(request):
     return JsonResponse({"error": "Invalid request"}, status=400)    
 
 
+def Allorders(request):
+    orders = Order.objects.all().order_by('-created_at')
+    for order in orders:
+        order.num_items = order.items.count()  # count related OrderItems
+    
+    mydict={
+        'orders':orders
+    }
+    return render(request,'Allorders.html',context=mydict)  
+
+def Adminorderdetail(request,order_id):
+    order = get_object_or_404(Order, id=order_id,)
+    items = order.items.all()  # Related name from OrderItem
+    total = 0
+    for item in items:
+        item.total_price = item.price * item.quantity  # per item total
+        total += item.total_price  # accumulate order total
+    mydict={
+        'order': order,
+        'items': items,
+        'total':total
+        }
+    return render(request, 'Adminorderdetail.html',context=mydict)
