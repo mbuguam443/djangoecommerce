@@ -39,8 +39,8 @@
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="{% url 'cart' %}"><i class="fa fa-shopping-bag"></i> <span>{{
-                                        request.session.cart|length }}</span></a></li>
+                <li><a href="{% url 'cart' %}"><i class="fa fa-shopping-bag"></i> <span>
+                    {{ request.session.cart|length }}</span></a></li>
             </ul>
             <div class="header__cart__price">item: <span>${{subtotal}}</span></div>
         </div>
@@ -70,7 +70,8 @@
                         href="{% url 'shop' %}">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-
+                         <li><a href="{% url 'addCategory' %}">Add Category</a></li>
+                        <li><a href="{% url 'postproduct' %}">Add Product</a></li>
                         <li><a href="{% url 'cart' %}">Shoping Cart</a></li>
                         <li><a href="{% url 'cart' %}">Check Out</a></li>
                         <li><a href="{% url 'blogdetail' %}">Blog Details</a></li>
