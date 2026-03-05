@@ -12,6 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 import json
 import logging
+from django.db.models import Q
 
 logger = logging.getLogger("mpesa")
 
@@ -539,3 +540,41 @@ def Adminorderdetail(request,order_id):
         'total':total
         }
     return render(request, 'Adminorderdetail.html',context=mydict)
+
+def searchOrder(request):
+    query = request.GET.get('query')
+    orders = Order.objects.all().order_by('-created_at')
+    
+    for order in orders:
+        order.num_items = order.items.count()  # count related OrderItems
+
+    if query:
+        orders = orders.filter(
+            Q(first_name__icontains=query) |
+            Q(last_name__icontains=query) |
+            Q(created_at__date=query)
+        )
+
+    return render(request, 'Allorders.html', {"orders": orders}) 
+
+def updatePayment(request,id):
+    order = Order.objects.get(id=id)
+
+    if request.method == "POST":
+        status = request.POST.get("payment_status")
+        order.payment_status = status
+        if status == "paid":
+            order.is_paid=True
+        order.save()
+
+    return redirect('Adminorderdetail', order_id=order.id)
+    
+def updateOrderStatus(request,id):
+    order = Order.objects.get(id=id)
+
+    if request.method == "POST":
+        status = request.POST.get("delivery_status")
+        order.delivery_status = status
+        order.save()
+
+    return redirect('Adminorderdetail', order_id=order.id)   

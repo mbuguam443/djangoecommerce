@@ -21,6 +21,26 @@
 <!-- Breadcrumb Section End -->
   <section class="shoping-cart spad">
         <div class="container">
+            <form action="{% url 'searchOrder' %}">
+                <div class="row mt-5">
+
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-3">
+                        <select name="status" id="">
+                            <option value="pending">pending</option>
+                            <option value="pending">paid</option>
+                            
+                        </select>
+                    </div>
+                    <div class="col-lg-3">
+                        <input type="date" class="form-control" placeholder="Search Order" name="query">
+                    </div>
+                    <div class="col-lg-3">
+                        <button type="submit" class="site-btn">Search</button>
+                    </div>
+
+                </div>
+            </form>
              <div class="row mt-5">
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
@@ -30,8 +50,9 @@
                                 <tr>
                                     <th class="shoping__product">Order#id</th>
                                     <th class="shoping__product">Order Total</th>
+                                    <th class="shoping__product">Customer Name</th>
                                     <th class="shoping__product">Num of Prod</th>
-                                    <th class="shoping__product">Status</th>
+                                    <th class="shoping__product">Payment Status</th>
                                     <th class="shoping__product">created_at</th>
                                 </tr>
                             </thead>
@@ -47,6 +68,9 @@
                                         <h5>{{ order.total }}$</h5>
                                     </td>
                                     <td class="shoping__cart__item">
+                                        <h5>{{ order.first_name }} {{ order.last_name }}</h5>
+                                    </td>
+                                    <td class="shoping__cart__item">
                                         <h5>{{ order.num_items }}</h5>
                                     </td>
                                     <td class="shoping__cart__item">
@@ -60,7 +84,7 @@
                                                 <div class="badge badge-warning">Pending</div>
                                                 {% endif %}</h5>
                                        
-                                    </td>
+                                    </td>                                   
                                     <td class="shoping__cart__item">
                                         
                                                <h5>{{ order.created_at }} </h5>

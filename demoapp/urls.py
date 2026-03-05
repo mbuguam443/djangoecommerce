@@ -40,5 +40,8 @@ urlpatterns=[
     path("callback", views.mpesa_callback, name="mpesa_callback"),
     #AdminOrders
     path("Allorders",views.Allorders,name="Allorders"),
-    path("Adminorderdetail/<int:order_id>/",views.Adminorderdetail,name="Adminorderdetail")
+    path("Adminorderdetail/<int:order_id>/",views.Adminorderdetail,name="Adminorderdetail"),
+    path("searchOrder",views.searchOrder,name="searchOrder"),
+    path("updatePayment/<int:id>/",views.updatePayment,name="updatePayment"),
+    path("updateOrderStatus/<int:id>/",views.updateOrderStatus,name="updateOrderStatus")
 ]

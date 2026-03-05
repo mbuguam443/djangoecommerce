@@ -35,6 +35,7 @@
                     <p>Mpesa Receipt Number: {{ order.payment_reference }}</p>
                 {% endif %}
                 <p><strong>TotalPrice: ${{total}}</strong></p>
+                <p><strong>Order Status: {{order.delivery_status}}</strong></p>
             </div>
         </div>
         <div class="row mt-5">

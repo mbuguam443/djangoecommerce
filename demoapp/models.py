@@ -18,6 +18,20 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)    
 
 class Order(models.Model):
+    PAYMENT_STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('paid', 'Paid'),
+        ('failed', 'Failed'),
+        ('refunded', 'Refunded'),
+    ]
+
+    DELIVERY_STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('processing', 'Processing'),
+        ('shipped', 'Shipped'),
+        ('delivered', 'Delivered'),
+        ('cancelled', 'Cancelled'),
+    ]
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -32,6 +46,17 @@ class Order(models.Model):
     total = models.DecimalField(max_digits=10, decimal_places=2)
     payment_method = models.CharField(max_length=20)
     is_paid = models.BooleanField(default=False)
+    payment_status = models.CharField(
+        max_length=20,
+        choices=PAYMENT_STATUS_CHOICES,
+        default='pending'
+    )
+    delivery_status = models.CharField(
+        max_length=20,
+        choices=DELIVERY_STATUS_CHOICES,
+        default='pending'
+    )
+
     payment_reference = models.CharField(max_length=100, null=True, blank=True)
     payment_date = models.DateTimeField(null=True, blank=True)
     checkout_request_id = models.CharField(max_length=100, null=True, blank=True)

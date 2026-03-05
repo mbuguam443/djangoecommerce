@@ -34,11 +34,19 @@ def stk_push(phone, amount, order_id):
         "PartyA": phone,
         "PartyB": SHORTCODE,
         "PhoneNumber": phone,
-        #"CallBackURL": "https://djangoecommerce-94z3.onrender.com/callback",
-        "CallBackURL":"https://6369-102-203-140-240.ngrok-free.app/callback",
+        "CallBackURL": "https://djangoecommerce-94z3.onrender.com/callback",
+        #"CallBackURL":"https://313c-102-210-247-38.ngrok-free.app/callback",
         "AccountReference": f"Order{order_id}",
         "TransactionDesc": "Payment for order"
     }
 
-    response = requests.post(url, json=payload, headers=headers)
-    return response.json()
+    try:
+        response = requests.post(url, json=payload, headers=headers, timeout=10)
+        try:
+            return response.json()
+        except ValueError:
+            print("MPESA did not return JSON:", response.text)
+            return {"ResponseCode": "999", "ResponseDescription": "Invalid response from MPESA"}
+    except requests.RequestException as e:
+        print("MPESA request failed:", str(e))
+        return {"ResponseCode": "999", "ResponseDescription": "MPESA request failed"}
