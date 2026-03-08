@@ -29,7 +29,7 @@ from demoapp.models import Category, Product
 # Create your views here.
 def myfunc(request):
     mydict={
-         "allCategory":Category.objects.all(),
+         "allCategory":Category.objects.filter(products__isnull=False).distinct(),
          "products": Product.objects.all(),
     }
     return render(request,'index.html',context=mydict)
@@ -39,8 +39,13 @@ def shop(request):
     for item in cart.values():
         subtotal += int(item['quantity']) * float(item['price'])    
     
+    product_list = Product.objects.all().order_by('-id')
+
+    paginator = Paginator(product_list, 8)  # 8 products per page
+    page_number = request.GET.get('page')
+    products = paginator.get_page(page_number)
     data = {
-    "products": Product.objects.all(),
+    "products": products,
     "allCategory":Category.objects.all(),
     "subtotal":subtotal           
           }
@@ -61,7 +66,8 @@ def detail(request,i):
     obj=Product.objects.get(id=i)
     mydict={
          "allCategory":Category.objects.all(),
-         "Product":obj
+         "Product":obj,
+         "products": Product.objects.all(),
     }
     return render(request,'shop-details.html',context=mydict)
 
