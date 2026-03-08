@@ -5,7 +5,7 @@ from django.contrib import messages
 from .models import Order, OrderItem, Product
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
-from .forms import CheckoutForm
+from .forms import CategoryForm, CheckoutForm, LoginForm
 from django.contrib.auth.decorators import login_required
 from .mpesa import stk_push
 from django.views.decorators.csrf import csrf_exempt
@@ -13,6 +13,12 @@ from django.utils import timezone
 import json
 import logging
 from django.db.models import Q
+from django.core.paginator import Paginator
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
+from .forms import ProductForm
+from .forms import RegisterForm
+
 
 logger = logging.getLogger("mpesa")
 
@@ -23,7 +29,8 @@ from demoapp.models import Category, Product
 # Create your views here.
 def myfunc(request):
     mydict={
-         "allCategory":Category.objects.all()
+         "allCategory":Category.objects.all(),
+         "products": Product.objects.all(),
     }
     return render(request,'index.html',context=mydict)
 def shop(request):
@@ -83,110 +90,95 @@ def contact(request):
          "allCategory":Category.objects.all()
     }
     return render(request,'contact.html',context=mydict)
+
+@staff_member_required(login_url='login')  # redirect non-staff users    
 def postproduct(request):
+    if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = ProductForm()
+    product_list = Product.objects.all()
+    paginator = Paginator(product_list, 5)  # 5 items per page
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)    
     mydict={
          "allCategory":Category.objects.all(),
-         "allProduct":Product.objects.all()
+         "allProduct":page_obj,
+         'form': form
     }
     return render(request,'postProduct.html',context=mydict)
+
+@staff_member_required(login_url='login')  # redirect non-staff users
 def addCategory(request):
-    mydict={
-         "allCategory":Category.objects.all()
-    }
-    return render(request,'addCategory.html',context=mydict)
-def submitCategory(request):
-    category=request.POST['category']
-    error=False
-    errormessage=""
-    success=False
-    successmessage=""
-    if not category:
-        error=True
-        errormessage="Category is empty"
+    if request.method == "POST":
+        form = CategoryForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Posted successfully")
+            return redirect('addCategory')
+        else:
+           messages.success(request, "Posted Failed")
+
     else:
-        obj=Category()
-        obj.name=category
-        obj.save()
-        success=True
-        successmessage="Category Added successfully"
+        form = CategoryForm()
+    category_list = Category.objects.all()
+    paginator = Paginator(category_list, 4)  # 5 items per page
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)     
+    mydict = {
+        'form': form,
+        'allCategory': page_obj
+    }
     
-    mydict={
-              "error":error,
-              "errormessage":errormessage,
-              "success":success,
-              "successmessage":successmessage,
-              "allCategory":Category.objects.all()
-           }    
-    return render(request,'addCategory.html',context=mydict)
+    return render(request, 'addCategory.html', context=mydict)
+
+
+    
+        
+@staff_member_required(login_url='login')  # redirect non-staff users    
 def deleteCategory(request,i):
     obj=Category.objects.get(id=i)
     obj.delete()
-    mydict={
-         "success":True,
-         "successmessage":"Deleted succefully",
-         "allCategory":Category.objects.all()
-    }
-    return render(request,'addCategory.html',context=mydict)
-def editCategory(request,i):
-    obj=Category.objects.get(id=i)
-   
-    mydict={
-         "Category":obj,
-         "allCategory":Category.objects.all()
-    }
-    return render(request,'addCategory.html',context=mydict)
-def updateCategory(request,i):
-    category=request.POST['category']
-    error=False
-    errormessage=""
-    success=False
-    successmessage=""
-    if not category:
-        error=True
-        errormessage="Category is empty"
-    else:
-        obj=Category.objects.get(id=i)
-        obj.name=category
-        obj.save()
-        success=True
-        successmessage="Category Updated successfully"
-    
-    mydict={
-              "error":error,
-              "errormessage":errormessage,
-              "success":success,
-              "successmessage":successmessage,
-              "allCategory":Category.objects.all()
-           }    
-    return render(request,'addCategory.html',context=mydict)
+    messages.success(request, "Deleted successfully")
+    return redirect('addCategory')
 
+@staff_member_required(login_url='login')  # redirect non-staff users
+def editCategory(request, i):
+    obj = Category.objects.get(id=i)
+
+    if request.method == "POST":
+        form = CategoryForm(request.POST, request.FILES, instance=obj)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Updated successfully")
+            return redirect("addCategory")
+    else:
+        form = CategoryForm(instance=obj)
+
+    category_list = Category.objects.all()
+    paginator = Paginator(category_list, 4)  # 5 items per page
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)     
+    mydict = {
+        "Category":obj,
+        "form": form,
+        "allCategory": page_obj
+    }
+
+    return render(request, "addCategory.html", context=mydict)
+
+@staff_member_required(login_url='login')  # redirect non-staff users
 def searchCategory(request):
     query=request.GET['Categoryname']
     mydict={
               "allCategory":Category.objects.filter(name__contains=query)
            }    
     return render(request,'addCategory.html',context=mydict)
-def submitProduct(request):
-    obj=Product()
-    if request.method=="POST":
-        category_id = request.POST['category']
-        category = Category.objects.get(id=category_id)
-        obj.category=category
-        obj.name=request.POST["name"]
-        obj.description=request.POST["description"]
-        obj.price=request.POST["price"]
-        obj.weight=request.POST["weight"]
-        obj.stock=request.POST["stock"]
-        obj.available=request.POST["available"]
-        obj.image=request.FILES["image"]
-        obj.save()
-    mydict={
-         "success":True,
-         "successmessage":"Added succefully",
-         "allProduct":Product.objects.all()
-    }
-    return  redirect('postproduct')
 
+@staff_member_required(login_url='login')  # redirect non-staff users
 def deleteProduct(request,i):
     obj=Product.objects.get(id=i)
     obj.image.delete(save=False)  # delete file
@@ -198,39 +190,23 @@ def deleteProduct(request,i):
     }
     return  redirect('postproduct')
 
+@staff_member_required(login_url='login')  # redirect non-staff users
 def editProduct(request,i):
     obj=Product.objects.get(id=i)
-   
+    form = ProductForm(request.POST, request.FILES, instance=obj)
+    if form.is_valid():
+        form.save()  # Updates the existing object
+        return redirect('postproduct')
+    else:
+        print(form.errors)  # Logs validation errors
     mydict={
          "Product":obj,
          "allCategory":Category.objects.all(),
          "allProduct":Product.objects.all()
     }
     return render(request,'postProduct.html',context=mydict)
-def updateProduct(request,i):
-    obj=Product.objects.get(id=i)
-    if request.method=="POST":
-        category_id = request.POST['category']
-        category = Category.objects.get(id=category_id)
-        obj.category=category
-        obj.name=request.POST["name"]
-        obj.description=request.POST["description"]
-        obj.price=request.POST["price"]
-        obj.weight=request.POST["weight"]
-        obj.stock=request.POST["stock"]
-        obj.available=request.POST["available"]
-        if 'image' in request.FILES:
-            obj.image.delete(save=False)
-            obj.image = request.FILES["image"]
-        obj.save()
-    mydict={
-         "success":True,
-         "successmessage":"updated succefully",
-         "allCategory":Product.objects.all(),
-         "allProduct":Product.objects.all()
-    }
-    return  redirect('postproduct')
 
+@staff_member_required(login_url='login')  # redirect non-staff users
 def searchProduct(request):
     query=request.GET['searchProduct']
     mydict={
@@ -335,7 +311,8 @@ def submitOrder(request):
         else:
             # Create account if password provided
             if password:
-                user = User.objects.create_user(username=email, email=email, password=password)
+                user = User.objects.create_user(username=email, email=email, password=password,is_staff=False)
+                
                 login(request, user)
 
         # Calculate subtotal
@@ -417,7 +394,7 @@ def submitOrder(request):
 def logoutUser(request):
     logout(request)  # Clears session
     messages.success(request, "You have been logged out successfully.")
-    return redirect('index')  # Redirect wherever you want
+    return redirect('login')  # Redirect wherever you want
 
 def testForm(request):
     if request.method == "POST":
@@ -439,7 +416,7 @@ def ordersuccess(request):
     
     return render(request,'OrderSuccess.html')
 
-@login_required(login_url='index')  # Redirects to homepage if not logged in    
+@login_required(login_url='login')  # Redirects to homepage if not logged in    
 def clientorder(request):
     orders = Order.objects.filter(user=request.user).order_by('-created_at')
     for order in orders:
@@ -448,8 +425,9 @@ def clientorder(request):
     mydict={
         'orders':orders
     }
-    return render(request,'clientvieworder.html',context=mydict)    
-
+    return render(request,'clientvieworder.html',context=mydict)  
+  
+@login_required(login_url='login')
 def order_detail(request, order_id):
     order = get_object_or_404(Order, id=order_id, user=request.user)
     items = order.items.all()  # Related name from OrderItem
@@ -516,14 +494,17 @@ def mpesa_callback(request):
 
     return JsonResponse({"error": "Invalid request"}, status=400)    
 
-
+@staff_member_required(login_url='login')  # redirect non-staff users
 def Allorders(request):
     orders = Order.objects.all().order_by('-created_at')
     for order in orders:
         order.num_items = order.items.count()  # count related OrderItems
-    
+    paginator = Paginator(orders, 6)  # Show 10 orders per page
+
+    page_number = request.GET.get('page')  # Get the page number from query params
+    page_obj = paginator.get_page(page_number)  # Returns the page object
     mydict={
-        'orders':orders
+        'orders':page_obj
     }
     return render(request,'Allorders.html',context=mydict)  
 
@@ -557,6 +538,7 @@ def searchOrder(request):
 
     return render(request, 'Allorders.html', {"orders": orders}) 
 
+@staff_member_required(login_url='login')  # redirect non-staff users
 def updatePayment(request,id):
     order = Order.objects.get(id=id)
 
@@ -569,6 +551,7 @@ def updatePayment(request,id):
 
     return redirect('Adminorderdetail', order_id=order.id)
     
+@staff_member_required(login_url='login')  # redirect non-staff users    
 def updateOrderStatus(request,id):
     order = Order.objects.get(id=id)
 
@@ -578,3 +561,43 @@ def updateOrderStatus(request,id):
         order.save()
 
     return redirect('Adminorderdetail', order_id=order.id)   
+
+
+def loginUser(request):
+    form = LoginForm(request.POST or None)
+
+    if request.method == "POST" and form.is_valid():
+
+        email = form.cleaned_data["email"]
+        password = form.cleaned_data["password"]
+
+        user = authenticate(request, username=email, password=password)
+
+        if user is not None:
+            login(request, user)
+            print(user.is_staff)
+            return redirect("Allorders")
+    mydict={
+        "form": form
+        }
+    return render(request,'login.html',context=mydict)    
+
+@staff_member_required(login_url='login')  # redirect non-staff users
+def createUser(request):
+    form = RegisterForm(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            user = form.save(commit=False)   # don't save yet
+            user.is_staff = True             # make user staff
+            user.save()                      # now save
+            messages.success(request, "User Created successfully")
+            return redirect('createUser')
+        else:
+            form = RegisterForm()
+            messages.success(request, "User creation failed")
+    mydict={
+        "form": form,
+        "Allusers":User.objects.all()
+        }
+    return render(request, "CreateUser.html",context=mydict)
+    

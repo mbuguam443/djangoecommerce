@@ -890,3 +890,690 @@ C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py cha
 Watching for file changes with StatReloader
 C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Forbidden (CSRF token from POST incorrect.): /submitOrder
+Forbidden (CSRF token from POST incorrect.): /submitOrder
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"a55b-4b71-a2f1-9a6a0fbda1ca2670","CheckoutRequestID":"ws_CO_05032026125910568728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":4},{"Name":"MpesaReceiptNumber","Value":"UC5BS8FC61"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260305125917},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /submitProduct
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\utils\datastructures.py", line 86, in __getitem__
+    list_ = super().__getitem__(key)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'category'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 173, in submitProduct
+    category_id = request.POST['category']
+                  ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\utils\datastructures.py", line 88, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'category'
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /editProduct/9
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 227, in editProduct
+    return redirect('postProduct')
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'postProduct' not found. 'postProduct' is not a valid view function or pattern name.
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /editProduct/11
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 228, in editProduct
+    return redirect(request,'postProduct.html',context=mydict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\resolvers.py", line 757, in _reverse_with_prefix
+    raise ValueError("Don't mix *args and **kwargs in call to reverse()!")
+ValueError: Don't mix *args and **kwargs in call to reverse()!
+Internal Server Error: /editProduct/11
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 228, in editProduct
+    return redirect(request,'postProduct.html',context=mydict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\resolvers.py", line 757, in _reverse_with_prefix
+    raise ValueError("Don't mix *args and **kwargs in call to reverse()!")
+ValueError: Don't mix *args and **kwargs in call to reverse()!
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /editProduct/11
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 228, in editProduct
+    return redirect(request,'postProduct.html',context=mydict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\resolvers.py", line 757, in _reverse_with_prefix
+    raise ValueError("Don't mix *args and **kwargs in call to reverse()!")
+ValueError: Don't mix *args and **kwargs in call to reverse()!
+Internal Server Error: /editProduct/11
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 228, in editProduct
+    return redirect(request,'postProduct.html',context=mydict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\resolvers.py", line 757, in _reverse_with_prefix
+    raise ValueError("Don't mix *args and **kwargs in call to reverse()!")
+ValueError: Don't mix *args and **kwargs in call to reverse()!
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /submitCategory
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 123, in submitCategory
+    return render(request, 'add_category.html', {'form': form})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: add_category.html
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/default.jpg
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /deleteCategory/18
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 131, in deleteCategory
+    obj=Category.objects.get(id=i)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\query.py", line 639, in get
+    raise self.model.DoesNotExist(
+demoapp.models.Category.DoesNotExist: Category matching query does not exist.
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /deleteCategory/18
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 131, in deleteCategory
+    obj=Category.objects.get(id=i)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\query.py", line 639, in get
+    raise self.model.DoesNotExist(
+demoapp.models.Category.DoesNotExist: Category matching query does not exist.
+Internal Server Error: /deleteCategory/18
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 131, in deleteCategory
+    obj=Category.objects.get(id=i)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\query.py", line 639, in get
+    raise self.model.DoesNotExist(
+demoapp.models.Category.DoesNotExist: Category matching query does not exist.
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /addCategory
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 119, in addCategory
+    paginator = Paginator(category_list, 5)  # 5 items per page
+                          ^^^^^^^^^^^^^
+NameError: name 'category_list' is not defined
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /{5 static 'img/blog/details/details-pic.jpg' %}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /createUser
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 205, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 333, in check_response
+    raise ValueError(
+ValueError: The view demoapp.views.createUser didn't return an HttpResponse object. It returned None instead.
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /createUser
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 586, in createUser
+    return render(request, "CreateUser.html",context=mydict)
+                                                     ^^^^^^
+UnboundLocalError: cannot access local variable 'mydict' where it is not associated with a value
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /createUser
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 584, in createUser
+    "Allusers":User.object().all()
+               ^^^^^^^^^^^
+AttributeError: type object 'User' has no attribute 'object'. Did you mean: 'objects'?
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /createUser
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 584, in createUser
+    "Allusers":User.objects().all()
+               ^^^^^^^^^^^^^^
+TypeError: 'UserManager' object is not callable
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /Allorders
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 181, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: '!request.user.is_staff'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 501, in Allorders
+    return render(request,'Allorders.html',context=mydict)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 135, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 132, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 110, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 993, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 926, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 172, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 183, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 929, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 676, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 776, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Template: C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\templates\master.html, Could not parse the remainder: '!request.user.is_staff' from '!request.user.is_staff'
+Internal Server Error: /Allorders
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 181, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: 'request.user.is_staff==False'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 501, in Allorders
+    return render(request,'Allorders.html',context=mydict)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 135, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 132, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 110, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 993, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 926, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 172, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 183, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 929, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 676, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 776, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Template: C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\templates\master.html, Could not parse the remainder: '==False' from 'request.user.is_staff==False'
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.

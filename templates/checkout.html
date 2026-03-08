@@ -128,15 +128,15 @@
                                 {% for key, item in request.session.cart.items %}
                                 <li>
                                     {{ item.name }} (x{{ item.quantity }})
-                                    <span>${{ item.total }}</span>
+                                    <span>Ksh{{ item.total }}</span>
                                 </li>
                                 {% endfor %}
                                 {% else %}
                                 <li>Your cart is empty</li>
                                 {% endif %}
                             </ul>
-                            <div class="checkout__order__subtotal">Subtotal <span>${{subtotal}}</span></div>
-                            <div class="checkout__order__total">Total <span>${{subtotal}}</span></div>
+                            <div class="checkout__order__subtotal">Subtotal <span>Ksh{{subtotal}}</span></div>
+                            <div class="checkout__order__total">Total <span>Ksh{{subtotal}}</span></div>
                             <div class="checkout__input__checkbox">
                                 <label for="acc-or">
                                     Create an account?

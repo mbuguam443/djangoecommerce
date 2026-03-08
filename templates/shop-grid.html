@@ -124,71 +124,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="sidebar__item">
-                            <div class="latest-product__text">
-                                <h4>Latest Products</h4>
-                                <div class="latest-product__slider owl-carousel">
-                                    <div class="latest-prdouct__slider__item">
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="{% static 'img/latest-product/lp-1.jpg' %}" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="{% static 'img/latest-product/lp-2.jpg' %}" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="{% static 'img/latest-product/lp-3.jpg' %}" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="latest-prdouct__slider__item">
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="{% static 'img/latest-product/lp-1.jpg' %}" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="{% static 'img/latest-product/lp-2.jpg' %}" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="{% static 'img/latest-product/lp-3.jpg' %}" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
@@ -213,7 +149,7 @@
                                         <div class="product__discount__item__text">
                                             <span>{{product.name}}</span>
                                             <h5><a href="#">{{product.category.name}}</a></h5>
-                                            <div class="product__item__price">${{product.price}} <span>${{ product.price|floatformat:0|add:"-5" }}</span></div>
+                                            <div class="product__item__price">Ksh{{product.price}} <span>Ksh{{ product.price|floatformat:0|add:"-5" }}</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -227,8 +163,8 @@
                                 <div class="filter__sort">
                                     <span>Sort By</span>
                                     <select>
-                                        <option value="0">Default</option>
-                                        <option value="0">Default</option>
+                                        <option value="0">Default2</option>
+                                        <option value="0">Default1</option>
                                     </select>
                                 </div>
                             </div>
@@ -258,7 +194,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="detail/{{product.id}}">{{ product.name }}</a></h6>
-                                    <h5>${{ product.price }}</h5>
+                                    <h5>Ksh{{ product.price }}</h5>
                                                                      
 
 

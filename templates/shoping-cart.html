@@ -47,7 +47,7 @@
                                             <h5>{{ item.name }}</h5>
                                         </td>
                                         <td class="shoping__cart__price">
-                                            ${{ item.price }}
+                                            Ksh{{ item.price }}
                                         </td>
                                         <td class="shoping__cart__quantity">
                                             <div class="quantity">
@@ -58,7 +58,7 @@
                                             </div>
                                         </td>
                                         <td class="shoping__cart__total">
-                                            ${{ item.total }}
+                                            Ksh{{ item.total }}
                                         </td>
                                         <td class="shoping__cart__item__close">
                                             <a href="{% url 'removeProductCart' key %}"><span class="icon_close"></span></a>
@@ -103,8 +103,8 @@
                     <div class="shoping__checkout">
                         <h5>Cart Total</h5>
                         <ul>
-                            <li>Subtotal <span>${{subtotal}}</span></li>
-                            <li>Total <span>${{subtotal}}</span></li>
+                            <li>Subtotal <span>Ksh{{subtotal}}</span></li>
+                            <li>Total <span>Ksh{{subtotal}}</span></li>
                         </ul>
                         <a href="{% url 'checkout' %}" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>

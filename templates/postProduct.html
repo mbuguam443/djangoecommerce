@@ -16,15 +16,16 @@
             </div>
         </div>
         {% if Product.name %}
-        <form action="/updateProduct/{{Product.id}}" method="post" enctype="multipart/form-data">
+        <form  method="post" enctype="multipart/form-data">
             {% else %}
-            <form action="{% url 'submitProduct' %}" method="post" enctype="multipart/form-data">
+            <form  method="post" enctype="multipart/form-data">
                 {% endif %}
-
+           
                 {% csrf_token %}
+
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <select name="category" required>
+                        <select name="category">
                             <option value="">select category</option>
                             {% for category in allCategory %}
                             <option value="{{ category.id }}" {% if Product.category.id == category.id %}selected{% endif%}>
@@ -33,32 +34,53 @@
                             </option>
                             {% endfor %}
                         </select>
+                         {% if form.category.errors %}
+                                <span class="text-danger">{{ form.category.errors.0 }}</span>
+                         {% endif %}
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" placeholder="Product Name" name="name" value="{{Product.name}}" required>
+                        <input type="text" placeholder="Product Name" name="name" value="{{Product.name}}" >
+                        {% if form.name.errors %}
+                                <span class="text-danger">{{ form.name.errors.0 }}</span>
+                         {% endif %}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <textarea placeholder="Product Description" name="description" required>{{Product.description}}
+                        <textarea placeholder="Product Description" name="description" >{{Product.description}}
                     </textarea>
+                        {% if form.description.errors %}
+                                <span class="text-danger">{{ form.description.errors.0 }}</span>
+                         {% endif %}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <input type="number" placeholder="Price" name="price" value="{{Product.price}}" required>
+                        <input type="number" placeholder="Price" name="price" value="{{Product.price}}" >
+                        {% if form.price.errors %}
+                                <span class="text-danger">{{ form.price.errors.0 }}</span>
+                         {% endif %}
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <label for="">Product image</label>
                         <input type="file" placeholder="Image" name="image">
+                        {% if form.image.errors %}
+                                <span class="text-danger">{{ form.image.errors.0 }}</span>
+                         {% endif %}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <input type="number" placeholder="Weight" name="weight" value="{{Product.weight}}" required>
+                        <input type="number" placeholder="Weight" name="weight" value="{{Product.weight}}" >
+                        {% if form.weight.errors %}
+                                <span class="text-danger">{{ form.weight.errors.0 }}</span>
+                         {% endif %}
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <input type="number" placeholder="Stock" name="stock" value="{{Product.stock}}" required>
+                        <input type="number" placeholder="Stock" name="stock" value="{{Product.stock}}">
+                        {% if form.stock.errors %}
+                                <span class="text-danger">{{ form.stock.errors.0 }}</span>
+                         {% endif %}
                     </div>
                 </div>
                 <div class="row">
@@ -69,6 +91,9 @@
                             <option value="1" {% if Product.available == True %}selected{% endif %}>Yes</option>
                             <option value="0" {% if Product.available == False %}selected{% endif %}>No</option>
                         </select>
+                        {% if form.available.errors %}
+                                <span class="text-danger">{{ form.available.errors.0 }}</span>
+                         {% endif %}
                     </div>
                     <div class="col-lg-6 col-md-6">
 
@@ -130,7 +155,7 @@
                                         <h5>{{product.name}}</h5>
                                     </td>
                                     <td class="shoping__cart__item">
-                                        <h5>{{product.price}}$</h5>
+                                        <h5>{{product.price}}Ksh</h5>
                                     </td>
                                     <td class="shoping__cart__item">
                                         <h5>{{product.stock}}</h5>
@@ -153,6 +178,29 @@
 
                             </tbody>
                         </table>
+                        <div class="product__pagination">
+
+                                        {% if allProduct.has_previous %}
+                                            <a href="?page={{ allProduct.previous_page_number }}">
+                                                <i class="fa fa-long-arrow-left"></i>
+                                            </a>
+                                        {% endif %}
+                                        
+                                        {% for num in allProduct.paginator.page_range %}
+                                            {% if allProduct.number == num %}
+                                                <a class="active">{{ num }}</a>
+                                            {% else %}
+                                                <a href="?page={{ num }}">{{ num }}</a>
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        {% if allProduct.has_next %}
+                                            <a href="?page={{ orders.next_page_number }}">
+                                                <i class="fa fa-long-arrow-right"></i>
+                                            </a>
+                                        {% endif %}
+
+                            </div>
                     </div>
                 </div>
             </div>

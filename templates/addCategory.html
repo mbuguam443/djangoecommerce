@@ -11,27 +11,37 @@
                 </div>
             </div>
         </div>
-        {% if success %}
-        <div class="row">
-            
-            <div class="alert alert-success">
-                    {{ successmessage}}
-            </div>
-        </div>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
         {% endif %}
 
         {% if Category.name %}
-           <form action="/updateCategory/{{Category.id}}" method="post">
+           <form  method="post" enctype="multipart/form-data">
         {% else %}    
-        <form action="{%  url 'submitCategory' %}" method="post">
+        <form  method="post" enctype="multipart/form-data">
         {% endif %}
 
              {% csrf_token %}
             <div class="row">
-                <div class="col-lg-12 col-md-6">
-                    <input type="text" placeholder="Category name" name="category" value="{{Category.name}}" >
-                    {% if error%}
-                    <p class="text-danger">{{ errormessage }}</p>
+                <div class="col-lg-6">
+                    <input type="text" placeholder="Category name" name="name" value="{{Category.name}}" >
+                    {% if form.name.errors %}
+                        <div style="color:red;">
+                            {{ form.name.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col-lg-6">
+                    <input type="file"  name="image">
+                    {% if form.image.errors %}
+                        <div style="color:red;">
+                            {{ form.image.errors }}
+                        </div>
                     {% endif %}
                 </div>
             </div>
@@ -72,6 +82,7 @@
                     <table>
                         <thead>
                             <tr>
+                                <th class="shoping__product">Image</th>
                                 <th class="shoping__product">Category Name</th>
                                 <th>Action</th>
                                 <th></th>
@@ -81,6 +92,10 @@
 
                             {% for category  in allCategory %}
                             <tr>
+                                <td class="shoping__cart__item">
+                                    {% load static %}
+                                    <img src="{{ category.image.url }}" class="img-fluid" alt="" width="80" height="80">
+                                </td>
                                 <td class="shoping__cart__item">
                                     <h5>{{category.name}}</h5>
                                 </td>
@@ -93,6 +108,29 @@
 
                         </tbody>
                     </table>
+                     <div class="product__pagination">
+
+                                        {% if allCategory.has_previous %}
+                                            <a href="?page={{ allCategory.previous_page_number }}">
+                                                <i class="fa fa-long-arrow-left"></i>
+                                            </a>
+                                        {% endif %}
+                                        
+                                        {% for num in allCategory.paginator.page_range %}
+                                            {% if allCategory.number == num %}
+                                                <a class="active">{{ num }}</a>
+                                            {% else %}
+                                                <a href="?page={{ num }}">{{ num }}</a>
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        {% if allCategory.has_next %}
+                                            <a href="?page={{ orders.next_page_number }}">
+                                                <i class="fa fa-long-arrow-right"></i>
+                                            </a>
+                                        {% endif %}
+
+                            </div>
                 </div>
             </div>
         </div>

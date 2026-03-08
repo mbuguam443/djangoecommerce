@@ -12,16 +12,14 @@ urlpatterns=[
     path('blogdetail',views.blogdetail,name="blogdetail"),
     path('postproduct',views.postproduct,name="postproduct"),
     path('addCategory',views.addCategory,name="addCategory"),
-    path('submitCategory',views.submitCategory,name="submitCategory"),
     path('deleteCategory/<int:i>',views.deleteCategory,name="deleteCategory"),
     path('editCategory/<int:i>',views.editCategory,name="editCategory"),
-    path('updateCategory/<int:i>',views.updateCategory,name="updateCategory"),
     path('searchCategory',views.searchCategory,name="searchCategory"),
     #posting product
-    path('submitProduct',views.submitProduct,name="submitProduct"),
+    
     path('deleteProduct/<int:i>',views.deleteProduct,name="deleteProduct"),
     path('editProduct/<int:i>',views.editProduct,name="editProduct"),
-    path('updateProduct/<int:i>',views.updateProduct,name="updateProduct"),
+   
     path('searchProduct',views.searchProduct,name="searchProduct"),
     #add to cart
     path('AddCart',views.AddCart,name="AddCart"),
@@ -43,5 +41,7 @@ urlpatterns=[
     path("Adminorderdetail/<int:order_id>/",views.Adminorderdetail,name="Adminorderdetail"),
     path("searchOrder",views.searchOrder,name="searchOrder"),
     path("updatePayment/<int:id>/",views.updatePayment,name="updatePayment"),
-    path("updateOrderStatus/<int:id>/",views.updateOrderStatus,name="updateOrderStatus")
+    path("updateOrderStatus/<int:id>/",views.updateOrderStatus,name="updateOrderStatus"),
+    path("login",views.loginUser,name="login"),
+    path("createUser",views.createUser,name="createUser")
 ]

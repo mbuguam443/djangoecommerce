@@ -34,7 +34,7 @@
                 {% if order.payment_method == "mpesa" %}
                     <p>Mpesa Receipt Number: {{ order.payment_reference }}</p>
                 {% endif %}
-                <p><strong>TotalPrice: ${{total}}</strong></p>
+                <p><strong>TotalPrice: Ksh{{total}}</strong></p>
                 <p><strong>Order Status: {{order.delivery_status}}</strong></p>
             </div>
         </div>
@@ -69,19 +69,19 @@
 
                                 </td>
                                 <td class="shoping__cart__item">
-                                    <h5>{{ item.price }}$</h5>
+                                    <h5>{{ item.price }}Ksh</h5>
                                 </td>
                                 <td class="shoping__cart__item">
                                     <h5>{{ item.quantity }}</h5>
                                 </td>
                                 <td class="shoping__cart__item">
-                                    <h5>${{ item.total_price|floatformat:2 }}</h5>
+                                    <h5>Ksh{{ item.total_price|floatformat:2 }}</h5>
                                 </td>
                             </tr>
                             {% endfor %}
                             <tr>
                                 <td colspan="5">
-                                    <h5>ToTal Price: ${{total}}</h5>
+                                    <h5>ToTal Price: Ksh{{total}}</h5>
                                 </td>
                             </tr>
 
