@@ -64,6 +64,8 @@ def detail(request,i):
          "Product":obj
     }
     return render(request,'shop-details.html',context=mydict)
+
+   
 def checkout(request):
     cart = request.session.get('cart', {})
     subtotal = 0
