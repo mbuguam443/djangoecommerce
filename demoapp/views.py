@@ -5,7 +5,7 @@ from django.contrib import messages
 from .models import Order, OrderItem, Product
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
-from .forms import CategoryForm, CheckoutForm, LoginForm
+from .forms import CategoryForm, CheckoutForm, LoginForm, OrderForm
 from django.contrib.auth.decorators import login_required
 from .mpesa import stk_push
 from django.views.decorators.csrf import csrf_exempt
@@ -68,15 +68,110 @@ def detail(request,i):
    
 def checkout(request):
     cart = request.session.get('cart', {})
+    if not cart:
+        messages.error(request, "Your cart is empty")
+        return redirect("cart")
+
+    if request.method == "POST":
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            # Use cleaned_data instead of request.POST
+            data = form.cleaned_data
+            email = data["email"]
+            password = data.get("password")
+            user = None
+
+            # Returning user logic
+            if User.objects.filter(email=email).exists():
+                if password:
+                    user = authenticate(request, username=email, password=password)
+                    if user is None:
+                        messages.error(request, "Incorrect password. Please login.")
+                        return redirect("checkout")
+                    login(request, user)
+                else:
+                    messages.error(request, "Email already registered. Enter password to login.")
+                    return redirect("checkout")
+            else:
+                # Create account if password provided
+                if password:
+                    user = User.objects.create_user(
+                        username=email, email=email, password=password, is_staff=False
+                    )
+                    login(request, user)
+                else:
+                    messages.error(request, "Enter password to login or create an account")
+                    return redirect("checkout")
+            # Calculate subtotal
+            subtotal = sum(float(item['total']) for item in cart.values())
+
+            # Create order
+            order = Order.objects.create(
+                user=user,
+                subtotal=subtotal,
+                total=subtotal,
+                is_paid=False,
+                **{field: data[field] for field in form.Meta.fields}
+            )
+
+            # Create OrderItems & update stock
+            for key, item in cart.items():
+                product = Product.objects.get(id=key)
+                if product.stock < item['quantity']:
+                    messages.error(request, f"Not enough stock for {product.name}")
+                    return redirect("cart")
+                product.stock -= item['quantity']
+                product.save()
+                OrderItem.objects.create(
+                    order=order,
+                    product=product,
+                    price=item['price'],
+                    quantity=item['quantity']
+                )
+
+            # Payment handling (cash / mpesa)
+            if order.payment_method == "cash":
+                order.is_paid = False
+                order.save()
+            elif order.payment_method == "mpesa":
+                response = stk_push(order.phone, int(order.total), order.id)
+                if response.get('ResponseCode') == '0':
+                    order.checkout_request_id = response.get("CheckoutRequestID")
+                    order.save()
+                    messages.success(request, "STK push initiated")
+                else:
+                    messages.error(request, f"Payment failed. Try again. Response: {response}")
+                    return redirect("checkout")
+
+            # Clear cart
+            del request.session['cart']
+            request.session.modified = True
+            return redirect('ordersuccess')
+
+        else:
+            # Form errors automatically available in template
+            return render(request, "checkout.html", {"form": form})
+
+    else:
+        form = OrderForm()
     subtotal = 0
     for item in cart.values():
-        subtotal += int(item['quantity']) * float(item['price']) 
+        subtotal += int(item['quantity']) * float(item['price'])     
     mydict={
          "allCategory":Category.objects.all(),
          "subtotal":subtotal    
-    }
+    }    
+    return render(request, "checkout.html", context=mydict)
+    #cart = request.session.get('cart', {})
+    #subtotal = 0
+    #for item in cart.values():
+    #    subtotal += int(item['quantity']) * float(item['price']) 
+    #mydict={
+    #     "allCategory":Category.objects.all(),
+    #     "subtotal":subtotal    
+    #}
     
-    return render(request,'checkout.html',context=mydict)
+    #return render(request,'checkout.html',context=mydict)
 def blog(request):
     mydict={
          "allCategory":Category.objects.all()

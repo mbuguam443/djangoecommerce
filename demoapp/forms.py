@@ -3,6 +3,7 @@ from .models import Product
 from .models import Category
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from .models import Order
 
 class CheckoutForm(forms.Form):
     first_name = forms.CharField(max_length=50,label="First Name",
@@ -63,3 +64,26 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "email", "is_staff", "password1", "password2"]        
+
+class OrderForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput(), required=False)
+    
+    class Meta:
+        model = Order
+        fields = [
+            "first_name", "last_name", "email", "phone",
+            "country", "address", "city", "state", "zip_code",
+            "payment_method"
+        ]
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("This email is already registered. Please login.")
+        return email
+
+    def clean_payment_method(self):
+        method = self.cleaned_data.get("payment_method")
+        if not method:
+            raise forms.ValidationError("Select a payment method.")
+        return method        

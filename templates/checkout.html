@@ -30,6 +30,13 @@
             </div>
         </div>
         <div class="checkout__form">
+            {% if form.errors %}
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    <li class="text-danger">{{ field }}: {{ errors|join:", " }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
             {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}
@@ -41,7 +48,7 @@
                 </ul>
             {% endif %}
             <h4>Billing Details</h4>
-            <form method="POST" action="{% url 'submitOrder' %}">
+            <form method="POST">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
