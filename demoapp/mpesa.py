@@ -34,8 +34,8 @@ def stk_push(phone, amount, order_id):
         "PartyA": phone,
         "PartyB": SHORTCODE,
         "PhoneNumber": phone,
-        #"CallBackURL": "https://djangoecommerce-94z3.onrender.com/callback",
-        "CallBackURL":"https://313c-102-210-247-38.ngrok-free.app/callback",
+        "CallBackURL": "https://djangoecommerce-94z3.onrender.com/callback",
+        #"CallBackURL":"https://313c-102-210-247-38.ngrok-free.app/callback",
         "AccountReference": f"Order{order_id}",
         "TransactionDesc": "Payment for order"
     }
