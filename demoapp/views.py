@@ -32,18 +32,33 @@ from demoapp.models import Category, Product
 
 # Create your views here.
 def myfunc(request):
+    products = Product.objects.all().order_by('-id')
+
+    category = request.GET.get("category")
+
+    if category:
+        products = products.filter(category_id=category)
     mydict={
          "allCategory":Category.objects.filter(products__isnull=False).distinct(),
-         "products": Product.objects.all(),
+         "products": products,
     }
     return render(request,'index.html',context=mydict)
 def shop(request):
     cart = request.session.get('cart', {})
     subtotal = 0
     for item in cart.values():
-        subtotal += int(item['quantity']) * float(item['price'])    
-    
+        subtotal += int(item['quantity']) * float(item['price'])       
+
     product_list = Product.objects.all().order_by('-id')
+
+    product = request.GET.get("product")
+    category = request.GET.get("category")
+
+    if product:
+        product_list = product_list.filter(name__icontains=product)
+
+    if category:
+        product_list = product_list.filter(category_id=category)
 
     paginator = Paginator(product_list, 8)  # 8 products per page
     page_number = request.GET.get('page')
