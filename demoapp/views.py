@@ -21,6 +21,7 @@ from .forms import RegisterForm
 from django.db.models import Sum
 from decimal import Decimal
 from django.core.mail import send_mail
+from django.conf import settings
 
 
 logger = logging.getLogger("mpesa")
@@ -181,6 +182,18 @@ def checkout(request):
             [order.email],
             fail_silently=False,
             )
+            try:
+                send_mail(
+                    "Order Confirmation",
+                   f"Hello {order.first_name}, your order has been received. Total: Ksh {order.total}",
+                    settings.EMAIL_HOST_USER,
+                    [order.email],
+                    fail_silently=True,
+                )
+                
+            except:
+                print("Failed to email")
+                pass
             return redirect('ordersuccess')
 
         else:
