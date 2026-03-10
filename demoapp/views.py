@@ -184,9 +184,8 @@ def checkout(request):
                     fail_silently=True,
                 )
                 print("sent successfully")
-            except :
-                print("Failed to email")
-                print("Email error:")
+            except Exception as e:
+                print("Email error:", e)
                 
             return redirect('ordersuccess')
 
