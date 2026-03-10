@@ -175,13 +175,6 @@ def checkout(request):
             # Clear cart
             del request.session['cart']
             request.session.modified = True
-            send_mail(
-            "Order Confirmation",
-            f"Hello {order.first_name}, your order has been received. Total: Ksh {order.total}",
-            "mystore@gmail.com",
-            [order.email],
-            fail_silently=False,
-            )
             try:
                 send_mail(
                     "Order Confirmation",
@@ -191,9 +184,9 @@ def checkout(request):
                     fail_silently=True,
                 )
                 print("sent successfully")
-            except:
+            except :
                 print("Failed to email")
-                print("Email error:", e)
+                print("Email error:")
                 
             return redirect('ordersuccess')
 
