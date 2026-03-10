@@ -32,14 +32,14 @@
         <div class="checkout__form">
             
             {% if messages %}
-                <ul class="messages">
+               
                     {% for message in messages %}
-                        <li 
-                            {% if message.tags %} class="text-danger" {% endif %}>
-                            {{ message }}
-                        </li>
+                        <div class="alert alert-success">
+                            {% if message.tags %} class="text-danger" {% endif %}
+                                {{ message }}
+                        </div>
                     {% endfor %}
-                </ul>
+                
             {% endif %}
             <h4>Billing Details</h4>
             <form method="POST">
@@ -186,8 +186,8 @@
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="paypal">
-                                    Paypal
-                                    <input type="radio" id="paypal" name="payment_method" value="paypal">
+                                    Pay on delivery
+                                    <input type="radio" id="paypal" name="payment_method" value="pay_on_delivery">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>

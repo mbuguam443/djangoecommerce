@@ -18,6 +18,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from .forms import ProductForm
 from .forms import RegisterForm
+from django.db.models import Sum
 
 
 logger = logging.getLogger("mpesa")
@@ -88,15 +89,17 @@ def checkout(request):
             user = None
 
             # Returning user logic
-            if User.objects.filter(email=email).exists():
+            user = User.objects.filter(email=email).first()
+            if user:
+                
                 if password:
-                    user = authenticate(request, username=email, password=password)
+                    user = authenticate(request, username=user.username, password=password)
                     if user is None:
                         messages.error(request, "Incorrect password. Please login.")
                         return redirect("checkout")
                     login(request, user)
                 else:
-                    messages.error(request, "Email already registered. Enter password to login.")
+                    messages.error(request, "Password has an issue.")
                     return redirect("checkout")
             else:
                 # Create account if password provided
@@ -136,7 +139,10 @@ def checkout(request):
                 )
 
             # Payment handling (cash / mpesa)
-            if order.payment_method == "cash":
+            if order.payment_method =="pay_on_delivery":
+                order.is_paid = False
+                order.save()
+            elif order.payment_method == "cash":
                 order.is_paid = False
                 order.save()
             elif order.payment_method == "mpesa":
@@ -525,8 +531,13 @@ def clientorder(request):
     for order in orders:
         order.num_items = order.items.count()  # count related OrderItems
     
+    total_sales = total_sales = orders.filter(
+                                    user=request.user,
+                                    payment_status="paid"
+                                ).aggregate(total_sales=Sum('total'))['total_sales'] or 0
     mydict={
-        'orders':orders
+        'orders':orders,
+        'total_sales':total_sales
     }
     return render(request,'clientvieworder.html',context=mydict)  
   
@@ -579,8 +590,9 @@ def mpesa_callback(request):
                 checkout_id = stk_callback.get("CheckoutRequestID")
 
                 order = Order.objects.get(checkout_request_id=checkout_id)
-
+    
                 order.is_paid = True
+                order.payment_status="paid"
                 order.payment_reference = metadata.get("MpesaReceiptNumber")
                 order.payment_date = timezone.now()
                 order.save()
@@ -606,8 +618,12 @@ def Allorders(request):
 
     page_number = request.GET.get('page')  # Get the page number from query params
     page_obj = paginator.get_page(page_number)  # Returns the page object
+
+    total_sales = Order.objects.filter(payment_status="paid").aggregate(total_sales=Sum('total'))['total_sales'] or 0
+
     mydict={
-        'orders':page_obj
+        'orders':page_obj,
+        "total_sales": total_sales
     }
     return render(request,'Allorders.html',context=mydict)  
 
@@ -678,8 +694,13 @@ def loginUser(request):
 
         if user is not None:
             login(request, user)
-            print(user.is_staff)
-            return redirect("Allorders")
+            if user.is_staff :
+                return redirect("Allorders")
+            else:
+                return redirect("clientorder")
+               
+            
+            
     mydict={
         "form": form
         }

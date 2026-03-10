@@ -76,11 +76,7 @@ class OrderForm(forms.ModelForm):
             "payment_method"
         ]
 
-    def clean_email(self):
-        email = self.cleaned_data['email']
-        if User.objects.filter(email=email).exists():
-            raise forms.ValidationError("This email is already registered. Please login.")
-        return email
+    
 
     def clean_payment_method(self):
         method = self.cleaned_data.get("payment_method")

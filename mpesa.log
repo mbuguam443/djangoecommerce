@@ -1939,3 +1939,424 @@ Not Found: /{% static 'img/product/details/thumb-3.jpg
 Not Found: /{% static 'img/product/details/thumb-2.jpg
 Not Found: /{% static 'img/product/details/thumb-3.jpg
 Not Found: /{% static 'img/product/details/thumb-1.jpg
+Watching for file changes with StatReloader
+Not Found: /7
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 155, in checkout
+    del request.session['cart']
+        ~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 66, in __delitem__
+    del self._session[key]
+        ~~~~~~~~~~~~~^^^^^
+KeyError: 'cart'
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"12c2-4698-8487-89c998da0fef7651","CheckoutRequestID":"ws_CO_10032026085025175728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":6},{"Name":"MpesaReceiptNumber","Value":"UCABS8VI62"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260310085039},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+Forbidden (CSRF token from POST incorrect.): /checkout
+Forbidden (CSRF token from POST incorrect.): /AddCart
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"35e1-4357-954d-d6ebb179619e13074","CheckoutRequestID":"ws_CO_10032026090049318728627678","ResultCode":1037,"ResultDesc":"No response from user."}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"12c2-4698-8487-89c998da0fef8028","CheckoutRequestID":"ws_CO_10032026091249645728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":2},{"Name":"MpesaReceiptNumber","Value":"UCABS8VFRK"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260310091301},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /Allorders
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 612, in Allorders
+    total_sales = Order.objects.filter(status="paid").aggregate(total=Sum('total_price'))['total'] or 0
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\query.py", line 1542, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\query.py", line 1560, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\query.py", line 1570, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1676, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1708, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1556, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1363, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1842, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'status' into field. Choices are: address, checkout_request_id, city, country, created_at, delivery_status, email, first_name, id, is_paid, items, last_name, payment_date, payment_method, payment_reference, payment_status, phone, state, subtotal, total, user, user_id, zip_code
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /Allorders
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 613, in Allorders
+    total_sales = Order.objects.filter(payment_status="paid").aggregate(total=Sum('total_price'))['total'] or 0
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\query.py", line 594, in aggregate
+    return self.query.chain().get_aggregation(self.db, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 472, in get_aggregation
+    aggregate = aggregate_expr.resolve_expression(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\aggregates.py", line 122, in resolve_expression
+    c = super().resolve_expression(query, allow_joins, reuse, summarize)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\expressions.py", line 301, in resolve_expression
+    expr.resolve_expression(query, allow_joins, reuse, summarize, for_save)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\expressions.py", line 904, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 2087, in resolve_ref
+    join_info = self.setup_joins(
+                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1937, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+                                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1842, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'total_price' into field. Choices are: address, checkout_request_id, city, country, created_at, delivery_status, email, first_name, id, is_paid, items, last_name, payment_date, payment_method, payment_reference, payment_status, phone, state, subtotal, total, user, user_id, zip_code
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /Allorders
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 613, in Allorders
+    total_sales = Order.objects.filter(payment_status="paid").aggregate(total=Sum('total_price'))['subtotal'] or 0
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\query.py", line 594, in aggregate
+    return self.query.chain().get_aggregation(self.db, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 472, in get_aggregation
+    aggregate = aggregate_expr.resolve_expression(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\aggregates.py", line 122, in resolve_expression
+    c = super().resolve_expression(query, allow_joins, reuse, summarize)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\expressions.py", line 301, in resolve_expression
+    expr.resolve_expression(query, allow_joins, reuse, summarize, for_save)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\expressions.py", line 904, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 2087, in resolve_ref
+    join_info = self.setup_joins(
+                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1937, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+                                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1842, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'total_price' into field. Choices are: address, checkout_request_id, city, country, created_at, delivery_status, email, first_name, id, is_paid, items, last_name, payment_date, payment_method, payment_reference, payment_status, phone, state, subtotal, total, user, user_id, zip_code
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"50d1-4100-942d-ec382fb51394175","CheckoutRequestID":"ws_CO_10032026111554984728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":6},{"Name":"MpesaReceiptNumber","Value":"UCABS8VUY2"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260310111605},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 976, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='sandbox.safaricom.co.ke', port=443): Failed to resolve 'sandbox.safaricom.co.ke' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='sandbox.safaricom.co.ke', port=443): Max retries exceeded with url: /oauth/v1/generate?grant_type=client_credentials (Caused by NameResolutionError("HTTPSConnection(host='sandbox.safaricom.co.ke', port=443): Failed to resolve 'sandbox.safaricom.co.ke' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 146, in checkout
+    response = stk_push(order.phone, int(order.total), order.id)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py", line 17, in stk_push
+    access_token = get_access_token()
+                   ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py", line 12, in get_access_token
+    response = requests.get(url, auth=(CONSUMER_KEY, CONSUMER_SECRET))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='sandbox.safaricom.co.ke', port=443): Max retries exceeded with url: /oauth/v1/generate?grant_type=client_credentials (Caused by NameResolutionError("HTTPSConnection(host='sandbox.safaricom.co.ke', port=443): Failed to resolve 'sandbox.safaricom.co.ke' ([Errno 11001] getaddrinfo failed)"))
+Forbidden (CSRF token from POST incorrect.): /checkout
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='sandbox.safaricom.co.ke', port=443) at 0x27ed6367590>, 'Connection to sandbox.safaricom.co.ke timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='sandbox.safaricom.co.ke', port=443): Max retries exceeded with url: /oauth/v1/generate?grant_type=client_credentials (Caused by ConnectTimeoutError(<HTTPSConnection(host='sandbox.safaricom.co.ke', port=443) at 0x27ed6367590>, 'Connection to sandbox.safaricom.co.ke timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 146, in checkout
+    response = stk_push(order.phone, int(order.total), order.id)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py", line 17, in stk_push
+    access_token = get_access_token()
+                   ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py", line 12, in get_access_token
+    response = requests.get(url, auth=(CONSUMER_KEY, CONSUMER_SECRET))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\adapters.py", line 665, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='sandbox.safaricom.co.ke', port=443): Max retries exceeded with url: /oauth/v1/generate?grant_type=client_credentials (Caused by ConnectTimeoutError(<HTTPSConnection(host='sandbox.safaricom.co.ke', port=443) at 0x27ed6367590>, 'Connection to sandbox.safaricom.co.ke timed out. (connect timeout=None)'))
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"50d1-4100-942d-ec382fb51394329","CheckoutRequestID":"ws_CO_10032026112847101728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":6},{"Name":"MpesaReceiptNumber","Value":"UCABS8VXO6"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260310112856},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
+Watching for file changes with StatReloader
