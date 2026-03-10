@@ -2936,3 +2936,11 @@ Not Found: /{% static 'img/product/details/thumb-3.jpg
 MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"1392-45b2-b4c5-e70e747df7447961","CheckoutRequestID":"ws_CO_10032026183919204728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":9},{"Name":"MpesaReceiptNumber","Value":"UCABS8XE5D"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260310183932},{"Name":"PhoneNumber","Value":254728627678}]}}}}
 C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
