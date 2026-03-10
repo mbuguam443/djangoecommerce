@@ -2955,3 +2955,6 @@ Watching for file changes with StatReloader
 MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"0c29-411a-9fcf-371477d267088731","CheckoutRequestID":"ws_CO_10032026195038878728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":9},{"Name":"MpesaReceiptNumber","Value":"UCABS8XPEN"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260310195051},{"Name":"PhoneNumber","Value":254728627678}]}}}}
 C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
