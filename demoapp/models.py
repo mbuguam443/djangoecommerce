@@ -47,6 +47,7 @@ class Order(models.Model):
     total = models.DecimalField(max_digits=10, decimal_places=2)
     payment_method = models.CharField(max_length=20)
     is_paid = models.BooleanField(default=False)
+    delivery_fee = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     payment_status = models.CharField(
         max_length=20,
         choices=PAYMENT_STATUS_CHOICES,
@@ -68,3 +69,9 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.PositiveIntegerField()    
+
+class Delivery(models.Model):
+    county = models.CharField(max_length=100, unique=True)
+    delivery_fee = models.DecimalField(max_digits=10, decimal_places=2)
+
+        

@@ -2,10 +2,10 @@ from django.shortcuts import get_object_or_404, render,redirect
 from django.http import HttpResponse,JsonResponse
 from django.db import transaction
 from django.contrib import messages
-from .models import Order, OrderItem, Product
+from .models import Delivery, Order, OrderItem, Product
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
-from .forms import CategoryForm, CheckoutForm, LoginForm, OrderForm
+from .forms import CategoryForm, CheckoutForm, LoginForm, OrderForm,DeliveryForm
 from django.contrib.auth.decorators import login_required
 from .mpesa import stk_push
 from django.views.decorators.csrf import csrf_exempt
@@ -19,6 +19,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import ProductForm
 from .forms import RegisterForm
 from django.db.models import Sum
+from decimal import Decimal
+from django.core.mail import send_mail
 
 
 logger = logging.getLogger("mpesa")
@@ -113,6 +115,8 @@ def checkout(request):
                     return redirect("checkout")
             # Calculate subtotal
             subtotal = sum(float(item['total']) for item in cart.values())
+            
+            
 
             # Create order
             order = Order.objects.create(
@@ -122,6 +126,15 @@ def checkout(request):
                 is_paid=False,
                 **{field: data[field] for field in form.Meta.fields}
             )
+            delivery = Delivery.objects.filter(county__iexact=order.city).first()
+
+            if delivery:
+                order.delivery_fee = delivery.delivery_fee
+            else:
+                order.delivery_fee = 5
+            print("City for delivery:")    
+            print(order.city.lower())
+            order.total = Decimal(order.subtotal) + Decimal(order.delivery_fee)
 
             # Create OrderItems & update stock
             for key, item in cart.items():
@@ -146,6 +159,9 @@ def checkout(request):
                 order.is_paid = False
                 order.save()
             elif order.payment_method == "mpesa":
+                if not order.phone.startswith("254"):
+                    messages.success(request, "Phone must start with 254 to use mpesa")
+                    return redirect('checkout')
                 response = stk_push(order.phone, int(order.total), order.id)
                 if response.get('ResponseCode') == '0':
                     order.checkout_request_id = response.get("CheckoutRequestID")
@@ -158,6 +174,13 @@ def checkout(request):
             # Clear cart
             del request.session['cart']
             request.session.modified = True
+            send_mail(
+            "Order Confirmation",
+            f"Hello {order.first_name}, your order has been received. Total: Ksh {order.total}",
+            "mystore@gmail.com",
+            [order.email],
+            fail_silently=False,
+            )
             return redirect('ordersuccess')
 
         else:
@@ -171,6 +194,7 @@ def checkout(request):
         subtotal += int(item['quantity']) * float(item['price'])     
     mydict={
          "allCategory":Category.objects.all(),
+         "Delivery_list" :Delivery.objects.all(),
          "subtotal":subtotal    
     }    
     return render(request, "checkout.html", context=mydict)
@@ -683,6 +707,8 @@ def updateOrderStatus(request,id):
 
 
 def loginUser(request):
+    if request.user.is_authenticated:
+        return redirect("index")
     form = LoginForm(request.POST or None)
 
     if request.method == "POST" and form.is_valid():
@@ -698,7 +724,9 @@ def loginUser(request):
                 return redirect("Allorders")
             else:
                 return redirect("clientorder")
-               
+        else:
+            messages.success(request, "User Login Failed")
+            return redirect('login')       
             
             
     mydict={
@@ -724,4 +752,59 @@ def createUser(request):
         "Allusers":User.objects.all()
         }
     return render(request, "CreateUser.html",context=mydict)
-    
+
+@staff_member_required(login_url='login')  # redirect non-staff users    
+def DeliveryCrud(request):
+    if request.method == "POST":
+        form = DeliveryForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("delivery")
+
+    else:
+        form = DeliveryForm()
+    deliveries = Delivery.objects.all()
+    mydict={"form": form,"deliveries": deliveries}
+    return render(request, "delivery.html",context=mydict)
+
+@staff_member_required(login_url='login')  # redirect non-staff users    
+def deleteDelivery(request,i):
+    obj=Delivery.objects.get(id=i)
+    obj.delete()
+    messages.success(request, "Deleted successfully")
+    return redirect('delivery')    
+
+@staff_member_required(login_url='login')  # redirect non-staff users
+def editDelivery(request, i):
+    obj = Delivery.objects.get(id=i)
+    print(obj)
+    if request.method == "POST":
+        form = DeliveryForm(request.POST,instance=obj)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Updated successfully")
+            return redirect("delivery")
+    else:
+        form = DeliveryForm(instance=obj)
+
+    Delivery_list = Delivery.objects.all()
+    paginator = Paginator(Delivery_list, 4)  # 5 items per page
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+      
+    mydict = {
+        "Delivery":obj,
+        "form": form,
+        "deliveries": page_obj
+    }
+
+    return render(request, "delivery.html", context=mydict)
+        
+@staff_member_required(login_url='login')  # redirect non-staff users
+def searchDelivery(request):
+    query=request.GET['Deliveryname']
+    mydict={
+              "deliveries":Delivery.objects.filter(county__contains=query)
+           }    
+    return render(request,'delivery.html',context=mydict)    

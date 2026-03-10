@@ -75,7 +75,7 @@
                         <li><a href="{% url 'postproduct' %}">Add Product</a></li>
                         <li><a href="{% url 'Allorders' %}">View All Orders</a></li>
                         <li><a href="{% url 'createUser' %}">createUser</a></li>
-                        
+                        <li><a href="{% url 'delivery' %}">Add Delivery</a></li>
                     </ul>
                     {% endif %}
                     {% if request.user.is_authenticated and not request.user.is_staff  %}
@@ -176,6 +176,7 @@
                                     <li><a href="{% url 'postproduct' %}">Add Product</a></li>
                                     <li><a href="{% url 'Allorders' %}">View All Orders</a></li>
                                     <li><a href="{% url 'createUser' %}">createUser</a></li>
+                                    <li><a href="{% url 'delivery' %}">Add Delivery</a></li>
                                 </ul>
                                 {% endif %}
                                 {% if request.user.is_authenticated and not request.user.is_staff %}

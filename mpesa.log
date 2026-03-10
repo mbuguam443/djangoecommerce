@@ -2360,3 +2360,448 @@ Not Found: /.well-known/appspecific/com.chrome.devtools.json
 Not Found: /.well-known/appspecific/com.chrome.devtools.json
 C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 116, in checkout
+    if order.city.lower() == "nairobi":
+       ^^^^^
+UnboundLocalError: cannot access local variable 'order' where it is not associated with a value
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Forbidden (CSRF token from POST incorrect.): /checkout
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"0c29-411a-9fcf-371477d267082049","CheckoutRequestID":"ws_CO_10032026134229623728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":11},{"Name":"MpesaReceiptNumber","Value":"UCABS8WFP6"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260310134240},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"3815-4819-b920-7518102a418c385","CheckoutRequestID":"ws_CO_10032026143401947728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":3},{"Name":"MpesaReceiptNumber","Value":"UCABS8WKDL"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260310143412},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /delivery
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 751, in Delivery
+    form = DeliveryForm()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\forms\models.py", line 364, in __init__
+    raise ValueError("ModelForm has no model class specified.")
+ValueError: ModelForm has no model class specified.
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /delivery
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 752, in Delivery
+    deliveries = Delivery.objects.all()
+                 ^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'objects'
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /delivery
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 752, in DeliveryCrud
+    deliveries = Delivery.objects.all()
+                 ^^^^^^^^
+NameError: name 'Delivery' is not defined
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /delivery
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 748, in DeliveryCrud
+    return redirect("delivery_list")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'delivery_list' not found. 'delivery_list' is not a valid view function or pattern name.
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /delivery
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 754, in DeliveryCrud
+    return render(request, "delivery.html",context=mydict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'searchDelivery' not found. 'searchDelivery' is not a valid view function or pattern name.
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /editDelivery/3
+Not Found: /editDelivery/3
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 189, in checkout
+    "subtotal":subtotal+order.delivery_fee
+                    ^^^^^
+UnboundLocalError: cannot access local variable 'order' where it is not associated with a value
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 135, in checkout
+    order.total = order.subtotal + order.delivery_fee
+                  ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'float' and 'decimal.Decimal'
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Forbidden (CSRF token from POST incorrect.): /checkout
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 136, in checkout
+    order.total = order.subtotal + Decimal(order.delivery_fee)
+                  ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'float' and 'decimal.Decimal'
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='sandbox.safaricom.co.ke', port=443) at 0x1d61ad95e80>, 'Connection to sandbox.safaricom.co.ke timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='sandbox.safaricom.co.ke', port=443): Max retries exceeded with url: /oauth/v1/generate?grant_type=client_credentials (Caused by ConnectTimeoutError(<HTTPSConnection(host='sandbox.safaricom.co.ke', port=443) at 0x1d61ad95e80>, 'Connection to sandbox.safaricom.co.ke timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 164, in checkout
+    response = stk_push(order.phone, int(order.total), order.id)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py", line 17, in stk_push
+    access_token = get_access_token()
+                   ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py", line 12, in get_access_token
+    response = requests.get(url, auth=(CONSUMER_KEY, CONSUMER_SECRET))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\requests\adapters.py", line 665, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='sandbox.safaricom.co.ke', port=443): Max retries exceeded with url: /oauth/v1/generate?grant_type=client_credentials (Caused by ConnectTimeoutError(<HTTPSConnection(host='sandbox.safaricom.co.ke', port=443) at 0x1d61ad95e80>, 'Connection to sandbox.safaricom.co.ke timed out. (connect timeout=None)'))
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"1392-45b2-b4c5-e70e747df7445494","CheckoutRequestID":"ws_CO_10032026163709640728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":9},{"Name":"MpesaReceiptNumber","Value":"UCABS8WRQK"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260310163722},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\appwork\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\appwork\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+Not Found: /{% static 'img/product/details/thumb-1.jpg
+Not Found: /{% static 'img/product/details/thumb-2.jpg
+Not Found: /{% static 'img/product/details/thumb-3.jpg
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"1392-45b2-b4c5-e70e747df7445980","CheckoutRequestID":"ws_CO_10032026170047001728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":9},{"Name":"MpesaReceiptNumber","Value":"UCABS8WXA1"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260310170056},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
+Watching for file changes with StatReloader

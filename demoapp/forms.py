@@ -1,9 +1,10 @@
 from django import forms
-from .models import Product
+from .models import Delivery, Product
 from .models import Category
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Order
+from django.db import models
 
 class CheckoutForm(forms.Form):
     first_name = forms.CharField(max_length=50,label="First Name",
@@ -83,3 +84,10 @@ class OrderForm(forms.ModelForm):
         if not method:
             raise forms.ValidationError("Select a payment method.")
         return method        
+
+
+class DeliveryForm(forms.ModelForm):
+
+    class Meta:
+        model = Delivery
+        fields = ['county', 'delivery_fee']        

@@ -43,5 +43,11 @@ urlpatterns=[
     path("updatePayment/<int:id>/",views.updatePayment,name="updatePayment"),
     path("updateOrderStatus/<int:id>/",views.updateOrderStatus,name="updateOrderStatus"),
     path("login",views.loginUser,name="login"),
-    path("createUser",views.createUser,name="createUser")
+    path("createUser",views.createUser,name="createUser"),
+    path("delivery",views.DeliveryCrud,name="delivery"),
+    path('deleteDelivery/<int:i>',views.deleteDelivery,name="deleteDelivery"),
+    path('searchDelivery',views.searchDelivery,name="searchDelivery"),
+    path('editDelivery/<int:i>',views.editDelivery,name="editDelivery"),
+    
+    
 ]
