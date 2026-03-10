@@ -190,10 +190,11 @@ def checkout(request):
                     [order.email],
                     fail_silently=True,
                 )
-                
+                print("sent successfully")
             except:
                 print("Failed to email")
-                pass
+                print("Email error:", e)
+                
             return redirect('ordersuccess')
 
         else:
