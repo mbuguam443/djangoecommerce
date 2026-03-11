@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render,redirect
 from django.http import HttpResponse,JsonResponse
 from django.db import transaction
 from django.contrib import messages
-from .models import Delivery, Order, OrderItem, Product
+from .models import CustomerProfile, Delivery, Order, OrderItem, Product
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 from .forms import CategoryForm, CheckoutForm, LoginForm, OrderForm,DeliveryForm
@@ -22,6 +22,7 @@ from django.db.models import Sum
 from decimal import Decimal
 from django.core.mail import send_mail
 from django.conf import settings
+from .models import Favorite, Product
 
 
 logger = logging.getLogger("mpesa")
@@ -96,7 +97,10 @@ def checkout(request):
     if not cart:
         messages.error(request, "Your cart is empty")
         return redirect("cart")
+    profile = None
 
+    if request.user.is_authenticated:
+        profile = CustomerProfile.objects.filter(user=request.user).first()
     if request.method == "POST":
         form = OrderForm(request.POST)
         if form.is_valid():
@@ -129,6 +133,20 @@ def checkout(request):
                 else:
                     messages.error(request, "Enter password to login or create an account")
                     return redirect("checkout")
+                
+            if request.user.is_authenticated:
+                profile, created = CustomerProfile.objects.get_or_create(user=request.user)
+                profile.first_name = request.POST.get("first_name")
+                profile.last_name = request.POST.get("last_name")
+                profile.email = request.POST.get("email")
+                profile.phone = request.POST.get("phone")
+                profile.country = request.POST.get("country")
+                profile.address = request.POST.get("address")
+                profile.city = request.POST.get("city")
+                profile.state = request.POST.get("state")
+                profile.zip_code = request.POST.get("zip_code")
+
+                profile.save()        
             # Calculate subtotal
             subtotal = sum(float(item['total']) for item in cart.values())
             
@@ -156,8 +174,8 @@ def checkout(request):
             for key, item in cart.items():
                 product = Product.objects.get(id=key)
                 if product.stock < item['quantity']:
-                    messages.error(request, f"Not enough stock for {product.name}")
-                    return redirect("cart")
+                    messages.error(request, f"Not enough stock for {product.name} reduce quantity in cart")
+                    return redirect("checkout")
                 product.stock -= item['quantity']
                 product.save()
                 OrderItem.objects.create(
@@ -201,12 +219,23 @@ def checkout(request):
                 print("sent successfully")
             except Exception as e:
                 print("Email error:", e)
-                
+            
             return redirect('ordersuccess')
 
         else:
+            profile=None
+            subtotal = sum(float(item['total']) for item in cart.values())
+            if request.user.is_authenticated:
+                profile = CustomerProfile.objects.filter(user=request.user).first()
             # Form errors automatically available in template
-            return render(request, "checkout.html", {"form": form})
+            mydict={
+                    "allCategory":Category.objects.all(),
+                    "Delivery_list" :Delivery.objects.all(),
+                    "profile": profile,
+                    "subtotal":subtotal,
+                    "form": form    
+                }
+            return render(request, "checkout.html", context=mydict)
 
     else:
         form = OrderForm()
@@ -216,6 +245,7 @@ def checkout(request):
     mydict={
          "allCategory":Category.objects.all(),
          "Delivery_list" :Delivery.objects.all(),
+         "profile": profile,
          "subtotal":subtotal    
     }    
     return render(request, "checkout.html", context=mydict)
@@ -395,7 +425,7 @@ def AddCart(request):
     mydict={
          "Product":product
     }
-    return render(request,'shop-details.html',context=mydict)
+    return redirect('cart')
     #return redirect(request.META.get('HTTP_REFERER', '/'))
 
 def removeProductCart(request,i):
@@ -828,4 +858,20 @@ def searchDelivery(request):
     mydict={
               "deliveries":Delivery.objects.filter(county__contains=query)
            }    
-    return render(request,'delivery.html',context=mydict)    
+    return render(request,'delivery.html',context=mydict)  
+
+
+def toggle_favorite(request, product_id):
+
+    product = get_object_or_404(Product, id=product_id)
+
+    fav = Favorite.objects.filter(user=request.user, product=product)
+
+    if fav.exists():
+        fav.delete()
+    else:
+        Favorite.objects.create(user=request.user, product=product)
+
+    return redirect(request.META.get('HTTP_REFERER'))      
+
+    

@@ -91,3 +91,5 @@ class DeliveryForm(forms.ModelForm):
     class Meta:
         model = Delivery
         fields = ['county', 'delivery_fee']        
+
+        

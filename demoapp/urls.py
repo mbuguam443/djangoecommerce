@@ -48,6 +48,7 @@ urlpatterns=[
     path('deleteDelivery/<int:i>',views.deleteDelivery,name="deleteDelivery"),
     path('searchDelivery',views.searchDelivery,name="searchDelivery"),
     path('editDelivery/<int:i>',views.editDelivery,name="editDelivery"),
+    path("favorite/<int:product_id>/", views.toggle_favorite, name="favorite")
     
     
 ]
