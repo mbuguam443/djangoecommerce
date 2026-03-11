@@ -3141,3 +3141,13 @@ Watching for file changes with StatReloader
 C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
 Watching for file changes with StatReloader
 MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"0c29-411a-9fcf-371477d2670816637","CheckoutRequestID":"ws_CO_11032026051426970728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":12},{"Name":"MpesaReceiptNumber","Value":"UCBBS8YEGL"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260311051436},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+Watching for file changes with StatReloader
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-1.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-2.jpg
+Not Found: /detail/{% static 'img/product/details/thumb-3.jpg
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"318f-40d0-8166-36881ce4a12b1651","CheckoutRequestID":"ws_CO_11032026053822367728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":12},{"Name":"MpesaReceiptNumber","Value":"UCBBS8YIIX"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260311053832},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
+Watching for file changes with StatReloader

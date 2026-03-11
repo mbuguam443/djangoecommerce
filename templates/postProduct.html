@@ -161,7 +161,7 @@
                                         <h5>{{product.stock}}</h5>
                                     </td>
                                     <td class="shoping__cart__item">
-                                        {% if product.available %}
+                                        {% if product.stock > 0 %}
                                         <h5>In stock</h5>
                                         {% else%}
                                         <h5>Out of Stock</h5>
