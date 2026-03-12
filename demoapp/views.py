@@ -786,17 +786,21 @@ def loginUser(request):
         password = form.cleaned_data["password"]
            
         user_obj = User.objects.filter(email=email).first()
-        user = authenticate(request, username=user_obj.username, password=password)
+        if user_obj is not None:
+            user = authenticate(request, username=user_obj.username, password=password)
 
-        if user is not None:
-            login(request, user)
-            if user.is_staff :
-                return redirect("Allorders")
+            if user is not None:
+                login(request, user)
+                if user.is_staff :
+                    return redirect("Allorders")
+                else:
+                    return redirect("clientorder")
             else:
-                return redirect("clientorder")
+                messages.success(request, "User Login Failed")
+                return redirect('login')
         else:
-            messages.success(request, "User Login Failed")
-            return redirect('login')       
+                messages.success(request, "User Login Failed")
+                return redirect('login')           
             
             
     mydict={
