@@ -23,6 +23,7 @@ from decimal import Decimal
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import Favorite, Product
+from django.db.models.functions import TruncDay
 
 
 logger = logging.getLogger("mpesa")
@@ -708,8 +709,12 @@ def Allorders(request):
     paginator = Paginator(orders, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    
+    
+    if status:
+        orders = orders.filter(payment_status=status)
 
-    total_sales = Order.objects.filter(payment_status="paid").aggregate(
+    total_sales = orders.aggregate(
         total_sales=Sum('total')
     )['total_sales'] or 0
 
@@ -1065,3 +1070,28 @@ def receipt(request):
         "order": order
     }
     return render(request,'receipt.html',context)    
+
+def sales_data(request):
+
+    sales = (
+        Order.objects
+        .annotate(day=TruncDay('created_at'))
+        .values('day')
+        .annotate(total=Sum('total'))
+        .order_by('day')
+    )
+
+    labels = []
+    data = []
+
+    for s in sales:
+        labels.append(s["day"].strftime("%d %b"))
+        data.append(float(s["total"]))
+
+    return JsonResponse({
+        "labels": labels,
+        "data": data
+    })    
+
+def dashboard(request):
+    return render(request,'dashboard.html')    

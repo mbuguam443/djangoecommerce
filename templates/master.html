@@ -71,12 +71,14 @@
                 <li><a href="#">Pages</a>
                     {% if request.user.is_authenticated and request.user.is_staff %}
                     <ul class="header__menu__dropdown">
+                        
                         <li><a href="{% url 'addCategory' %}">Add Category</a></li>
                         <li><a href="{% url 'postproduct' %}">Add Product</a></li>
                         <li><a href="{% url 'Allorders' %}">View All Orders</a></li>
                         <li><a href="{% url 'createUser' %}">createUser</a></li>
                         <li><a href="{% url 'delivery' %}">Add Delivery</a></li>
                         <li><a href="{% url 'pos' %}">POS</a></li>
+                        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
                     </ul>
                     {% endif %}
                     {% if request.user.is_authenticated and not request.user.is_staff  %}
@@ -179,6 +181,7 @@
                                     <li><a href="{% url 'createUser' %}">createUser</a></li>
                                     <li><a href="{% url 'delivery' %}">Add Delivery</a></li>
                                     <li><a href="{% url 'pos' %}">POS</a></li>
+                                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
                                 </ul>
                                 {% endif %}
                                 {% if request.user.is_authenticated and not request.user.is_staff %}
@@ -353,7 +356,43 @@
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script>
 
+let chart;
+
+function loadChart(){
+
+fetch("/sales-data/")
+.then(response => response.json())
+.then(data => {
+
+    if(chart){
+        chart.destroy()
+    }
+
+    const ctx = document.getElementById("salesChart");
+
+    chart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: data.labels,
+            datasets: [{
+                label: "Daily Sales",
+                data: data.data
+            }]
+        }
+    })
+
+})
+
+}
+
+setInterval(function(){
+    loadChart()
+}, 5000)
+
+</script>
 
 </body>
 
