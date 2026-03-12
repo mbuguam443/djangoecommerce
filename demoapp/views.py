@@ -785,7 +785,7 @@ def loginUser(request):
         email = form.cleaned_data["email"]
         password = form.cleaned_data["password"]
            
-        user_obj = User.objects.get(email=email)
+        user_obj = User.objects.filter(email=email).first()
         user = authenticate(request, username=user_obj.username, password=password)
 
         if user is not None:
