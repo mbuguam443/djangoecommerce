@@ -196,7 +196,7 @@ def checkout(request):
                 if not order.phone.startswith("254"):
                     messages.success(request, "Phone must start with 254 to use mpesa")
                     return redirect('checkout')
-                response = stk_push(order.phone, int(order.total), order.id)
+                response = stk_push(request,order.phone, int(order.total), order.id)
                 if response.get('ResponseCode') == '0':
                     order.checkout_request_id = response.get("CheckoutRequestID")
                     order.save()
@@ -220,7 +220,7 @@ def checkout(request):
             except Exception as e:
                 print("Email error:", e)
             
-            return redirect('ordersuccess')
+            return redirect('clientorder')
 
         else:
             profile=None
@@ -556,7 +556,7 @@ def submitOrder(request):
             # Redirect to pending/payment page
             phone = order.phone
             amount = int(order.total)
-            response = stk_push(phone, amount, order.id)
+            response = stk_push(request,phone, amount, order.id)
             if response.get('ResponseCode') == '0':
                 checkout_id = response.get("CheckoutRequestID")
                 order.checkout_request_id = checkout_id
@@ -687,20 +687,38 @@ def mpesa_callback(request):
 @staff_member_required(login_url='login')  # redirect non-staff users
 def Allorders(request):
     orders = Order.objects.all().order_by('-created_at')
+
+    status = request.GET.get('status')
+    query = request.GET.get('query')
+
+    if status:
+        orders = orders.filter(payment_status=status)
+
+    if query:
+        orders = orders.filter(
+            Q(first_name__icontains=query) |
+            Q(last_name__icontains=query) |
+            Q(created_at__icontains=query) |
+            Q(id__icontains=query)
+        )
+
     for order in orders:
-        order.num_items = order.items.count()  # count related OrderItems
-    paginator = Paginator(orders, 6)  # Show 10 orders per page
+        order.num_items = order.items.count()
 
-    page_number = request.GET.get('page')  # Get the page number from query params
-    page_obj = paginator.get_page(page_number)  # Returns the page object
+    paginator = Paginator(orders, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
-    total_sales = Order.objects.filter(payment_status="paid").aggregate(total_sales=Sum('total'))['total_sales'] or 0
+    total_sales = Order.objects.filter(payment_status="paid").aggregate(
+        total_sales=Sum('total')
+    )['total_sales'] or 0
 
-    mydict={
-        'orders':page_obj,
+    context = {
+        "orders": page_obj,
         "total_sales": total_sales
     }
-    return render(request,'Allorders.html',context=mydict)  
+
+    return render(request, "Allorders.html", context)
 
 def Adminorderdetail(request,order_id):
     order = get_object_or_404(Order, id=order_id,)
@@ -872,6 +890,155 @@ def toggle_favorite(request, product_id):
     else:
         Favorite.objects.create(user=request.user, product=product)
 
-    return redirect(request.META.get('HTTP_REFERER'))      
+    return redirect(request.META.get('HTTP_REFERER'))     
+
+@staff_member_required(login_url='login')  # redirect non-staff users
+def pos(request):
+    cart = request.session.get('poscart', {})
+    subtotal = 0
+    for item in cart.values():
+        subtotal += int(item['quantity']) * float(item['price']) 
+    mydict={
+         "subtotal":subtotal    
+    }
+    return render(request,'pos.html',context=mydict)
+@staff_member_required(login_url='login')  # redirect non-staff users
+def AddPosCart(request):
+    
+
+    productname=request.POST['searchProduct']
+    
+    try:
+        product = Product.objects.get(name=productname)
+        cart = request.session.get('poscart', {})
+
+        if str(product.id) in cart:
+            cart[str(product.id)]['quantity'] += 1
+        else:
+        
+            cart[str(product.id)] = {
+                    'name': product.name,
+                    'price': float(product.price),
+                    'quantity': 1,
+                    "image": product.image.url if product.image else "",
+                    "total":float(product.price)*1
+            }
+        cart[str(product.id)]['total'] = cart[str(product.id)]['quantity'] * cart[str(product.id)]['price']
+        request.session['poscart'] = cart
+        request.session.modified = True
+
+    except Product.DoesNotExist:
+        product = None
+        messages.success(request, "Product Not Found")
+    
 
     
+   
+    return redirect('pos')
+    #return redirect(request.META.get('HTTP_REFERER', '/'))
+@staff_member_required(login_url='login')  # redirect non-staff users
+def removePosProductCart(request,i):
+    cart = request.session.get('poscart', {})
+    product_id = str(i)
+    if product_id in cart:
+        del cart[product_id]
+    request.session['poscart'] = cart
+    request.session.modified = True  # important
+
+    return redirect('pos')  # redirect to cart page    
+
+def update_poscart(request):
+    cart = request.session.get('poscart', {})
+    if request.method == "POST":
+        
+        
+         
+        for key,item in cart.items():
+            quantity = request.POST.get(f'quantity_{key}')
+
+            if quantity:
+                quantity = int(quantity)
+                cart[key]['quantity'] = quantity
+                cart[key]['total'] = quantity * float(cart[key]['price'])
+            
+        request.session['poscart'] = cart
+        request.session.modified = True  
+
+    return redirect('pos')    
+        
+@staff_member_required(login_url='login')  # redirect non-staff users
+def pos_checkout(request):
+    cart = request.session.get('poscart', {})
+    if not cart:
+        messages.error(request, "Your cart is empty")
+        return redirect("pos")
+    
+    if request.method == "POST":
+               
+            # Calculate subtotal
+            subtotal = sum(float(item['total']) for item in cart.values())
+           
+            # Create order
+            order = Order.objects.create(
+                subtotal=subtotal,
+                total=subtotal,
+                payment_method=request.POST.get("payment_method"),
+                is_paid=False,
+                is_pos=True
+            )
+            # Create OrderItems & update stock
+            for key, item in cart.items():
+                product = Product.objects.get(id=key)
+                if product.stock < item['quantity']:
+                    messages.error(request, f"Not enough stock for {product.name} reduce quantity in cart")
+                    return redirect("checkout")
+                product.stock -= item['quantity']
+                product.save()
+                OrderItem.objects.create(
+                    order=order,
+                    product=product,
+                    price=item['price'],
+                    quantity=item['quantity']
+                )
+
+            if order.payment_method == "cash":
+                order.payment_status="paid"
+                order.delivery_status="delivered"
+                order.is_paid = True
+                order.save()
+                messages.success(request, "Posted Successfully")
+            elif order.payment_method == "mpesa":
+                order.phone=request.POST.get("phone")
+                if not order.phone.startswith("254"):
+                    messages.success(request, "Phone must start with 254 to use mpesa")
+                    return redirect('pos')
+                response = stk_push(request,order.phone, int(order.total), order.id)
+                if response.get('ResponseCode') == '0':
+                    order.checkout_request_id = response.get("CheckoutRequestID")
+                    order.save()
+                    messages.success(request, "STK push initiated")
+                else:
+                    messages.error(request, f"Payment failed. Try again. Response: {response}")
+                    return redirect("pos")
+
+            # Clear cart
+            del request.session['poscart']
+            request.session.modified = True
+            try:
+                #send_mail(
+                #    "Order Confirmation",
+                #   f"Hello {order.first_name}, your order has been received. Total: Ksh {order.total}",
+                #    settings.EMAIL_HOST_USER,
+                #    [order.email],
+                #    fail_silently=True,
+                #)
+                print("sent successfully")
+            except Exception as e:
+                print("Email error:", e)
+            
+            return redirect('pos')
+    subtotal = 0
+    for item in cart.values():
+        subtotal += int(item['quantity']) * float(item['price'])     
+     
+    return redirect('pos')    

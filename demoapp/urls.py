@@ -48,7 +48,17 @@ urlpatterns=[
     path('deleteDelivery/<int:i>',views.deleteDelivery,name="deleteDelivery"),
     path('searchDelivery',views.searchDelivery,name="searchDelivery"),
     path('editDelivery/<int:i>',views.editDelivery,name="editDelivery"),
-    path("favorite/<int:product_id>/", views.toggle_favorite, name="favorite")
+    path("favorite/<int:product_id>/", views.toggle_favorite, name="favorite"),
+    #pos implementation
+    path("pos",views.pos,name="pos"),
+    path("AddPosCart",views.AddPosCart,name="AddPosCart"),
+    #removePosProductCart
+    path('removePosProductCart/<int:i>',views.removePosProductCart,name="removePosProductCart"),
+    #update_poscart
+    path('update_poscart', views.update_poscart, name='update_poscart'),
+    #pos_checkout
+    path('pos_checkout',views.pos_checkout,name="pos_checkout"),
+
     
     
 ]

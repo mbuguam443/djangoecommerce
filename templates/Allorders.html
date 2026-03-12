@@ -21,19 +21,20 @@
 <!-- Breadcrumb Section End -->
   <section class="shoping-cart spad">
         <div class="container">
-            <form action="{% url 'searchOrder' %}">
+            <form action="{% url 'Allorders' %}">
                 <div class="row mt-5">
 
                     <div class="col-lg-3"></div>
                     <div class="col-lg-3">
                         <select name="status" id="">
+                            <option value="">All</option>
                             <option value="pending">pending</option>
-                            <option value="pending">paid</option>
+                            <option value="paid">paid</option>
                             
                         </select>
                     </div>
                     <div class="col-lg-3">
-                        <input type="date" class="form-control" placeholder="Search Order" name="query">
+                        <input type="text" class="form-control" placeholder="Search Order or YYYY-MM-DD" name="query">
                     </div>
                     <div class="col-lg-3">
                         <button type="submit" class="site-btn">Search</button>
@@ -68,7 +69,11 @@
                                         <h5>{{ order.total }}Ksh</h5>
                                     </td>
                                     <td class="shoping__cart__item">
+                                        {% if not order.is_pos %}
                                         <h5>{{ order.first_name }} {{ order.last_name }}</h5>
+                                        {% else %}
+                                        <h5>Counter Order</h5>
+                                        {% endif %}
                                     </td>
                                     <td class="shoping__cart__item">
                                         <h5>{{ order.num_items }}</h5>

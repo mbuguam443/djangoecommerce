@@ -13,7 +13,7 @@ def get_access_token():
     return response.json()['access_token']
 
 
-def stk_push(phone, amount, order_id):
+def stk_push(request,phone, amount, order_id):
     access_token = get_access_token()
 
     url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
@@ -34,12 +34,12 @@ def stk_push(phone, amount, order_id):
         "PartyA": phone,
         "PartyB": SHORTCODE,
         "PhoneNumber": phone,
-        "CallBackURL": "https://djangoecommerce-94z3.onrender.com/callback",
-        #"CallBackURL":"https://313c-102-210-247-38.ngrok-free.app/callback",
+        "CallBackURL": "https://7d07-102-203-142-142.ngrok-free.app/callback",
+        #"CallBackURL":request.build_absolute_uri('/callback/'),
         "AccountReference": f"Order{order_id}",
         "TransactionDesc": "Payment for order"
     }
-
+    print(request.build_absolute_uri('/callback/'))
     try:
         response = requests.post(url, json=payload, headers=headers, timeout=10)
         try:
