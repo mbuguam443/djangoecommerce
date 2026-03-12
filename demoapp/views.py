@@ -804,13 +804,17 @@ def loginUser(request):
         }
     return render(request,'login.html',context=mydict)    
 
-@staff_member_required(login_url='login')  # redirect non-staff users
+#staff_member_required(login_url='login')  # redirect non-staff users
 def createUser(request):
     form = RegisterForm(request.POST)
     if request.method == "POST":
+        
         if form.is_valid():
             user = form.save(commit=False)   # don't save yet
             user.is_staff = True             # make user staff
+            if User.objects.filter(email=user.email).exists():
+                messages.error(request, "Email already exists")
+                return redirect("createUser")
             user.save()                      # now save
             messages.success(request, "User Created successfully")
             return redirect('createUser')
