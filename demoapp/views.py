@@ -1042,3 +1042,6 @@ def pos_checkout(request):
         subtotal += int(item['quantity']) * float(item['price'])     
      
     return redirect('pos')    
+
+def receipt(request):
+    return render(request,'receipt.html')    

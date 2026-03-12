@@ -58,7 +58,7 @@ urlpatterns=[
     path('update_poscart', views.update_poscart, name='update_poscart'),
     #pos_checkout
     path('pos_checkout',views.pos_checkout,name="pos_checkout"),
-
+    path("receipt",views.receipt,name="receipt")
     
     
 ]
