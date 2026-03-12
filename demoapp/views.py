@@ -784,8 +784,9 @@ def loginUser(request):
 
         email = form.cleaned_data["email"]
         password = form.cleaned_data["password"]
-
-        user = authenticate(request, username=email, password=password)
+           
+        user_obj = User.objects.get(email=email)
+        user = authenticate(request, username=user_obj.username, password=password)
 
         if user is not None:
             login(request, user)
@@ -1007,6 +1008,9 @@ def pos_checkout(request):
                 order.is_paid = True
                 order.save()
                 messages.success(request, "Posted Successfully")
+                del request.session['poscart']
+                request.session.modified = True
+                return redirect('receipt')
             elif order.payment_method == "mpesa":
                 order.phone=request.POST.get("phone")
                 if not order.phone.startswith("254"):
@@ -1016,7 +1020,10 @@ def pos_checkout(request):
                 if response.get('ResponseCode') == '0':
                     order.checkout_request_id = response.get("CheckoutRequestID")
                     order.save()
-                    messages.success(request, "STK push initiated")
+                    messages.success(request, "STK push initiated please enter pin to pay")
+                    del request.session['poscart']
+                    request.session.modified = True
+                    return redirect('receipt')
                 else:
                     messages.error(request, f"Payment failed. Try again. Response: {response}")
                     return redirect("pos")
@@ -1044,4 +1051,9 @@ def pos_checkout(request):
     return redirect('pos')    
 
 def receipt(request):
-    return render(request,'receipt.html')    
+    order = Order.objects.order_by("-created_at").first()  
+
+    context = {
+        "order": order
+    }
+    return render(request,'receipt.html',context)    

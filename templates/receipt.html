@@ -61,31 +61,22 @@ Tel: 0728 627 678
 <hr>
 
 <p>
-Receipt #: 10045<br>
-Date: 12/03/2026<br>
+Receipt Order#: {{ order.id }}<br>
+Date: {{ order.created_at }}<br>
 Cashier: John
 </p>
 
 <hr>
 
 <table>
-<tr>
-<td>Bread</td>
-<td align="center">1</td>
-<td align="right">60</td>
-</tr>
+    {% for item in order.items.all %}
+        <tr>
+        <td>{{ item.product.name }}</td>
+        <td align="center">x{{ item.quantity }}</td>
+        <td align="right">{{ item.price }}</td>
+        </tr>
+    {% endfor %}
 
-<tr>
-<td>Milk</td>
-<td align="center">2</td>
-<td align="right">120</td>
-</tr>
-
-<tr>
-<td>Sugar</td>
-<td align="center">1</td>
-<td align="right">150</td>
-</tr>
 </table>
 
 <hr>
@@ -94,7 +85,7 @@ Cashier: John
 <tr class="total">
 <td>Total</td>
 <td></td>
-<td align="right">330</td>
+<td align="right">{{ item.price }}</td>
 </tr>
 </table>
 
