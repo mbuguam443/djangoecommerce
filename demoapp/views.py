@@ -207,7 +207,7 @@ def checkout(request):
                     return redirect("checkout")
 
             # Clear cart
-            del request.session['cart']
+            request.session.pop('cart', None)
             request.session.modified = True
             try:
                 #send_mail(
@@ -569,7 +569,7 @@ def submitOrder(request):
             
             
         # Clear cart
-        del request.session['cart']
+        request.session.pop('cart', None)
         request.session.modified = True
 
         return redirect('ordersuccess')  # you can create a success page
@@ -1021,7 +1021,7 @@ def pos_checkout(request):
                 order.is_paid = True
                 order.save()
                 messages.success(request, "Posted Successfully")
-                del request.session['poscart']
+                request.session.pop('poscart', None)
                 request.session.modified = True
                 return redirect('receipt')
             elif order.payment_method == "mpesa":
@@ -1034,7 +1034,7 @@ def pos_checkout(request):
                     order.checkout_request_id = response.get("CheckoutRequestID")
                     order.save()
                     messages.success(request, "STK push initiated please enter pin to pay")
-                    del request.session['poscart']
+                    request.session.pop('poscart', None)
                     request.session.modified = True
                     return redirect('receipt')
                 else:
@@ -1042,7 +1042,7 @@ def pos_checkout(request):
                     return redirect("pos")
 
             # Clear cart
-            del request.session['poscart']
+            request.session.pop('poscart', None)
             request.session.modified = True
             try:
                 #send_mail(
