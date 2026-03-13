@@ -24,6 +24,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .models import Favorite, Product
 from django.db.models.functions import TruncDay
+from django.db.models import F, Sum
 
 
 logger = logging.getLogger("mpesa")
@@ -719,9 +720,20 @@ def Allorders(request):
         total_sales=Sum('total')
     )['total_sales'] or 0
 
+    profit = OrderItem.objects.filter(order__in=orders).aggregate(
+                    profit=Sum((F('price') - F('product__cost_price')) * F('quantity'))
+                )['profit'] or 0
+
+    total_cost = OrderItem.objects.filter(
+                            order__in=orders
+                                    ).aggregate(
+                                        total_cost=Sum(F('product__cost_price') * F('quantity'))
+                                    )['total_cost'] or 0            
     context = {
         "orders": page_obj,
-        "total_sales": total_sales
+        "total_sales": total_sales,
+        "profit":profit,
+        "total_cost":total_cost
     }
 
     return render(request, "Allorders.html", context)
