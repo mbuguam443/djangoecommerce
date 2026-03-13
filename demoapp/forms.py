@@ -53,7 +53,7 @@ class LoginForm(forms.Form):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['category', 'name', 'description', 'price', 'weight', 'stock', 'available', 'image']
+        fields = ['category', 'name', 'description','price','cost_price', 'weight', 'stock', 'available', 'image']
         # No widgets → default HTML elements will be rendered, your theme will style them    
 
 class CategoryForm(forms.ModelForm):

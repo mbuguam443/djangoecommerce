@@ -282,7 +282,8 @@ def postproduct(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            messages.success(request, "Posted successfully")
+            return redirect('postproduct')
     else:
         form = ProductForm()
     product_list = Product.objects.all()
