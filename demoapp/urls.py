@@ -60,7 +60,8 @@ urlpatterns=[
     path('pos_checkout',views.pos_checkout,name="pos_checkout"),
     path("receipt",views.receipt,name="receipt"),
     path("sales-data/", views.sales_data, name="sales_data"),
-    path("dashboard", views.dashboard, name="dashboard")
+    path("dashboard", views.dashboard, name="dashboard"),
+    path("confirmPayment/<str:checkid>",views.confirmPayment,name="confirmPayment")
 
     
     

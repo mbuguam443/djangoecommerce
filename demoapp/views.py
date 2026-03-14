@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.shortcuts import get_object_or_404, render,redirect
 from django.http import HttpResponse,JsonResponse
 from django.db import transaction
@@ -7,12 +9,12 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 from .forms import CategoryForm, CheckoutForm, LoginForm, OrderForm,DeliveryForm
 from django.contrib.auth.decorators import login_required
-from .mpesa import stk_push
+from .mpesa import stk_push, stk_query
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 import json
 import logging
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.core.paginator import Paginator
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
@@ -184,6 +186,7 @@ def checkout(request):
                     order=order,
                     product=product,
                     price=item['price'],
+                    cost_price=item['cost_price'],
                     quantity=item['quantity']
                 )
 
@@ -418,6 +421,7 @@ def AddCart(request):
         cart[str(productid)] = {
             'name': product.name,
             'price': float(product.price),
+            'cost_price':float(product.cost_price),
             'quantity': quantity,
             "image": product.image.url if product.image else "",
             "total":float(product.price)*1
@@ -545,6 +549,7 @@ def submitOrder(request):
                 order=order,
                 product=product,
                 price=item['price'],
+                cost_price=item['cost_price'],
                 quantity=item['quantity']
             )
 
@@ -708,6 +713,12 @@ def Allorders(request):
     for order in orders:
         order.num_items = order.items.count()
 
+    for order in orders:
+        print("Order:", order.id, "Delivery:", order.delivery_fee)
+
+        for item in order.items.all():
+            print(item.price, item.cost_price, item.quantity)    
+
     paginator = Paginator(orders, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -721,19 +732,23 @@ def Allorders(request):
     )['total_sales'] or 0
 
     profit = OrderItem.objects.filter(order__in=orders).aggregate(
-                    profit=Sum((F('price') - F('product__cost_price')) * F('quantity'))
+                    profit=Sum((F('price') - F('cost_price')) * F('quantity'))
                 )['profit'] or 0
 
     total_cost = OrderItem.objects.filter(
                             order__in=orders
                                     ).aggregate(
-                                        total_cost=Sum(F('product__cost_price') * F('quantity'))
-                                    )['total_cost'] or 0            
+                                        total_cost=Sum(F('cost_price') * F('quantity'))
+                                    )['total_cost'] or 0    
+    delivery_total = orders.aggregate(
+                            total_delivery=Sum('delivery_fee')
+                        )['total_delivery'] or 0        
     context = {
         "orders": page_obj,
         "total_sales": total_sales,
         "profit":profit,
-        "total_cost":total_cost
+        "total_cost":total_cost,
+        "delivery_total":delivery_total
     }
 
     return render(request, "Allorders.html", context)
@@ -925,8 +940,50 @@ def pos(request):
     subtotal = 0
     for item in cart.values():
         subtotal += int(item['quantity']) * float(item['price']) 
-    mydict={
-         "subtotal":subtotal    
+
+    orders = Order.objects.all().order_by('-created_at')
+
+    
+    query = date.today()
+
+
+    orders = orders.filter(created_at__date=query)
+
+    orders = orders.annotate(num_items=Count('items'))
+
+    paginator = Paginator(orders, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    for order in orders:
+        print("Order:", order.id, "Delivery:", order.delivery_fee)
+
+        for item in order.items.all():
+            print(item.price, item.cost_price, item.quantity)
+ 
+    total_sales = orders.aggregate(
+                total_sales=Sum('total')
+                    )['total_sales'] or 0
+
+    stats = OrderItem.objects.filter(order__in=orders).aggregate(
+                        total_cost=Sum(F('cost_price') * F('quantity')),
+                        profit=Sum((F('price') - F('cost_price')) * F('quantity'))
+                    )
+
+    delivery_total = orders.aggregate(
+                            total_delivery=Sum('delivery_fee')
+                        )['total_delivery'] or 0 
+
+    total_cost = stats['total_cost'] or 0
+    profit = stats['profit'] or 0 
+
+    mydict = {
+        "orders": page_obj,
+        "total_sales": total_sales,
+        "profit":profit,
+        "total_cost":total_cost,
+        "subtotal":subtotal,
+        "delivery_total":delivery_total
     }
     return render(request,'pos.html',context=mydict)
 @staff_member_required(login_url='login')  # redirect non-staff users
@@ -946,6 +1003,7 @@ def AddPosCart(request):
             cart[str(product.id)] = {
                     'name': product.name,
                     'price': float(product.price),
+                    'cost_price':float(product.cost_price),
                     'quantity': 1,
                     "image": product.image.url if product.image else "",
                     "total":float(product.price)*1
@@ -1025,6 +1083,7 @@ def pos_checkout(request):
                     order=order,
                     product=product,
                     price=item['price'],
+                    cost_price=item['cost_price'],
                     quantity=item['quantity']
                 )
 
@@ -1108,3 +1167,26 @@ def sales_data(request):
 
 def dashboard(request):
     return render(request,'dashboard.html')    
+
+
+
+def confirmPayment(request,checkid):
+    result = stk_query(checkid)
+    code = result.get("ResultCode")
+    order = Order.objects.get(checkout_request_id=checkid)
+    
+    if code == "0":
+        order.payment_status = "paid"
+
+    elif code == "1032":
+        order.payment_status = "failed"
+
+    elif code == "1037":
+        order.payment_status = "pending"
+
+    else:
+        order.payment_status = "pending"
+
+    order.save()
+    messages.success(request, result)
+    return redirect('Adminorderdetail',order.id)    

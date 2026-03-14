@@ -34,7 +34,7 @@ def stk_push(request,phone, amount, order_id):
         "PartyA": phone,
         "PartyB": SHORTCODE,
         "PhoneNumber": phone,
-        #"CallBackURL": "https://55a4-102-203-142-142.ngrok-free.app/callback",
+        #"CallBackURL": "https://0b4a-102-203-142-142.ngrok-free.app/callback",
         "CallBackURL":request.build_absolute_uri('/callback'),
         "AccountReference": f"Order{order_id}",
         "TransactionDesc": "Payment for order"
@@ -50,3 +50,31 @@ def stk_push(request,phone, amount, order_id):
     except requests.RequestException as e:
         print("MPESA request failed:", str(e))
         return {"ResponseCode": "999", "ResponseDescription": "MPESA request failed"}
+
+def stk_query(checkout_request_id):
+    access_token = get_access_token()
+    shortcode = "174379"
+    passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"
+
+    timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+
+    password = base64.b64encode(
+        (shortcode + passkey + timestamp).encode()
+    ).decode()
+
+    url = "https://sandbox.safaricom.co.ke/mpesa/stkpushquery/v1/query"
+
+    payload = {
+        "BusinessShortCode": shortcode,
+        "Password": password,
+        "Timestamp": timestamp,
+        "CheckoutRequestID": checkout_request_id
+    }
+
+    headers = {
+        "Authorization": f"Bearer {access_token}"
+    }
+
+    response = requests.post(url, json=payload, headers=headers, timeout=30)
+
+    return response.json()        
