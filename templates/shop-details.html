@@ -3,16 +3,16 @@
 {% block content%}
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb.jpg' %}">
+    <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb.png' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Vegetable’s Package</h2>
+                        <h2>Mejor Electronics</h2>
                         <div class="breadcrumb__option">
                             <a href="{% url 'index' %}">Home</a>
-                            <a href="{% url 'index' %}">Vegetables</a>
-                            <span>Vegetable’s Package</span>
+                            <a href="{% url 'index' %}">Details</a>
+                            <span>Sound systems and spares </span>
                         </div>
                     </div>
                 </div>
@@ -32,14 +32,14 @@
                                 src="{{ Product.image.url }}" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="{% static 'img/product/details/product-details-2.jpg' %}"
-                                src="{% static 'img/product/details/thumb-1.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-3.jpg' %}"
-                                src="{% static 'img/product/details/thumb-2.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-5.jpg' %}"
-                                src="{% static 'img/product/details/thumb-3.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-4.jpg' %}"
-                                src="{% static 'img/product/details/thumb-4.jpg' %}" alt="">
+                            <img data-imgbigurl="{{ Product.image.url }}"
+                                src="{{ Product.image.url }}" alt="">
+                            <img data-imgbigurl="{{ Product.image.url }}"
+                                src="{{ Product.image.url }}" alt="">
+                            <img data-imgbigurl="{{ Product.image.url }}"
+                                src="{{ Product.image.url }}" alt="">
+                            <img data-imgbigurl="{{ Product.image.url }}"
+                                src="{{ Product.image.url }} alt="">
                         </div>
                     </div>
                 </div>

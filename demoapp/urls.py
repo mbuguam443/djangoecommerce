@@ -64,7 +64,9 @@ urlpatterns=[
     path("confirmPayment/<str:checkid>",views.confirmPayment,name="confirmPayment"),
     path("result", views.b2c_result),
     path("timeout", views.b2c_timeout),
-    path("refund_order/<int:order_id>", views.refund_order, name="refund_test")
+    path("refund_order/<int:order_id>", views.refund_order, name="refund_test"),
+    path("addBlog",views.addBlog,name="addBlog"),
+    path("addVAT",views.addVAT,name="addVAT")
 
     
     

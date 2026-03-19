@@ -99,8 +99,8 @@ def send_b2c(phone, amount):
         "Remarks": "Refund",
         # "QueueTimeOutURL": "https://73da-102-203-143-208.ngrok-free.app/timeout",
         # "ResultURL": "https://73da-102-203-143-208.ngrok-free.app/result",
-        "QueueTimeOutURL": "https://73da-102-203-143-208.ngrok-free.app/timeout",
-        "ResultURL": "https://73da-102-203-143-208.ngrok-free.app/result",
+        "QueueTimeOutURL":"https://7ef6-105-164-47-90.ngrok-free.app/timeout",
+        "ResultURL": "https://7ef6-105-164-47-90.ngrok-free.app/result",
         "Occasion": "Order Refund"
     }
 

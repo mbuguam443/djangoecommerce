@@ -112,6 +112,7 @@ def checkout(request):
             data = form.cleaned_data
             email = data["email"]
             password = data.get("password")
+            createacc=data.get("createacc")
             user = None
 
             # Returning user logic
@@ -129,14 +130,12 @@ def checkout(request):
                     return redirect("checkout")
             else:
                 # Create account if password provided
-                if password:
+                if password and createacc:
                     user = User.objects.create_user(
                         username=email, email=email, password=password, is_staff=False
                     )
                     login(request, user)
-                else:
-                    messages.error(request, "Enter password to login or create an account")
-                    return redirect("checkout")
+                
                 
             if request.user.is_authenticated:
                 profile, created = CustomerProfile.objects.get_or_create(user=request.user)
@@ -173,7 +172,9 @@ def checkout(request):
             print("City for delivery:")    
             print(order.city.lower())
             order.total = Decimal(order.subtotal) + Decimal(order.delivery_fee)
-
+            if order.total <= 0:
+                messages.error(request, "Order total must be greater than 0")
+                return redirect("cart") 
             # Create OrderItems & update stock
             for key, item in cart.items():
                 product = Product.objects.get(id=key)
@@ -508,6 +509,9 @@ def submitOrder(request):
 
         # Calculate subtotal
         subtotal = sum(float(item['total']) for item in cart.values())
+        if subtotal <= 0:
+            messages.error(request, "Invalid cart total")
+            return redirect("cart")
         payment_method = request.POST.get("payment_method")
         print("Payment Method")
         print(payment_method)
@@ -1224,6 +1228,14 @@ def b2c_timeout(request):
     print("B2C TIMEOUT")
     print(data)
 
-    return JsonResponse({"ResultCode": 0, "ResultDesc": "Timeout received"})    
+    return JsonResponse({"ResultCode": 0, "ResultDesc": "Timeout received"})   
+
+def addBlog(request):
+    return render(request,'addBlog.html')    
+ 
+def addVAT(request):
+    return render(request,'addVAT.html')
+
+ 
     
 

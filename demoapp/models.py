@@ -109,6 +109,10 @@ class CustomerProfile(models.Model):
     zip_code = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.user.username    
+        return self.user.username  
+
+class VAT(models.Model):
+    name = models.CharField(max_length=50)
+    rate = models.DecimalField(max_digits=5, decimal_places=2)          
 
         
