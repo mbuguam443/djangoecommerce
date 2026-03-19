@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 from .forms import CategoryForm, CheckoutForm, LoginForm, OrderForm,DeliveryForm
 from django.contrib.auth.decorators import login_required
-from .mpesa import stk_push, stk_query
+from .mpesa import send_b2c, stk_push, stk_query
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 import json
@@ -1189,4 +1189,41 @@ def confirmPayment(request,checkid):
 
     order.save()
     messages.success(request, result)
-    return redirect('Adminorderdetail',order.id)    
+    return redirect('Adminorderdetail',order.id)
+
+def refund_order(request, order_id):
+
+    order = Order.objects.get(id=order_id)
+
+    phone = order.phone
+    amount = int(order.total)
+
+    response = send_b2c(phone, amount)
+
+    order.refund_status = True
+    order.save()
+
+    return JsonResponse(response)
+
+@csrf_exempt
+def b2c_result(request):
+
+    data = json.loads(request.body)
+
+    print("B2C RESULT")
+    print(data)
+
+    return JsonResponse({"ResultCode": 0, "ResultDesc": "Accepted"})
+
+
+@csrf_exempt
+def b2c_timeout(request):
+
+    data = json.loads(request.body)
+
+    print("B2C TIMEOUT")
+    print(data)
+
+    return JsonResponse({"ResultCode": 0, "ResultDesc": "Timeout received"})    
+    
+

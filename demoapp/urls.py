@@ -61,7 +61,10 @@ urlpatterns=[
     path("receipt",views.receipt,name="receipt"),
     path("sales-data/", views.sales_data, name="sales_data"),
     path("dashboard", views.dashboard, name="dashboard"),
-    path("confirmPayment/<str:checkid>",views.confirmPayment,name="confirmPayment")
+    path("confirmPayment/<str:checkid>",views.confirmPayment,name="confirmPayment"),
+    path("result", views.b2c_result),
+    path("timeout", views.b2c_timeout),
+    path("refund_order/<int:order_id>", views.refund_order, name="refund_test")
 
     
     

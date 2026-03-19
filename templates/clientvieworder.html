@@ -31,7 +31,8 @@
                                     <th class="shoping__product">Order#id</th>
                                     <th class="shoping__product">Order Total</th>
                                     <th class="shoping__product">Num of Prod</th>
-                                    <th class="shoping__product">Status</th>
+                                    <th class="shoping__product">Delivery Status</th>
+                                    <th class="shoping__product">Payment Status</th>
                                     <th class="shoping__product">created_at</th>
                                 </tr>
                             </thead>
@@ -48,6 +49,18 @@
                                     </td>
                                     <td class="shoping__cart__item">
                                         <h5>{{ order.num_items }}</h5>
+                                    </td>
+                                    <td class="shoping__cart__item">
+                                        
+                                               <h5>{% if order.delivery_status == "Delivered" %}
+                                                <div class="badge badge-success">
+                                                    {{order.delivery_status}}
+                                                </div>
+                                                
+                                                {% else %}
+                                                <div class="badge badge-warning">{{order.delivery_status}}</div>
+                                                {% endif %}</h5>
+                                       
                                     </td>
                                     <td class="shoping__cart__item">
                                         

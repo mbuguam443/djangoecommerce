@@ -5,7 +5,7 @@ from django.shortcuts import redirect, get_object_or_404
 # Create your models here.
 class Category(models.Model):
     name=models.CharField(max_length=200)
-    image = models.ImageField(upload_to="category/",default='default.jpg')
+    image = models.ImageField(upload_to="category/",default='default.jpeg')
     created_at=models.DateTimeField(auto_now_add=True)
     
 class Product(models.Model):

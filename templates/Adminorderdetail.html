@@ -3,7 +3,7 @@
 {% block content %}
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb.jpg' %}">
+<section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb.png' %}">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12 text-center">
@@ -110,6 +110,7 @@
         </div>
         
                 <a href="/confirmPayment/{{order.checkout_request_id}}">Confirm Payment</a>
+                <a href="/refund_order/{{order.id}}">Refund Payment</a>
           
         <form action="{% url 'searchProduct' %}">
                 <div class="row mt-5">
