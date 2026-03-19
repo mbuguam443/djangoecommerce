@@ -130,7 +130,7 @@ def checkout(request):
                     return redirect("checkout")
             else:
                 # Create account if password provided
-                if password and createacc:
+                if password:
                     user = User.objects.create_user(
                         username=email, email=email, password=password, is_staff=False
                     )
