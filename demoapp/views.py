@@ -129,9 +129,9 @@ def checkout(request):
                         messages.error(request, "Incorrect password. Please login.")
                         return redirect("checkout")
                     login(request, user)
-                else:
-                    messages.error(request, "Password has an issue.")
-                    return redirect("checkout")
+                #else:
+                    #messages.error(request, "Password has an issue.")
+                    #return redirect("checkout")
             else:
                 # Create account if password provided
                 if password:
@@ -158,13 +158,13 @@ def checkout(request):
             subtotal = sum(float(item['total']) for item in cart.values())
             
             vat = subtotal * 0.16
-            subtotal=subtotal+vat
+            grandtotal=subtotal+vat
 
             # Create order
             order = Order.objects.create(
                 user=user,
                 subtotal=subtotal,
-                total=subtotal,
+                total=grandtotal,
                 is_paid=False,
                 **{field: data[field] for field in form.Meta.fields}
             )
@@ -176,7 +176,7 @@ def checkout(request):
                 order.delivery_fee = 5
             print("City for delivery:")    
             print(order.city.lower())
-            order.total = Decimal(order.subtotal) + Decimal(order.delivery_fee)
+            order.total = Decimal(order.subtotal) + Decimal(order.delivery_fee) + Decimal(vat)
             
             if order.total <= 0:
                 messages.error(request, "Order total must be greater than 0")
@@ -196,7 +196,7 @@ def checkout(request):
                     cost_price=item['cost_price'],
                     quantity=item['quantity']
                 )
-
+            
             # Payment handling (cash / mpesa)
             if order.payment_method =="pay_on_delivery":
                 order.is_paid = False
@@ -208,6 +208,8 @@ def checkout(request):
                 if not order.phone.startswith("254"):
                     messages.success(request, "Phone must start with 254 to use mpesa")
                     return redirect('checkout')
+                print("Mpesa Order Total") 
+                print(order.total)
                 response = stk_push(request,order.phone, int(order.total), order.id)
                 if response.get('ResponseCode') == '0':
                     order.checkout_request_id = response.get("CheckoutRequestID")

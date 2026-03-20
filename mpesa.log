@@ -4461,3 +4461,36 @@ Traceback (most recent call last):
 django.urls.exceptions.NoReverseMatch: Reverse for 'clientvieworder' not found. 'clientvieworder' is not a valid view function or pattern name.
 C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
 Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/transfermer1.jpeg alt=
+Not Found: /media/product/transfermer1.jpeg alt=
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"5a30-4f7b-8b9c-e036f29fb50121964","CheckoutRequestID":"ws_CO_20032026115612566728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":6.00},{"Name":"MpesaReceiptNumber","Value":"UCKBS9WKQO"},{"Name":"Balance","Value":0.00},{"Name":"TransactionDate","Value":20260320115626},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/transfermer1.jpeg alt=
+Not Found: /media/product/transfermer1.jpeg alt=
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"3624-4562-b995-6eaf6e556e256608","CheckoutRequestID":"ws_CO_20032026120559123728627678","ResultCode":1,"ResultDesc":"The balance is insufficient for the transaction."}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/transfermer1.jpeg alt=
+Not Found: /media/product/transfermer1.jpeg alt=
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"2bff-4dcc-bcd2-ae7d561c034511203","CheckoutRequestID":"ws_CO_20032026120938866728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":6.00},{"Name":"MpesaReceiptNumber","Value":"UCKBS9WIUA"},{"Name":"Balance","Value":0.00},{"Name":"TransactionDate","Value":20260320120956},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/transfermer1.jpeg alt=
+Not Found: /media/product/transfermer1.jpeg alt=
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"3624-4562-b995-6eaf6e556e256729","CheckoutRequestID":"ws_CO_20032026121137251728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":6.00},{"Name":"MpesaReceiptNumber","Value":"UCKBS9WIVI"},{"Name":"Balance","Value":0.00},{"Name":"TransactionDate","Value":20260320121156},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/transfermer1.jpeg alt=
+Not Found: /media/product/transfermer1.jpeg alt=
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"2bff-4dcc-bcd2-ae7d561c034511257","CheckoutRequestID":"ws_CO_20032026121248298728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":6.00},{"Name":"MpesaReceiptNumber","Value":"UCKBS9WO19"},{"Name":"Balance","Value":0.00},{"Name":"TransactionDate","Value":20260320121305},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
+Watching for file changes with StatReloader
