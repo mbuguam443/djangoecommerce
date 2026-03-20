@@ -98,9 +98,11 @@ def detail(request,i):
    
 def checkout(request):
     cart = request.session.get('cart', {})
+    
     if not cart:
         messages.error(request, "Your cart is empty")
         return redirect("cart")
+    
     profile = None
 
     if request.user.is_authenticated:
@@ -155,7 +157,8 @@ def checkout(request):
             # Calculate subtotal
             subtotal = sum(float(item['total']) for item in cart.values())
             
-            
+            vat = subtotal * 0.16
+            subtotal=subtotal+vat
 
             # Create order
             order = Order.objects.create(
@@ -174,6 +177,7 @@ def checkout(request):
             print("City for delivery:")    
             print(order.city.lower())
             order.total = Decimal(order.subtotal) + Decimal(order.delivery_fee)
+            
             if order.total <= 0:
                 messages.error(request, "Order total must be greater than 0")
                 return redirect("cart") 
@@ -236,11 +240,16 @@ def checkout(request):
             if request.user.is_authenticated:
                 profile = CustomerProfile.objects.filter(user=request.user).first()
             # Form errors automatically available in template
+            vat = subtotal * 0.16  # 16% VAT
+            grand_total = subtotal + vat
+
             mydict={
                     "allCategory":Category.objects.all(),
                     "Delivery_list" :Delivery.objects.all(),
                     "profile": profile,
                     "subtotal":subtotal,
+                    "vat":vat,
+                    "grand_total":grand_total,
                     "form": form    
                 }
             return render(request, "checkout.html", context=mydict)
@@ -249,11 +258,15 @@ def checkout(request):
         form = OrderForm()
     subtotal = 0
     for item in cart.values():
-        subtotal += int(item['quantity']) * float(item['price'])     
+        subtotal += int(item['quantity']) * float(item['price']) 
+    vat = subtotal * 0.16  # 16% VAT
+    grand_total = subtotal + vat        
     mydict={
          "allCategory":Category.objects.all(),
          "Delivery_list" :Delivery.objects.all(),
          "profile": profile,
+         "vat":vat,
+         "grand_total":grand_total,
          "subtotal":subtotal    
     }    
     return render(request, "checkout.html", context=mydict)
@@ -498,115 +511,7 @@ def update_cart(request):
 def mpesaapi(request):
     return HttpResponse("Am Mpesa Api guy")
 
-@transaction.atomic
-def submitOrder(request):
-    if request.method == "POST":
-        cart = request.session.get('cart', {})
-        if not cart:
-            messages.error(request, "Your cart is empty")
-            return redirect("cart")
 
-        email = request.POST.get("email")
-        password = request.POST.get("password")
-        user = None
-
-        # Returning user logic
-        if User.objects.filter(email=email).exists():
-            if password:
-                user = authenticate(request, username=email, password=password)
-                if user is None:
-                    messages.error(request, "Incorrect password. Please login.")
-                    return redirect("checkout")
-                login(request, user)
-            else:
-                messages.error(request, "This email is already registered. Please enter your password.")
-                return redirect("checkout")
-        else:
-            # Create account if password provided
-            if password:
-                user = User.objects.create_user(username=email, email=email, password=password,is_staff=False)
-                
-                login(request, user)
-
-        # Calculate subtotal
-        subtotal = sum(float(item['total']) for item in cart.values())
-        if subtotal <= 0:
-            messages.error(request, "Invalid cart total")
-            return redirect("cart")
-        payment_method = request.POST.get("payment_method")
-        print("Payment Method")
-        print(payment_method)
-        if not payment_method:
-           messages.error(request, "Select payment method.")
-           return redirect("checkout") 
-
-        # Create Order
-        order = Order.objects.create(
-            user=user,
-            first_name=request.POST.get("first_name"),
-            last_name=request.POST.get("last_name"),
-            email=email,
-            phone=request.POST.get("phone"),
-            country=request.POST.get("country"),
-            address=request.POST.get("address"),
-            city=request.POST.get("city"),
-            state=request.POST.get("state"),
-            zip_code=request.POST.get("zip_code"),
-            subtotal=subtotal,
-            total=subtotal,
-            payment_method=payment_method,
-            is_paid=False,  # will update if payment confirmed
-        )
-
-        # Create OrderItems
-        for key, item in cart.items():
-            product = Product.objects.get(id=key)
-             # Deduct stock
-            quantity = item['quantity']
-            print(f"Before: {product.name} stock={product.stock}")
-            if product.stock < quantity:
-                messages.error(request, f"Not enough stock for {product.name}")
-                return redirect("cart")
-            product.stock -= quantity
-            product.save()
-            print(f"After: {product.name} stock={product.stock}")
-            OrderItem.objects.create(
-                order=order,
-                product=product,
-                price=item['price'],
-                cost_price=item['cost_price'],
-                quantity=item['quantity']
-            )
-
-        # Handle payment
-        if payment_method == "cash":
-            order.is_paid = False  # cash payment pending
-            order.save()
-            # Optionally send email to admin/user
-        elif payment_method == "mpesa":
-            # Call Mpesa API here
-            
-            # Redirect to pending/payment page
-            phone = order.phone
-            amount = int(order.total)
-            response = stk_push(request,phone, amount, order.id)
-            if response.get('ResponseCode') == '0':
-                checkout_id = response.get("CheckoutRequestID")
-                order.checkout_request_id = checkout_id
-                order.save()
-                messages.success(request, response)
-            else:
-                messages.error(request, f"STK push failed. Try again. Response: {response}")
-                return render(request,'checkout.html')
-            
-            
-        # Clear cart
-        request.session.pop('cart', None)
-        request.session.modified = True
-
-        return redirect('ordersuccess')  # you can create a success page
-
-    return render(request,'checkout.html')
 
 def logoutUser(request):
     logout(request)  # Clears session
@@ -1001,13 +906,16 @@ def pos(request):
 
     total_cost = stats['total_cost'] or 0
     profit = stats['profit'] or 0 
-
+    vat = subtotal * 0.16
+    grand_total = subtotal + vat
     mydict = {
         "orders": page_obj,
         "total_sales": total_sales,
         "profit":profit,
         "total_cost":total_cost,
         "subtotal":subtotal,
+        "vat":vat,
+        "grand_total":grand_total,
         "delivery_total":delivery_total
     }
     return render(request,'pos.html',context=mydict)
@@ -1087,15 +995,17 @@ def pos_checkout(request):
                
             # Calculate subtotal
             subtotal = sum(float(item['total']) for item in cart.values())
-           
+            vat = subtotal * 0.16  # 16% VAT
+            grand_total = subtotal + vat
             # Create order
             order = Order.objects.create(
-                subtotal=subtotal,
-                total=subtotal,
+                subtotal=grand_total,
+                total=grand_total,
                 payment_method=request.POST.get("payment_method"),
                 is_paid=False,
                 is_pos=True
             )
+            
             # Create OrderItems & update stock
             for key, item in cart.items():
                 product = Product.objects.get(id=key)
@@ -1126,7 +1036,7 @@ def pos_checkout(request):
                 if not order.phone.startswith("254"):
                     messages.success(request, "Phone must start with 254 to use mpesa")
                     return redirect('pos')
-                response = stk_push(request,order.phone, int(order.total), order.id)
+                response = stk_push(request,order.phone, order.total, order.id)
                 if response.get('ResponseCode') == '0':
                     order.checkout_request_id = response.get("CheckoutRequestID")
                     order.save()

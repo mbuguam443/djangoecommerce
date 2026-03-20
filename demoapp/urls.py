@@ -28,7 +28,6 @@ urlpatterns=[
     #Test Mpesa
     path('mpesaapi', views.mpesaapi, name='mpesaapi'),
     #submit checkout
-    path('submitOrder',views.submitOrder,name="submitOrder"),
     #Order Submitted successfully
     path('logout',views.logoutUser,name="logout"),
     path('testForm',views.testForm,name="testForm"),

@@ -153,10 +153,11 @@
                                 {% endif %}
                             </ul>
                             <div class="checkout__order__subtotal">Subtotal <span>Ksh{{subtotal}}</span></div>
+                            <div class="checkout__order__subtotal">VAT (16%) <span>Ksh{{vat}}</span></div>
                             {% for deliv in Delivery_list %}
                             <div class="checkout__order__subtotal">Delivery fee <span>Ksh {{deliv.delivery_fee}}</span> for {{deliv.county}}</div>
                             {% endfor %}
-                            <div class="checkout__order__total">Total <span>Ksh{{subtotal}}</span></div>
+                            <div class="checkout__order__total">Total <span>Ksh{{grand_total}}</span></div>
                             <p>After placing the order you can use the email and password to login so that you dont 
                                 fill checkout form again.</p>
                             <div class="checkout__input__checkbox">
