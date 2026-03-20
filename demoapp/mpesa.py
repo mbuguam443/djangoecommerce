@@ -34,12 +34,13 @@ def stk_push(request,phone, amount, order_id):
         "PartyA": phone,
         "PartyB": SHORTCODE,
         "PhoneNumber": phone,
-        #"CallBackURL": "https://0b4a-102-203-142-142.ngrok-free.app/callback",
+        #"CallBackURL": "https://6d9c-102-203-143-208.ngrok-free.app/callback",
         "CallBackURL":request.build_absolute_uri('/callback'),
         "AccountReference": f"Order{order_id}",
         "TransactionDesc": "Payment for order"
     }
     print(request.build_absolute_uri('/callback/'))
+    
     try:
         response = requests.post(url, json=payload, headers=headers, timeout=10)
         try:

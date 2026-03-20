@@ -4287,3 +4287,65 @@ Watching for file changes with StatReloader
 C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
 Watching for file changes with StatReloader
 C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/mixertwo.jpeg alt=
+Not Found: /media/product/transfermer1.jpeg alt=
+Not Found: /media/product/transfermer1.jpeg alt=
+Not Found: /media/product/transformer2.jpeg alt=
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/transfermer1.jpeg alt=
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 115, in checkout
+    createacc=request.POST("createacc")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'QueryDict' object is not callable
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Not Found: /media/product/mixertwo.jpeg alt=
+Not Found: /media/product/mixertwo.jpeg alt=
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
+Watching for file changes with StatReloader
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"706d-4a47-a151-4650b7290be46513","CheckoutRequestID":"ws_CO_19032026200815926728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":8.00},{"Name":"MpesaReceiptNumber","Value":"UCJBS9UTQ1"},{"Name":"Balance","Value":0.00},{"Name":"TransactionDate","Value":20260319200837},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Not Found: /media/product/mixerthree.jpeg alt=
+Not Found: /media/product/mixerthree.jpeg alt=
+Not Found: /media/product/WhatsApp_Image_2026-03-19_at_4.46.53_PM.jpeg alt=
+Not Found: /media/product/WhatsApp_Image_2026-03-19_at_4.46.53_PM.jpeg alt=
+Not Found: /media/product/transfermer1.jpeg alt=
+Not Found: /media/product/transfermer1.jpeg alt=
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Forbidden (CSRF token missing.): /contact
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
+Watching for file changes with StatReloader

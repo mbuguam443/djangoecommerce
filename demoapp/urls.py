@@ -8,7 +8,7 @@ urlpatterns=[
     path('cart',views.cart,name="cart"),
     path('checkout',views.checkout,name="checkout"),
     path('blog',views.blog,name="blog"),
-    path('contact',views.contact,name="contact"),
+    path('contact',views.contact_view,name="contact"),
     path('blogdetail',views.blogdetail,name="blogdetail"),
     path('postproduct',views.postproduct,name="postproduct"),
     path('addCategory',views.addCategory,name="addCategory"),
@@ -66,7 +66,8 @@ urlpatterns=[
     path("timeout", views.b2c_timeout),
     path("refund_order/<int:order_id>", views.refund_order, name="refund_test"),
     path("addBlog",views.addBlog,name="addBlog"),
-    path("addVAT",views.addVAT,name="addVAT")
+    path("addVAT",views.addVAT,name="addVAT"),
+    path("signup",views.signup,name="signup"),
 
     
     

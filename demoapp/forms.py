@@ -90,6 +90,29 @@ class DeliveryForm(forms.ModelForm):
 
     class Meta:
         model = Delivery
-        fields = ['county', 'delivery_fee']        
+        fields = ['county', 'delivery_fee']       
+
+class ContactForm(forms.Form):
+    name = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={
+            "placeholder": "Your name",
+            "class": "form-control"
+        })
+    )
+
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={
+            "placeholder": "Your Email",
+            "class": "form-control"
+        })
+    )
+
+    message = forms.CharField(
+        widget=forms.Textarea(attrs={
+            "placeholder": "Your message",
+            "class": "form-control"
+        })
+    )         
 
         

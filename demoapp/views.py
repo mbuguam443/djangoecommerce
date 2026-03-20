@@ -7,7 +7,7 @@ from django.contrib import messages
 from .models import CustomerProfile, Delivery, Order, OrderItem, Product
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
-from .forms import CategoryForm, CheckoutForm, LoginForm, OrderForm,DeliveryForm
+from .forms import CategoryForm, CheckoutForm, ContactForm, LoginForm, OrderForm,DeliveryForm
 from django.contrib.auth.decorators import login_required
 from .mpesa import send_b2c, stk_push, stk_query
 from django.views.decorators.csrf import csrf_exempt
@@ -112,7 +112,9 @@ def checkout(request):
             data = form.cleaned_data
             email = data["email"]
             password = data.get("password")
-            createacc=data.get("createacc")
+            createacc = request.POST.get("createacc")
+            print("create account?")
+            print(createacc)
             user = None
 
             # Returning user logic
@@ -275,11 +277,30 @@ def blogdetail(request):
          "allCategory":Category.objects.all()
     }
     return render(request,'blog-details.html',context=mydict)
-def contact(request):
-    mydict={
-         "allCategory":Category.objects.all()
-    }
-    return render(request,'contact.html',context=mydict)
+def contact_view(request):
+    form = ContactForm()
+
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
+            message = form.cleaned_data["message"]
+
+            send_mail(
+                subject=f"Message from {name}",
+                message=message,
+                from_email=email,
+                recipient_list=["mbuguam443@gmail.com"],  # your email
+            )
+
+            return render(request, "contact.html", {
+                "form": ContactForm(),
+                "success": True
+            })
+
+    return render(request, "contact.html", {"form": form})
 
 @staff_member_required(login_url='login')  # redirect non-staff users    
 def postproduct(request):
@@ -1235,6 +1256,28 @@ def addBlog(request):
  
 def addVAT(request):
     return render(request,'addVAT.html')
+def signup(request):
+    form = RegisterForm(request.POST)
+    if request.method == "POST":
+        
+        if form.is_valid():
+            user = form.save(commit=False)   # don't save yet
+            user.is_staff = False             # make user staff
+            if User.objects.filter(email=user.email).exists():
+                messages.error(request, "Email already exists")
+                return redirect("signup")
+            user.save()                      # now save
+            messages.success(request, "User Created successfully")
+            return redirect('signup')
+        else:
+            form = RegisterForm()
+            messages.success(request, "User creation failed")
+    mydict={
+        "form": form,
+        "Allusers":User.objects.all()
+        }
+    return render(request, "register.html",context=mydict)
+
 
  
     

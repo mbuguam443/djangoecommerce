@@ -1,0 +1,97 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content%}
+<!-- Contact Form Begin -->
+<div class="contact-form spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact__form__title">
+                   <h2>Sign Up</h2>
+                </div>
+            </div>
+        </div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+           
+            <form  method="post">
+                
+          
+                    {% csrf_token %}
+                
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <input type="text" placeholder="User name" name="username" >
+                        {% if form.errors.username %}
+                            <div class="alert alert-danger">
+                                {% for error in form.errors.username %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <input type="text" placeholder="Email" name="email" >
+                        {% if form.errors.email %}
+                            <div class="alert alert-danger">
+                                {% for error in form.errors.email %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <input type="password" placeholder="Password" name="password1" >
+                        {% if form.errors.password1 %}
+                            <div class="alert alert-danger">
+                                {% for error in form.errors.password1 %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row">
+                     <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <input type="password" placeholder="Confirm Password" name="password2">
+                        {% if form.errors.password2 %}
+                            <div class="alert alert-danger">
+                                {% for error in form.errors.password2 %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                     <div class="col-lg-4"></div>
+                </div>
+               
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                       
+                        <button type="submit" class="site-btn">Sign Up</button>
+                        
+                    </div>
+                </div>
+            </form>
+            
+    </div>
+</div>
+<!-- Contact Form End -->
+
+{% endblock %}
