@@ -945,7 +945,7 @@ def searchDelivery(request):
            }    
     return render(request,'delivery.html',context=mydict)  
 
-
+@login_required
 def toggle_favorite(request, product_id):
 
     product = get_object_or_404(Product, id=product_id)
