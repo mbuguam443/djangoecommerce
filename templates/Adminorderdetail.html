@@ -33,6 +33,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
+                <a  class="site-btn"   href="{% url 'Allorders' %}">Back</a>
                 <h2>Order #{{ order.id }}</h2>
                 <p>Placed on: {{ order.created_at }}</p>
                 {% if not order.is_pos%}
@@ -57,12 +58,24 @@
                 <form action="{% url 'updateOrderStatus' order.id %}" method="post">
                     {% csrf_token %}
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                  <p><strong>Order status:</strong>  </p>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
+                                  <select name="delivery_agent">
+                                    <option value="">Select Agent</option>
+                                    {% for agent in agents %}
+                                        <option value="{{ agent.id }}" {% if order.delivery_agent and agent.id == order.delivery_agent.id %}
+                                            selected
+                                        {% endif %}>
+                                            {{ agent.name }} - {{ agent.phone }}
+                                        </option>
+                                    {% endfor %}
+                                 </select>
+                            </div>
+                            <div class="col-md-3">
                                  <select name="delivery_status" >
                                     <option value="pending" {% if order.delivery_status == "pending" %}selected{% endif %}>Pending</option>
                                     <option value="processing" {% if order.delivery_status == "processing" %}selected{% endif %}>Processing</option>
@@ -76,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9"></div>
+                    <div class="col-md-8"></div>
                 </div>
                 </form>
                 <form action="{% url 'updatePayment' order.id %}" method="post">

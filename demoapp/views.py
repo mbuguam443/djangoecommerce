@@ -4,10 +4,10 @@ from django.shortcuts import get_object_or_404, render,redirect
 from django.http import HttpResponse,JsonResponse
 from django.db import transaction
 from django.contrib import messages
-from .models import CustomerProfile, Delivery, Order, OrderItem, Product
+from .models import CustomerProfile, Delivery, DeliveryAgent, Order, OrderItem, Product
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
-from .forms import CategoryForm, CheckoutForm, ContactForm, LoginForm, OrderForm,DeliveryForm
+from .forms import CategoryForm, CheckoutForm, ContactForm, DeliveryAgentForm, LoginForm, OrderForm,DeliveryForm
 from django.contrib.auth.decorators import login_required
 from .mpesa import send_b2c, stk_push, stk_query
 from django.views.decorators.csrf import csrf_exempt
@@ -692,10 +692,12 @@ def Adminorderdetail(request,order_id):
     for item in items:
         item.total_price = item.price * item.quantity  # per item total
         total += item.total_price  # accumulate order total
+    agents = DeliveryAgent.objects.all()    
     mydict={
         'order': order,
         'items': items,
-        'total':total
+        'total':total,
+        'agents':agents
         }
     return render(request, 'Adminorderdetail.html',context=mydict)
 
@@ -735,7 +737,15 @@ def updateOrderStatus(request,id):
     if request.method == "POST":
         status = request.POST.get("delivery_status")
         order.delivery_status = status
-        order.save()
+        agent_id = request.POST.get('delivery_agent')
+        if agent_id:
+            agent = DeliveryAgent.objects.get(id=agent_id)
+            order.delivery_agent=agent
+            order.delivery_status = "delivered"
+            order.save()
+            messages.success(request, "Assigned agent successfully!")
+        else:
+            messages.success(request, "Could not find an Agent!")    
 
     return redirect('Adminorderdetail', order_id=order.id)   
 
@@ -1190,7 +1200,54 @@ def signup(request):
         }
     return render(request, "register.html",context=mydict)
 
+def retrypaying(request, order_id):
+    order = Order.objects.get(id=order_id)
 
+    response = stk_push(request,order.phone, int(order.total), order.id)
+    if response.get('ResponseCode') == '0':
+        order.checkout_request_id = response.get("CheckoutRequestID")
+        order.save()
+        messages.success(request, "STK push initiated")
+    else:
+        messages.error(request, f"Payment failed. Try again. Response: {response}")
+
+    return redirect("order_detail", order_id=order.id)
  
     
+def addAgent(request):
+    if request.method == "POST":
+        form = DeliveryAgentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Saved successfully")
+            return redirect('addAgent')  # change to your URL
+        else:
+            messages.success(request, "Failed successfully")
+            return redirect('addAgent')  # change to your URL
+    else:
+        
+        form = DeliveryAgentForm()
+    agents = DeliveryAgent.objects.all()
 
+    return render(request,'addAgent.html', {'form': form,'agents': agents})
+
+def delete_Agent(request, id):
+    agent = get_object_or_404(DeliveryAgent, id=id)
+    agent.delete()
+    messages.success(request, "Deleted successfully")
+    return redirect('addAgent')
+def edit_Agent(request, id):
+    agent = get_object_or_404(DeliveryAgent, id=id)
+
+    if request.method == "POST":
+        form = DeliveryAgentForm(request.POST, instance=agent)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "updated successfully")
+            return redirect('addAgent')  # change if needed
+        else:
+            messages.success(request, "failed to save")
+    else:
+        form = DeliveryAgentForm(instance=agent)
+    agents = DeliveryAgent.objects.all()
+    return render(request, 'addAgent.html', {'form': form,'agent':agent,'agents': agents})

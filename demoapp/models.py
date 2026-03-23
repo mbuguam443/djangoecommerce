@@ -23,7 +23,13 @@ class Product(models.Model):
     stock = models.PositiveIntegerField(default=0)
     available = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)    
+class DeliveryAgent(models.Model):
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=20)
+    vehicle_number = models.CharField(max_length=50, blank=True, null=True)
 
+    def __str__(self):
+        return self.name 
 class Order(models.Model):
     PAYMENT_STATUS_CHOICES = [
         ('pending', 'Pending'),
@@ -66,6 +72,13 @@ class Order(models.Model):
         default='pending',
         blank=True, null=True
     )
+    delivery_agent = models.ForeignKey(
+        DeliveryAgent,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+    
 
     payment_reference = models.CharField(max_length=100, null=True, blank=True)
     payment_date = models.DateTimeField(null=True, blank=True)
@@ -113,6 +126,8 @@ class CustomerProfile(models.Model):
 
 class VAT(models.Model):
     name = models.CharField(max_length=50)
-    rate = models.DecimalField(max_digits=5, decimal_places=2)          
+    rate = models.DecimalField(max_digits=5, decimal_places=2)     
+
+        
 
         

@@ -1,0 +1,172 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content%}
+<!-- Contact Form Begin -->
+<div class="contact-form spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact__form__title">
+                    <h2>Manage Delivery Agent</h2>
+                </div>
+            </div>
+        </div>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if agent.name %}
+           <form  method="post">
+        {% else %}    
+        <form  method="post">
+        {% endif %}
+
+             {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-4">
+                    <input type="text" placeholder="Name" name="name" value="{{agent.name}}" >
+                    {% if form.name.errors %}
+                        <div style="color:red;">
+                            
+                                {{ form.name.label_tag }}
+                                {{ form.name }}
+                                {{ form.name.errors }}
+                            
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" placeholder="Phone" name="phone" value="{{agent.phone}}" >
+                    {% if form.phone.errors %}
+                        <div style="color:red;">
+                            {{ form.phone.label_tag }}
+                            {{ form.phone }}
+                            {{ form.phone.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col-lg-4">
+                    <input type="text"  name="vehicle_number" placeholder="vehicle number" value="{{agent.vehicle_number}}">
+                    {% if form.vehicle_number.errors %}
+                        <div style="color:red;">
+                            {{ form.vehicle_number.label_tag }}
+                            {{ form.vehicle_number }}
+                            {{ form.vehicle_number.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <button type="submit" class="site-btn">
+                        {% if agent.name %}
+                            Update Agent
+                        {% else %} 
+                            Post Agent
+                        {% endif %}
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="row mt-5">
+            <div class="col-lg-6"></div>
+            <div class="col-lg-4">
+                <form action="{% url 'searchDelivery' %}" >
+                   
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="Deliveryname"  placeholder="search Delivery" 
+                                autocomplete="off" required>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="site-btn">SEARCH</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="shoping__cart__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="shoping__product">Name</th>
+                                <th class="shoping__product">Phone</th>
+                                <th class="shoping__product">Vehicle Number</th>
+                                <th>Action</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for agent in agents %}
+                            <tr>
+                                <td class="shoping__cart__item">
+                                    <h5>{{agent.name}}</h5>
+                                </td>
+                                 <td class="shoping__cart__item">
+                                    <h5>{{agent.phone}}</h5>
+                                </td>
+                                <td class="shoping__cart__item">
+                                    <h5>{{agent.vehicle_number}}</h5>
+                                </td>
+                                <td class="shoping__cart__item__close">
+                                    <a href="/edit-Agent/{{agent.id}}"><i class="fa fa-edit text-success"></i></a>
+                                    <a href="/delete-Agent/{{agent.id}}"><i class="fa fa-trash text-danger"></i></a>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="3">No delivery agents found</td>
+                            </tr>
+                            <td class="shoping__cart__item__close">
+                                <a href="{% url 'edit_Agent' agent.id %}">
+                                    <i class="fa fa-edit text-success"></i>
+                                </a>
+                                <a href="{% url 'delete_Agent' agent.id %}">
+                                    <i class="fa fa-trash text-danger"></i>
+                                </a>
+                            </td>
+                            
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                     <div class="product__pagination">
+
+                                        {% if deliveries.has_previous %}
+                                            <a href="?page={{ deliveries.previous_page_number }}">
+                                                <i class="fa fa-long-arrow-left"></i>
+                                            </a>
+                                        {% endif %}
+                                        
+                                        {% for num in deliveries.paginator.page_range %}
+                                            {% if deliveries.number == num %}
+                                                <a class="active">{{ num }}</a>
+                                            {% else %}
+                                                <a href="?page={{ num }}">{{ num }}</a>
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        {% if deliveries.has_next %}
+                                            <a href="?page={{ orders.next_page_number }}">
+                                                <i class="fa fa-long-arrow-right"></i>
+                                            </a>
+                                        {% endif %}
+
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Form End -->
+{% endblock%}

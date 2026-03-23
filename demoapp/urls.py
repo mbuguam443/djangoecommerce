@@ -67,6 +67,10 @@ urlpatterns=[
     path("addBlog",views.addBlog,name="addBlog"),
     path("addVAT",views.addVAT,name="addVAT"),
     path("signup",views.signup,name="signup"),
+    path("retrypaying/<int:order_id>", views.retrypaying, name="retrypaying"),
+    path("addAgent",views.addAgent,name="addAgent"),
+    path('edit-Agent/<int:id>/', views.edit_Agent, name='edit_Agent'),
+    path('delete-Agent/<int:id>/', views.delete_Agent, name='delete_Agent'),
 
     
     

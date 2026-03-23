@@ -1,5 +1,5 @@
 from django import forms
-from .models import Delivery, Product
+from .models import Delivery, DeliveryAgent, Product
 from .models import Category
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -115,4 +115,13 @@ class ContactForm(forms.Form):
         })
     )         
 
-        
+class DeliveryAgentForm(forms.ModelForm):
+    class Meta:
+        model = DeliveryAgent
+        fields = ['name', 'phone', 'vehicle_number']
+
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone')
+        if not phone.isdigit():
+            raise forms.ValidationError("Phone must contain only numbers")
+        return phone        

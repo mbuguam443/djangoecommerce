@@ -5,6 +5,16 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
+                {% if messages %}
+               
+                    {% for message in messages %}
+                        <div class="alert alert-success">
+                           
+                                {{ message }}
+                        </div>
+                    {% endfor %}
+                
+                 {% endif %}
                 <a  class="site-btn"   href="{% url 'clientorder' %}">Back</a>
                 <h2>Order #{{ order.id }}</h2>
                 <p>Placed on: {{ order.created_at }}</p>
@@ -13,12 +23,44 @@
                 <p>Phone: {{ order.phone }}</p>
                 <p>Address: {{ order.address }}, {{ order.city }}, {{ order.state }}, {{ order.country }}, {{order.zip_code }}</p>
                 <p>Payment Method: {{ order.payment_method }}</p>
-                <p><strong>Status: {% if order.is_paid %}Paid{% else %}Pending{% endif %}</strong></p>
-                {% if order.payment_method == "mpesa" %}
-                    <p>Mpesa Receipt Number: {{ order.payment_reference }}</p>
+                {% if not order.is_paid %}
+                <a href="/retrypaying/{{ order.id }}">Retry Paying again</a>
                 {% endif %}
+                <p><strong>Payment Status: {% if order.is_paid %}Paid{% else %}Pending{% endif %}</strong></p>
+                {% if order.payment_status == "mpesa" %}
+                    <p>Mpesa Receipt Number: {{ order.payment_reference }}</p>    
+                {% endif %}
+                
                 <p><strong>TotalPrice: Ksh{{total}}</strong></p>
-                <p><strong>Order Status: {{order.delivery_status}}</strong></p>
+                <p><strong>Order Status: {{order.delivery_status}}</strong> 
+                   
+                </p>
+                {% if order.delivery_agent %}
+    <div style="border:1px solid #ddd; padding:15px; border-radius:10px; background:#f9f9f9;">
+        
+        <h4 style="color:#28a745;">🚚 Delivery Agent Info</h4>
+        
+        <p>
+            <strong style="color:#555;">Name:</strong> 
+            <span style="color:#000;">{{ order.delivery_agent.name }}</span>
+        </p>
+
+        <p>
+            <strong style="color:#555;">Vehicle:</strong> 
+            <span style="color:#000;">{{ order.delivery_agent.vehicle_number }}</span>
+        </p>
+
+        <a href="tel:{{ order.delivery_agent.phone }}" 
+           style="display:inline-block; padding:8px 15px; background:#28a745; color:white; border-radius:5px; text-decoration:none;">
+            📞 Call Agent
+        </a>
+
+            </div>
+        {% else %}
+            <div style="padding:10px; background:#fff3cd; border:1px solid #ffeeba; border-radius:8px;">
+                <p style="color:#856404;">⏳ No delivery agent assigned yet.</p>
+            </div>
+        {% endif %}
                 <p><strong>Delivery Fee: Ksh {{order.delivery_fee}}</strong></p>
             </div>
         </div>
