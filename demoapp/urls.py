@@ -30,7 +30,7 @@ urlpatterns=[
     #submit checkout
     #Order Submitted successfully
     path('logout',views.logoutUser,name="logout"),
-    path('testForm',views.testForm,name="testForm"),
+   
     path('clientorder',views.clientorder,name="clientorder"),
     path('my-orders/<int:order_id>/', views.order_detail, name='order_detail'),
     path('ordersuccess',views.ordersuccess,name="ordersuccess"),
@@ -71,7 +71,8 @@ urlpatterns=[
     path("addAgent",views.addAgent,name="addAgent"),
     path('edit-Agent/<int:id>/', views.edit_Agent, name='edit_Agent'),
     path('delete-Agent/<int:id>/', views.delete_Agent, name='delete_Agent'),
-
+    path('order/<int:order_id>/cancel/', views.cancel_order, name='cancel_order'),
+    path('dashboard/order/<int:order_id>/cancel/', views.admin_cancel_order, name='admin_cancel_order'),
     
     
 ]

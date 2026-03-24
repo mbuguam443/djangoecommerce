@@ -4667,3 +4667,496 @@ Watching for file changes with StatReloader
 C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
 Watching for file changes with StatReloader
 Not Found: /media/product/mixertwo.jpeg alt=
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /admin/order/121/cancel/
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /dashboard/order/120/cancel/
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 1298, in admin_cancel_order
+    success = cancel_order_logic(order, cancelled_by='admin')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 1272, in cancel_order_logic
+    if not order.stock_restored:
+           ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Order' object has no attribute 'stock_restored'
+Watching for file changes with StatReloader
+Internal Server Error: /dashboard/order/120/cancel/
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 1298, in admin_cancel_order
+    success = cancel_order_logic(order, cancelled_by='admin')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 1272, in cancel_order_logic
+    if not order.stock_restored:
+           ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Order' object has no attribute 'stock_restored'
+Internal Server Error: /dashboard/order/120/cancel/
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 1298, in admin_cancel_order
+    success = cancel_order_logic(order, cancelled_by='admin')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 1272, in cancel_order_logic
+    if not order.stock_restored:
+           ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Order' object has no attribute 'stock_restored'
+Watching for file changes with StatReloader
+Internal Server Error: /dashboard/order/120/cancel/
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 1298, in admin_cancel_order
+    success = cancel_order_logic(order, cancelled_by='admin')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 1272, in cancel_order_logic
+    if not order.stock_restored:
+           ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Order' object has no attribute 'stock_restored'
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\appwork\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/WhatsApp_Image_2026-03-19_at_4.46.53_PM.jpeg alt=
+Not Found: /media/product/WhatsApp_Image_2026-03-19_at_4.46.53_PM.jpeg alt=
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
+Watching for file changes with StatReloader
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"57c4-47d0-9072-b6e8edb35c4015601","CheckoutRequestID":"ws_CO_24032026064901866728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":6},{"Name":"MpesaReceiptNumber","Value":"UCOBSAATU5"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260324064911},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+Internal Server Error: /Adminorderdetail/112/
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 179, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: '='
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 702, in Adminorderdetail
+    return render(request, 'Adminorderdetail.html',context=mydict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 952, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 885, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 170, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 181, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 888, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '=' from '='
+Internal Server Error: /Adminorderdetail/112/
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 179, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: '='
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 702, in Adminorderdetail
+    return render(request, 'Adminorderdetail.html',context=mydict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 952, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 885, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 170, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\smartif.py", line 181, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\defaulttags.py", line 888, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '=' from '='
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /Allorders
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 680, in Allorders
+    total_vat = valid_orders.aggregate(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\query.py", line 592, in aggregate
+    return self.query.chain().get_aggregation(self.db, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 393, in get_aggregation
+    aggregate = aggregate_expr.resolve_expression(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\aggregates.py", line 64, in resolve_expression
+    c = super().resolve_expression(query, allow_joins, reuse, summarize)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\expressions.py", line 942, in resolve_expression
+    c.source_expressions[pos] = arg.resolve_expression(
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\expressions.py", line 822, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1929, in resolve_ref
+    join_info = self.setup_joins(
+                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1776, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+                                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\db\models\sql\query.py", line 1677, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'vat' into field. Choices are: address, checkout_request_id, city, country, created_at, delivery_agent, delivery_agent_id, delivery_fee, delivery_status, email, first_name, id, is_paid, is_pos, items, last_name, payment_date, payment_method, payment_reference, payment_status, phone, state, stock_restored, subtotal, total, user, user_id, zip_code
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/transfermer1.jpeg alt=
+Not Found: /media/product/transfermer1.jpeg alt=
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 107, in checkout
+    if user and user.is_staff:
+       ^^^^
+UnboundLocalError: cannot access local variable 'user' where it is not associated with a value
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 190, in checkout
+    is_paid=False
+            ^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'bool' and 'dict'
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/transformer2.jpeg alt=
+Not Found: /media/product/transformer2.jpeg alt=
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 188, in checkout
+    is_paid=False
+            ^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'bool' and 'dict'
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/transfermer1.jpeg alt=
+Not Found: /media/product/transfermer1.jpeg alt=
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"c5bf-45ad-80ac-1919c4bc161a23396","CheckoutRequestID":"ws_CO_24032026082217381728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":6},{"Name":"MpesaReceiptNumber","Value":"UCOBSAB6W1"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260324082228},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /media/product/WhatsApp_Image_2026-03-19_at_4.46.53_PM.jpeg alt=
+Not Found: /media/product/WhatsApp_Image_2026-03-19_at_4.46.53_PM.jpeg alt=
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 221, in checkout
+    phone = data.cleaned_data["phone"]
+            ^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'cleaned_data'
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 286, in checkout
+    return render(request, "checkout.html", context=mydict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: checkout.html
+Internal Server Error: /checkout
+Traceback (most recent call last):
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py", line 286, in checkout
+    return render(request, "checkout.html", context=mydict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\demoenv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: checkout.html
+Watching for file changes with StatReloader
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"a9ca-489f-b1ed-af2d40acf14a8697","CheckoutRequestID":"ws_CO_24032026085431011728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":7},{"Name":"MpesaReceiptNumber","Value":"UCOBSAB4T7"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260324085444},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /my-orders/128/
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"c5bf-45ad-80ac-1919c4bc161a25018","CheckoutRequestID":"ws_CO_24032026091350207728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":5},{"Name":"MpesaReceiptNumber","Value":"UCOBSAB6AP"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260324091402},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+MPESA RAW CALLBACK: {"Body":{"stkCallback":{"MerchantRequestID":"c5bf-45ad-80ac-1919c4bc161a25443","CheckoutRequestID":"ws_CO_24032026092714978728627678","ResultCode":0,"ResultDesc":"The service request is processed successfully.","CallbackMetadata":{"Item":[{"Name":"Amount","Value":5},{"Name":"MpesaReceiptNumber","Value":"UCOBSABD10"},{"Name":"Balance"},{"Name":"TransactionDate","Value":20260324092728},{"Name":"PhoneNumber","Value":254728627678}]}}}}
+C:\Users\mbugu\OneDrive\Desktop\Django Project 2026\appwork\demoapp\mpesa.py changed, reloading.
+Watching for file changes with StatReloader

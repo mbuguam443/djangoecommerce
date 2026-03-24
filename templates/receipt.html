@@ -1,103 +1,110 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Receipt</title>
+    <meta charset="UTF-8">
+    <title>Receipt</title>
 
-<style>
-body{
-    font-family: monospace;
-    background:#eee;
-}
+    <style>
+        body {
+            font-family: monospace;
+            background: #eee;
+        }
 
-.receipt{
-    width:300px;
-    background:white;
-    margin:40px auto;
-    padding:10px;
-    border:1px solid #ccc;
-}
+        .receipt {
+            width: 300px;
+            background: white;
+            margin: 40px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
 
-.center{
-    text-align:center;
-}
+        .center {
+            text-align: center;
+        }
 
-hr{
-    border:none;
-    border-top:1px dashed black;
-}
+        hr {
+            border: none;
+            border-top: 1px dashed black;
+        }
 
-table{
-    width:100%;
-    font-size:14px;
-}
+        table {
+            width: 100%;
+            font-size: 14px;
+        }
 
-td{
-    padding:3px 0;
-}
+        td {
+            padding: 3px 0;
+        }
 
-.total{
-    font-weight:bold;
-}
+        .total {
+            font-weight: bold;
+        }
 
-.small{
-    font-size:12px;
-}
-</style>
+        .small {
+            font-size: 12px;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="receipt">
+    <div class="receipt">
 
-<div class="center">
-<h3>MBUGUA STORE</h3>
-<p class="small">
-Ruiru, Kiambu<br>
-Tel: 0728 627 678
-</p>
-</div>
+        <div class="center">
+            <h3>MBUGUA STORE</h3>
+            <p class="small">
+                Ruiru, Kiambu<br>
+                Tel: 0728 627 678
+            </p>
+        </div>
 
-<hr>
+        <hr>
 
-<p>
-Receipt Order#: {{ order.id }}<br>
-Date: {{ order.created_at }}<br>
-Cashier: John
-</p>
+        <p>
+            Receipt Order#: {{ order.id }}<br>
+            Date: {{ order.created_at }}<br>
+            Cashier: John
+        </p>
 
-<hr>
+        <hr>
 
-<table>
-    {% for item in order.items.all %}
-        <tr>
-        <td>{{ item.product.name }}</td>
-        <td align="center">x{{ item.quantity }}</td>
-        <td align="right">{{ item.price }}</td>
-        </tr>
-    {% endfor %}
+        <table>
+            {% for item in order.items.all %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td align="center">x{{ item.quantity }}</td>
+                <td align="right">{{ item.price }}</td>
+            </tr>
+            {% endfor %}
 
-</table>
+        </table>
 
-<hr>
+        <hr>
 
-<table>
-<tr class="total">
-<td>Total</td>
-<td></td>
-<td align="right">{{ item.price }}</td>
-</tr>
-</table>
+        <table>
+            <tr class="total">
+                <td>vat(16%)</td>
+                <td></td>
+                <td align="right">{{ order.vat }}</td>
+            </tr>
+            <tr class="total">
+                <td>Total</td>
+                <td></td>
+                <td align="right">{{ order.total }}</td>
+            </tr>
+        </table>
 
-<hr>
+        <hr>
 
-<div class="center small">
-Thank you for shopping!<br>
-Please come again
- <a href="{% url 'pos' %}">Back</a>
-</div>
+        <div class="center small">
+            Thank you for shopping!<br>
+            Please come again
+            <a href="{% url 'pos' %}">Back</a>
+        </div>
 
-</div>
+    </div>
 
 </body>
+
 </html>

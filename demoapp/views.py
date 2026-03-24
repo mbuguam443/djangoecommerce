@@ -7,14 +7,14 @@ from django.contrib import messages
 from .models import CustomerProfile, Delivery, DeliveryAgent, Order, OrderItem, Product
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
-from .forms import CategoryForm, CheckoutForm, ContactForm, DeliveryAgentForm, LoginForm, OrderForm,DeliveryForm
+from .forms import CategoryForm, ContactForm, DeliveryAgentForm, LoginForm, OrderForm,DeliveryForm
 from django.contrib.auth.decorators import login_required
 from .mpesa import send_b2c, stk_push, stk_query
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 import json
 import logging
-from django.db.models import Q, Count
+from django.db.models import Q, Count, DecimalField, ExpressionWrapper
 from django.core.paginator import Paginator
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
@@ -104,7 +104,8 @@ def checkout(request):
         return redirect("cart")
     
     profile = None
-
+    
+    
     if request.user.is_authenticated:
         profile = CustomerProfile.objects.filter(user=request.user).first()
     if request.method == "POST":
@@ -114,13 +115,18 @@ def checkout(request):
             data = form.cleaned_data
             email = data["email"]
             password = data.get("password")
-            createacc = request.POST.get("createacc")
-            print("create account?")
-            print(createacc)
+            phone = data["phone"]
+            print("FINAL PHONE:", phone)
             user = None
 
             # Returning user logic
             user = User.objects.filter(email=email).first()
+            if user and user.is_staff:
+                # Clear cart
+                request.session.pop('cart', None)
+                request.session.modified = True
+                messages.error(request, "Staff are not allowed to checkout. Use POS instead.")
+                return redirect("checkout")
             if user:
                 
                 if password:
@@ -155,28 +161,36 @@ def checkout(request):
 
                 profile.save()        
             # Calculate subtotal
-            subtotal = sum(float(item['total']) for item in cart.values())
+           # ✅ STEP 1: Calculate subtotal (product total)
+            subtotal = sum(
+                Decimal(str(item['price'])) * item['quantity']
+                for item in cart.values()
+            )
+
+            # ✅ STEP 2: VAT
+            vat_rate = Decimal('0.16')
+            vat = subtotal * vat_rate
+
+            # ✅ STEP 3: Delivery fee
+            delivery = Delivery.objects.filter(county__iexact=data.get("city")).first()
+            delivery_fee = Decimal(delivery.delivery_fee) if delivery else Decimal('5')
+
+            # ✅ STEP 4: FINAL TOTAL
+            total = subtotal + vat + delivery_fee
             
-            vat = subtotal * 0.16
-            grandtotal=subtotal+vat
 
             # Create order
             order = Order.objects.create(
                 user=user,
                 subtotal=subtotal,
-                total=grandtotal,
+                vat=vat,
+                delivery_fee=delivery_fee,
+                total=total,
                 is_paid=False,
                 **{field: data[field] for field in form.Meta.fields}
             )
-            delivery = Delivery.objects.filter(county__iexact=order.city).first()
-
-            if delivery:
-                order.delivery_fee = delivery.delivery_fee
-            else:
-                order.delivery_fee = 5
-            print("City for delivery:")    
-            print(order.city.lower())
-            order.total = Decimal(order.subtotal) + Decimal(order.delivery_fee) + Decimal(vat)
+            
+            
             
             if order.total <= 0:
                 messages.error(request, "Order total must be greater than 0")
@@ -205,12 +219,10 @@ def checkout(request):
                 order.is_paid = False
                 order.save()
             elif order.payment_method == "mpesa":
-                if not order.phone.startswith("254"):
-                    messages.success(request, "Phone must start with 254 to use mpesa")
-                    return redirect('checkout')
+                phone = form.cleaned_data["phone"]
                 print("Mpesa Order Total") 
                 print(order.total)
-                response = stk_push(request,order.phone, int(order.total), order.id)
+                response = stk_push(request,phone, int(order.total), order.id)
                 if response.get('ResponseCode') == '0':
                     order.checkout_request_id = response.get("CheckoutRequestID")
                     order.save()
@@ -520,21 +532,7 @@ def logoutUser(request):
     messages.success(request, "You have been logged out successfully.")
     return redirect('login')  # Redirect wherever you want
 
-def testForm(request):
-    if request.method == "POST":
-        form = CheckoutForm(request.POST)
 
-        if form.is_valid():
-            # process order
-            messages.success(request, "Order placed successfully!")
-        else:
-            messages.error(request, "Please correct the errors below.")
-    else:
-        form = CheckoutForm()
-    mydict={
-        "form": form
-         }
-    return render(request, "testform.html", context=mydict)
 
 def ordersuccess(request):
     
@@ -656,31 +654,48 @@ def Allorders(request):
     page_obj = paginator.get_page(page_number)
     
     
-    if status:
-        orders = orders.filter(payment_status=status)
+    valid_orders = Order.objects.filter(
+        payment_status='paid',
+        delivery_status='delivered'
+    )
 
-    total_sales = orders.aggregate(
+    total_sales = valid_orders.aggregate(
         total_sales=Sum('total')
     )['total_sales'] or 0
 
-    profit = OrderItem.objects.filter(order__in=orders).aggregate(
+    profit = OrderItem.objects.filter(order__in=valid_orders).aggregate(
                     profit=Sum((F('price') - F('cost_price')) * F('quantity'))
                 )['profit'] or 0
 
     total_cost = OrderItem.objects.filter(
-                            order__in=orders
+                            order__in=valid_orders
                                     ).aggregate(
                                         total_cost=Sum(F('cost_price') * F('quantity'))
                                     )['total_cost'] or 0    
-    delivery_total = orders.aggregate(
+    delivery_total = valid_orders.aggregate(
                             total_delivery=Sum('delivery_fee')
-                        )['total_delivery'] or 0        
+                        )['total_delivery'] or 0 
+        
+
+
+    product_total = OrderItem.objects.filter(
+            order__in=valid_orders
+        ).aggregate(
+            total=Sum(F('price') * F('quantity'))
+        )['total'] or 0  
+     
+    total_vat = valid_orders.aggregate(
+                    total_vat=Sum('vat')
+                )['total_vat'] or 0
+
     context = {
         "orders": page_obj,
         "total_sales": total_sales,
         "profit":profit,
         "total_cost":total_cost,
-        "delivery_total":delivery_total
+        "delivery_total":delivery_total,
+        "total_vat":total_vat,
+        "product_total":product_total
     }
 
     return render(request, "Allorders.html", context)
@@ -1006,14 +1021,33 @@ def pos_checkout(request):
     if request.method == "POST":
                
             # Calculate subtotal
-            subtotal = sum(float(item['total']) for item in cart.values())
-            vat = subtotal * 0.16  # 16% VAT
-            grand_total = subtotal + vat
+            # ✅ STEP 1: Subtotal (product only)
+            subtotal = sum(
+                Decimal(str(item['price'])) * item['quantity']
+                for item in cart.values()
+            )
+
+            # ✅ STEP 2: VAT
+            vat_rate = Decimal('0.16')
+            vat = subtotal * vat_rate
+
+            # ✅ STEP 3: Delivery (POS = usually 0)
+            delivery_fee = Decimal('0')
+
+            # ✅ STEP 4: Final total
+            total = subtotal + vat + delivery_fee
             # Create order
+            if request.POST.get("payment_method") == "mpesa" and not request.POST.get("phone").startswith("254"):
+                   messages.error(request, "Phone has to start with 254")
+                   return redirect("pos")
             order = Order.objects.create(
-                subtotal=grand_total,
-                total=grand_total,
+                subtotal=subtotal,
+                vat=vat,
+                delivery_fee=delivery_fee,
+                total=total,
                 payment_method=request.POST.get("payment_method"),
+                payment_status="pending",
+                delivery_status="pending",
                 is_paid=False,
                 is_pos=True
             )
@@ -1023,7 +1057,7 @@ def pos_checkout(request):
                 product = Product.objects.get(id=key)
                 if product.stock < item['quantity']:
                     messages.error(request, f"Not enough stock for {product.name} reduce quantity in cart")
-                    return redirect("checkout")
+                    return redirect("pos")
                 product.stock -= item['quantity']
                 product.save()
                 OrderItem.objects.create(
@@ -1035,8 +1069,8 @@ def pos_checkout(request):
                 )
 
             if order.payment_method == "cash":
-                order.payment_status="paid"
-                order.delivery_status="delivered"
+                order.payment_status = "paid"
+                order.delivery_status = "delivered"
                 order.is_paid = True
                 order.save()
                 messages.success(request, "Posted Successfully")
@@ -1048,9 +1082,10 @@ def pos_checkout(request):
                 if not order.phone.startswith("254"):
                     messages.success(request, "Phone must start with 254 to use mpesa")
                     return redirect('pos')
-                response = stk_push(request,order.phone, order.total, order.id)
+                response = stk_push(request,order.phone, int(order.total), order.id)
                 if response.get('ResponseCode') == '0':
                     order.checkout_request_id = response.get("CheckoutRequestID")
+                    order.delivery_status = "delivered"
                     order.save()
                     messages.success(request, "STK push initiated please enter pin to pay")
                     request.session.pop('poscart', None)
@@ -1094,6 +1129,7 @@ def sales_data(request):
 
     sales = (
         Order.objects
+        .filter(payment_status='paid', delivery_status='delivered')  # ✅ FILTER HERE
         .annotate(day=TruncDay('created_at'))
         .values('day')
         .annotate(total=Sum('total'))
@@ -1251,3 +1287,62 @@ def edit_Agent(request, id):
         form = DeliveryAgentForm(instance=agent)
     agents = DeliveryAgent.objects.all()
     return render(request, 'addAgent.html', {'form': form,'agent':agent,'agents': agents})
+
+def cancel_order_logic(order, cancelled_by=None):
+    # Prevent cancelling twice
+    if order.delivery_status == 'cancelled':
+        return False
+
+    # Only allow cancellation before delivery
+    if order.delivery_status in ['shipped', 'delivered']:
+        return False
+    # ❌ CUSTOMER cannot cancel paid orders
+    if cancelled_by == 'customer' and order.payment_status == 'paid':
+        return False
+    
+    # Mark as cancelled
+    order.delivery_status = 'cancelled'
+
+    # Handle payment
+    #if order.payment_status == 'paid':
+        #order.payment_status = 'refunded'
+        # ✅ ADMIN REFUND ONLY
+    if cancelled_by == 'admin' and order.payment_status == 'paid':
+        order.payment_status = 'refunded'
+        print("Refund triggered ✅")
+    # Restore stock ONLY ONCE
+    if not order.stock_restored:
+        for item in order.items.all():
+            product = item.product
+            product.stock += item.quantity
+            product.save()
+
+        order.stock_restored = True
+
+    order.save()
+    return True
+@login_required
+def cancel_order(request, order_id):
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+
+    success = cancel_order_logic(order, cancelled_by='customer')
+
+    if success:
+        messages.success(request, "Order cancelled")
+    else:
+        messages.error(request, "Cannot cancel this order")
+
+    return redirect('clientorder')
+@staff_member_required
+def admin_cancel_order(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+
+    success = cancel_order_logic(order, cancelled_by='admin')
+
+    if success:
+        messages.success(request, "Order cancelled by admin")
+    else:
+        messages.error(request, "Cannot cancel")
+
+    return redirect('Allorders')
+

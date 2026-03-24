@@ -60,6 +60,7 @@ class Order(models.Model):
     payment_method = models.CharField(max_length=20)
     is_paid = models.BooleanField(default=False)
     delivery_fee = models.DecimalField(max_digits=10, decimal_places=2, default=0,blank=True, null=True)
+    vat = models.DecimalField(max_digits=10, decimal_places=2)
     payment_status = models.CharField(
         max_length=20,
         choices=PAYMENT_STATUS_CHOICES,
@@ -79,7 +80,7 @@ class Order(models.Model):
         blank=True
     )
     
-
+    stock_restored = models.BooleanField(default=False)
     payment_reference = models.CharField(max_length=100, null=True, blank=True)
     payment_date = models.DateTimeField(null=True, blank=True)
     checkout_request_id = models.CharField(max_length=100, null=True, blank=True)
